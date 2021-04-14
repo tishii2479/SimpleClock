@@ -11,7 +11,12 @@ import SwiftUI
 struct SimpleClockApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ZStack {
+                Color.back
+                MainView()
+            }
+            .statusBar(hidden: true)
+            .edgesIgnoringSafeArea(.all)
 //            FontListView()
         }
     }

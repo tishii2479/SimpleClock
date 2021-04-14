@@ -14,4 +14,8 @@ extension Color {
     static let text = Color("Text")
     // 影の色
     static let shadow = Color("Shadow")
+    // 選択されているもの
+    static let on = Color("On")
+    // 選択されていないもの
+    static let off = Color("Off")
 }

@@ -16,8 +16,9 @@ struct StopWatchView: View {
             VStack {
                 Text(viewModel.time)
                     .foregroundColor(.text)
-                    .font(.mainFont(size: 80))
+                    .font(.mainFont(size: 60))
                     .shadow(color: .shadow, radius: 5, x: 0, y: 0)
+                    .frame(height: 80)
                 
                 Text(Date.formatTime(date: clock.currentTime))
                     .foregroundColor(.text)
@@ -35,12 +36,14 @@ struct StopWatchView: View {
                     }) {
                         MenuItem(systemName: "play", size: 20, isOn: false)
                     }
+                    .padding(.trailing, 20)
                     
                     Button(action: {
                         viewModel.pause()
                     }) {
                         MenuItem(systemName: "pause", size: 20, isOn: false)
                     }
+                    .padding(.trailing, 20)
                     
                     Button(action: {
                         viewModel.stop()
@@ -49,6 +52,7 @@ struct StopWatchView: View {
                     }
                 }
             }
+            .padding(.bottom, 50)
         }
     }
 }

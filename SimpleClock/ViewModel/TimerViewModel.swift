@@ -9,6 +9,10 @@ import Foundation
 import SwiftUI
 
 class TimerViewModel: Clock, ObservableObject {
+    @Published var hour: Int = 0
+    @Published var minute: Int = 0
+    @Published var second: Int = 0
+    
     func play() {
     }
     
@@ -18,4 +22,3 @@ class TimerViewModel: Clock, ObservableObject {
     func stop() {
     }
 }
-

@@ -15,8 +15,9 @@ struct ClockView: View {
             VStack {
                 Text(Date.formatTime(date: clock.currentTime))
                     .foregroundColor(.text)
-                    .font(.mainFont(size: 80))
+                    .font(.mainFont(size: 60))
                     .shadow(color: .shadow, radius: 5, x: 0, y: 0)
+                    .frame(height: 80)
                 
                 Text(Date.formatDate(date: Date()))
                     .foregroundColor(.text)

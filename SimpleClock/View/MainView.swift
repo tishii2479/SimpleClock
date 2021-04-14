@@ -67,8 +67,8 @@ struct MainView: View {
                     MenuItem(systemName: "rotate.right", size: 28, isOn: false)
                 }
             }
+            .padding()
         }
-        .padding()
     }
     
     func switchView(type: ViewType) {

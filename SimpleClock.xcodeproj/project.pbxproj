@@ -13,6 +13,12 @@
 		497649C72626C9C400C0BD0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497649C62626C9C400C0BD0E /* Preview Assets.xcassets */; };
 		497649D22626C9C400C0BD0E /* SimpleClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497649D12626C9C400C0BD0E /* SimpleClockTests.swift */; };
 		497649DD2626C9C400C0BD0E /* SimpleClockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497649DC2626C9C400C0BD0E /* SimpleClockUITests.swift */; };
+		497649F62626CACF00C0BD0E /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497649F52626CACF00C0BD0E /* Color.xcassets */; };
+		497649FE2626CB4C00C0BD0E /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497649FD2626CB4C00C0BD0E /* ColorManager.swift */; };
+		49764A032626DA1E00C0BD0E /* FontListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49764A022626DA1E00C0BD0E /* FontListView.swift */; };
+		49764A0C2626DD4400C0BD0E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49764A0B2626DD4400C0BD0E /* Color.swift */; };
+		49764A112626DD8900C0BD0E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49764A102626DD8900C0BD0E /* Font.swift */; };
+		49764A162626DE2600C0BD0E /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49764A152626DE2600C0BD0E /* Play-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,12 @@
 		497649D82626C9C400C0BD0E /* SimpleClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleClockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		497649DC2626C9C400C0BD0E /* SimpleClockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleClockUITests.swift; sourceTree = "<group>"; };
 		497649DE2626C9C400C0BD0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		497649F52626CACF00C0BD0E /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		497649FD2626CB4C00C0BD0E /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		49764A022626DA1E00C0BD0E /* FontListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListView.swift; sourceTree = "<group>"; };
+		49764A0B2626DD4400C0BD0E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		49764A102626DD8900C0BD0E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		49764A152626DE2600C0BD0E /* Play-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +107,14 @@
 		497649BE2626C9C300C0BD0E /* SimpleClock */ = {
 			isa = PBXGroup;
 			children = (
+				49764A1A2626E02C00C0BD0E /* Font */,
+				49764A0A2626DD3900C0BD0E /* Extension */,
 				497649BF2626C9C300C0BD0E /* SimpleClockApp.swift */,
 				497649C12626C9C300C0BD0E /* ContentView.swift */,
+				497649FD2626CB4C00C0BD0E /* ColorManager.swift */,
+				49764A022626DA1E00C0BD0E /* FontListView.swift */,
 				497649C32626C9C400C0BD0E /* Assets.xcassets */,
+				497649F52626CACF00C0BD0E /* Color.xcassets */,
 				497649C82626C9C400C0BD0E /* Info.plist */,
 				497649C52626C9C400C0BD0E /* Preview Content */,
 			);
@@ -128,6 +145,23 @@
 				497649DE2626C9C400C0BD0E /* Info.plist */,
 			);
 			path = SimpleClockUITests;
+			sourceTree = "<group>";
+		};
+		49764A0A2626DD3900C0BD0E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				49764A0B2626DD4400C0BD0E /* Color.swift */,
+				49764A102626DD8900C0BD0E /* Font.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		49764A1A2626E02C00C0BD0E /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				49764A152626DE2600C0BD0E /* Play-Regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +268,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				497649C72626C9C400C0BD0E /* Preview Assets.xcassets in Resources */,
+				49764A162626DE2600C0BD0E /* Play-Regular.ttf in Resources */,
 				497649C42626C9C400C0BD0E /* Assets.xcassets in Resources */,
+				497649F62626CACF00C0BD0E /* Color.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +295,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				497649FE2626CB4C00C0BD0E /* ColorManager.swift in Sources */,
 				497649C22626C9C300C0BD0E /* ContentView.swift in Sources */,
+				49764A112626DD8900C0BD0E /* Font.swift in Sources */,
 				497649C02626C9C300C0BD0E /* SimpleClockApp.swift in Sources */,
+				49764A0C2626DD4400C0BD0E /* Color.swift in Sources */,
+				49764A032626DA1E00C0BD0E /* FontListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

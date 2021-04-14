@@ -12,6 +12,7 @@ struct SimpleClockApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+//            FontListView()
         }
     }
 }

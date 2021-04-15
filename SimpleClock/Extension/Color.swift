@@ -24,4 +24,6 @@ extension Color {
     static let green = Color("HighGreen")
     // 蛍光オレンジ
     static let orange = Color("HighOrange")
+    // 蛍光ブルー
+    static let highBlue = Color("HighBlue")
 }

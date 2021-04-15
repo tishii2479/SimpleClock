@@ -14,7 +14,7 @@ struct ClockView: View {
         ZStack {
             Group {
                 Circle()
-                    .stroke(Color.blue, lineWidth: 10)
+                    .stroke(Color.highBlue, lineWidth: 10)
                     .frame(width: 240, height: 240)
                 Circle()
                     .fill(Color.orange)

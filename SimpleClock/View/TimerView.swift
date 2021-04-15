@@ -106,11 +106,12 @@ struct TimerView: View {
                 }) {
                     Text(viewModel.time)
                         .foregroundColor(.text)
-                        .font(.mainFont(size: 60))
+                        .font(.mainFont(size: 100))
+                        .minimumScaleFactor(0.1)
                         .shadow(color: .shadow, radius: 5, x: 0, y: 0)
-                        .padding()
+                        .frame(height: 100)
                 }
-                .frame(height: 80)
+                .frame(height: 100)
                 
                 Text(Date.formatTime(date: clock.currentTime))
                     .foregroundColor(.text)

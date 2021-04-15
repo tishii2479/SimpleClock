@@ -27,6 +27,7 @@
 		49764A0C2626DD4400C0BD0E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49764A0B2626DD4400C0BD0E /* Color.swift */; };
 		49764A112626DD8900C0BD0E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49764A102626DD8900C0BD0E /* Font.swift */; };
 		49764A162626DE2600C0BD0E /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49764A152626DE2600C0BD0E /* Play-Regular.ttf */; };
+		498844932627EB2600AA35D3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498844922627EB2600AA35D3 /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		49764A0B2626DD4400C0BD0E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		49764A102626DD8900C0BD0E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		49764A152626DE2600C0BD0E /* Play-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Regular.ttf"; sourceTree = "<group>"; };
+		498844922627EB2600AA35D3 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				490271C626271E2700256E2E /* StopWatchView.swift */,
 				490271A72627121A00256E2E /* ClockView.swift */,
 				490271AF2627181900256E2E /* TimerView.swift */,
+				498844922627EB2600AA35D3 /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				49044A7526272D6400BFE545 /* TimerViewModel.swift in Sources */,
 				490271BA2627197900256E2E /* MainView.swift in Sources */,
 				49044A6D2627266300BFE545 /* ClockManager.swift in Sources */,
+				498844932627EB2600AA35D3 /* SettingView.swift in Sources */,
 				490271B02627181900256E2E /* TimerView.swift in Sources */,
 				49764A112626DD8900C0BD0E /* Font.swift in Sources */,
 				497649C02626C9C300C0BD0E /* SimpleClockApp.swift in Sources */,

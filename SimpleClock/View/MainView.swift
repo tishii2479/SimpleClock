@@ -14,7 +14,9 @@ struct MainView: View {
         case timer
     }
     
+    @State var keepScreenOn: Bool = false
     @State var currentView: ViewType = .clock
+    @State var isShowingSetting: Bool = false
     var clockView = ClockView()
     var stopWatchView = StopWatchView()
     var timerView = TimerView()
@@ -33,10 +35,15 @@ struct MainView: View {
             VStack {
                 // ヘッダーメニュー
                 HStack {
-                    MenuItem(systemName: "lock.rotation", size: 30, isOn: false)
+                    Button(action: {
+                        // スリープさせないようにする
+                        keepScreenOn.toggle()
+                        UIApplication.shared.isIdleTimerDisabled = keepScreenOn
+                    }) {
+                        MenuItem(systemName: "lock", size: 30, isOn: keepScreenOn)
+                    }
                     
                     Spacer()
-                    
                     Button(action: {
                         switchView(type: .timer)
                     }) {
@@ -55,19 +62,19 @@ struct MainView: View {
                     
                     Spacer()
                     
-                    MenuItem(systemName: "lock", size: 30, isOn: false)
+                    Button(action: {
+                        isShowingSetting.toggle()
+                    }) {
+                        MenuItem(systemName: "line.horizontal.3", size: 30, isOn: false)
+                    }
                 }
                 
                 Spacer()
-                
-                // フッターメニュー
-                HStack {
-                    MenuItem(systemName: "rotate.left", size: 28, isOn: false)
-                    Spacer()
-                    MenuItem(systemName: "rotate.right", size: 28, isOn: false)
-                }
             }
             .padding()
+        }
+        .sheet(isPresented: $isShowingSetting) {
+            SettingView()
         }
     }
     

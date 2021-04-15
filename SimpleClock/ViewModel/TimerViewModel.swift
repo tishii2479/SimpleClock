@@ -14,7 +14,7 @@ class TimerViewModel: Clock, ObservableObject {
     @Published var selectedMinute: Int = 0
     @Published var selectedSecond: Int = 0
     
-    var remainingTime: Int = 0
+    var remainingTime: Int = 5 * 60
     var timer = Timer()
     
     var time: String {

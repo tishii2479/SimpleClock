@@ -16,6 +16,7 @@ class TimerViewModel: Clock, ObservableObject {
     
     var remainingTime: Int = 5 * 60
     var timer = Timer()
+    var endDate: Date?
     
     var time: String {
         let hour: Int = remainingTime / 3600
@@ -25,26 +26,33 @@ class TimerViewModel: Clock, ObservableObject {
     }
     
     func onChange() {
-        resetTime()
+        setTime()
     }
     
     func play() {
-        if timer.isValid { return }
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            self.remainingTime -= 1
+        guard endDate == nil,
+              timer.isValid == false else { return }
+        endDate = Date().addingTimeInterval(TimeInterval(remainingTime))
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+            guard let end = self.endDate else { return }
+            let timeInterval = end.timeIntervalSinceNow
+            self.remainingTime = Int(timeInterval)
         }
     }
     
     func pause() {
         timer.invalidate()
+        endDate = nil
     }
     
     func stop() {
-        resetTime()
+        setTime()
         timer.invalidate()
+        endDate = nil
+        remainingTime = 0
     }
     
-    func resetTime() {
+    func setTime() {
         remainingTime = selectedHour * 3600 + selectedMinute * 60 + selectedSecond
     }
 }

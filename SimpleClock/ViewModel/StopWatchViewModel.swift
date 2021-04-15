@@ -8,14 +8,22 @@
 import Foundation
 import SwiftUI
 
+enum StopWatchStatus {
+    case play
+    case pause
+    case stop
+    case idle
+}
+
 class StopWatchViewModel: Clock, ObservableObject {
     @Published var elapsedTime: Int = 0
+    @Published var status: StopWatchStatus = .idle
     var timer = Timer()
     var startDate: Date?
     var cache: Int = 0
     
     var circleRatio: CGFloat {
-        if timer.isValid {
+        if status == .play || status == .pause {
             return CGFloat(elapsedTime / 100 % 60) / CGFloat(60)
         } else {
             return 1
@@ -32,6 +40,7 @@ class StopWatchViewModel: Clock, ObservableObject {
     func play() {
         guard startDate == nil,
               timer.isValid == false else { return }
+        status = .play
         startDate = Date()
         timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
             guard let start = self.startDate else { return }
@@ -44,6 +53,7 @@ class StopWatchViewModel: Clock, ObservableObject {
         timer.invalidate()
         startDate = nil
         cache = elapsedTime
+        status = .pause
     }
     
     func stop() {
@@ -51,5 +61,6 @@ class StopWatchViewModel: Clock, ObservableObject {
         elapsedTime = 0
         cache = 0
         startDate = nil
+        status = .stop
     }
 }

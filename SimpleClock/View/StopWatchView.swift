@@ -45,19 +45,21 @@ struct StopWatchView: View {
                 Spacer()
                 
                 HStack {
-                    Button(action: {
-                        viewModel.play()
-                    }) {
-                        MenuItem(systemName: "play", size: 20, isOn: false)
+                    if viewModel.status == .play {
+                        Button(action: {
+                            viewModel.pause()
+                        }) {
+                            MenuItem(systemName: "pause", size: 20, isOn: false)
+                        }
+                        .padding(.trailing, 20)
+                    } else {
+                        Button(action: {
+                            viewModel.play()
+                        }) {
+                            MenuItem(systemName: "play", size: 20, isOn: false)
+                        }
+                        .padding(.trailing, 20)
                     }
-                    .padding(.trailing, 20)
-                    
-                    Button(action: {
-                        viewModel.pause()
-                    }) {
-                        MenuItem(systemName: "pause", size: 20, isOn: false)
-                    }
-                    .padding(.trailing, 20)
                     
                     Button(action: {
                         viewModel.stop()

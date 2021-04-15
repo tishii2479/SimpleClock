@@ -8,6 +8,13 @@
 import Foundation
 import SwiftUI
 
+enum TimerStatus {
+    case play
+    case stop
+    case pause
+    case idle
+}
+
 class TimerViewModel: Clock, ObservableObject {
     // Pickerで設定した値の保持
     @Published var selectedHour: Int = 0
@@ -16,6 +23,8 @@ class TimerViewModel: Clock, ObservableObject {
     
     @Published var remainingTime: Int = 5 * 60
     @Published var remainingRatio: CGFloat = 1
+    @Published var status: TimerStatus = .idle
+    
     var maxTime: Int = 0
     var timer = Timer()
     var endDate: Date?
@@ -35,6 +44,7 @@ class TimerViewModel: Clock, ObservableObject {
         guard endDate == nil,
               timer.isValid == false,
               remainingTime > 0 else { return }
+        status = .play
         endDate = Date().addingTimeInterval(TimeInterval(remainingTime))
         maxTime = remainingTime
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
@@ -56,9 +66,11 @@ class TimerViewModel: Clock, ObservableObject {
     func pause() {
         if timer.isValid { timer.invalidate() }
         endDate = nil
+        status = .pause
     }
     
     func stop() {
+        status = .stop
         setTime()
     }
     

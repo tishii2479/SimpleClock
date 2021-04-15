@@ -28,6 +28,7 @@
 		49764A112626DD8900C0BD0E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49764A102626DD8900C0BD0E /* Font.swift */; };
 		49764A162626DE2600C0BD0E /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49764A152626DE2600C0BD0E /* Play-Regular.ttf */; };
 		498844932627EB2600AA35D3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498844922627EB2600AA35D3 /* SettingView.swift */; };
+		49CB4DB72628694B00717623 /* TimerPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB4DB62628694B00717623 /* TimerPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		49764A102626DD8900C0BD0E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		49764A152626DE2600C0BD0E /* Play-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Regular.ttf"; sourceTree = "<group>"; };
 		498844922627EB2600AA35D3 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		49CB4DB62628694B00717623 /* TimerPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,12 +107,12 @@
 		490271D02627216E00256E2E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				49CB4DAD26284F2400717623 /* Clock */,
 				490271B92627197900256E2E /* MainView.swift */,
 				490271C626271E2700256E2E /* StopWatchView.swift */,
 				490271A72627121A00256E2E /* ClockView.swift */,
 				490271AF2627181900256E2E /* TimerView.swift */,
 				498844922627EB2600AA35D3 /* SettingView.swift */,
+				49CB4DB62628694B00717623 /* TimerPicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,13 +216,6 @@
 				49764A152626DE2600C0BD0E /* Play-Regular.ttf */,
 			);
 			path = Font;
-			sourceTree = "<group>";
-		};
-		49CB4DAD26284F2400717623 /* Clock */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Clock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +360,7 @@
 				49764A112626DD8900C0BD0E /* Font.swift in Sources */,
 				497649C02626C9C300C0BD0E /* SimpleClockApp.swift in Sources */,
 				490271C726271E2700256E2E /* StopWatchView.swift in Sources */,
+				49CB4DB72628694B00717623 /* TimerPicker.swift in Sources */,
 				49044A8626272E1000BFE545 /* Clock.swift in Sources */,
 				490271A82627121A00256E2E /* ClockView.swift in Sources */,
 				49764A0C2626DD4400C0BD0E /* Color.swift in Sources */,

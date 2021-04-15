@@ -32,40 +32,57 @@ struct TimerPicker: View {
                 }
                 
                 HStack {
-                    Picker(selection: $viewModel.hour, label: Text("hour")) {
+                    Picker(selection: $viewModel.selectedHour, label: Text("hour")) {
                         ForEach(0 ..< self.hours.count) { index in
-                            Text("\(self.hours[index])")
+                            Text(String(format: "%02d", self.hours[index]))
                                 .foregroundColor(.text)
-                                .font(.mainFont(size: 14))
+                                .font(.mainFont(size: 16))
                                 .tag(index)
                         }
                     }
+                    .onChange(of: viewModel.selectedHour, perform: { value in
+                        viewModel.onChange()
+                    })
                     .pickerStyle(WheelPickerStyle())
-                    .frame(width: 50)
+                    .frame(width: 60)
                     .clipped()
                     
-                    Picker(selection: $viewModel.minute, label: Text("minute")) {
+                    Text(":")
+                        .foregroundColor(.text)
+                        .font(.mainFont(size: 16))
+                    
+                    Picker(selection: $viewModel.selectedMinute, label: Text("minute")) {
                         ForEach(0 ..< self.minutes.count) { index in
-                            Text("\(self.minutes[index])")
+                            Text(String(format: "%02d", self.minutes[index]))
                                 .foregroundColor(.text)
-                                .font(.mainFont(size: 14))
+                                .font(.mainFont(size: 16))
                                 .tag(index)
                         }
                     }
+                    .onChange(of: viewModel.selectedMinute, perform: { value in
+                        viewModel.onChange()
+                    })
                     .pickerStyle(WheelPickerStyle())
-                    .frame(width: 50)
+                    .frame(width: 60)
                     .clipped()
                     
-                    Picker(selection: $viewModel.second, label: Text("second")) {
+                    Text(":")
+                        .foregroundColor(.text)
+                        .font(.mainFont(size: 16))
+                    
+                    Picker(selection: $viewModel.selectedSecond, label: Text("second")) {
                         ForEach(0 ..< self.seconds.count) { index in
-                            Text("\(self.seconds[index])")
+                            Text(String(format: "%02d", self.seconds[index]))
                                 .foregroundColor(.text)
-                                .font(.mainFont(size: 14))
+                                .font(.mainFont(size: 16))
                                 .tag(index)
                         }
                     }
+                    .onChange(of: viewModel.selectedSecond, perform: { value in
+                        viewModel.onChange()
+                    })
                     .pickerStyle(WheelPickerStyle())
-                    .frame(width: 50)
+                    .frame(width: 60)
                     .clipped()
                 }
             }
@@ -87,7 +104,7 @@ struct TimerView: View {
                 Button(action: {
                     self.isShowingPicker.toggle()
                 }) {
-                    Text(String(format: "%02d:%02d:%02d", viewModel.hour, viewModel.minute, viewModel.second))
+                    Text(viewModel.time)
                         .foregroundColor(.text)
                         .font(.mainFont(size: 60))
                         .shadow(color: .shadow, radius: 5, x: 0, y: 0)

@@ -15,7 +15,7 @@ extension Date {
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.timeZone = TimeZone(identifier:  "Asia/Tokyo")
          
-        dateFormatter.dateFormat = "yyyy/mm/dd"
+        dateFormatter.dateFormat = "yyyy/MM/dd"
          
         return dateFormatter.string(from: date)
     }

@@ -14,7 +14,7 @@ class TimerViewModel: Clock, ObservableObject {
     @Published var selectedMinute: Int = 0
     @Published var selectedSecond: Int = 0
     
-    var remainingTime: Int = 5 * 60
+    @Published var remainingTime: Int = 5 * 60
     var timer = Timer()
     var endDate: Date?
     
@@ -31,28 +31,38 @@ class TimerViewModel: Clock, ObservableObject {
     
     func play() {
         guard endDate == nil,
-              timer.isValid == false else { return }
+              timer.isValid == false,
+              remainingTime > 0 else { return }
         endDate = Date().addingTimeInterval(TimeInterval(remainingTime))
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             guard let end = self.endDate else { return }
             let timeInterval = end.timeIntervalSinceNow
             self.remainingTime = Int(timeInterval)
+            // ずれる
+            if self.remainingTime == 0 {
+                self.finish()
+            }
         }
     }
     
+    func finish() {
+        stop()
+        print("finish")
+    }
+    
     func pause() {
-        timer.invalidate()
+        if timer.isValid { timer.invalidate() }
         endDate = nil
     }
     
     func stop() {
-        setTime()
-        timer.invalidate()
+        if timer.isValid { timer.invalidate() }
         endDate = nil
         remainingTime = 0
     }
     
     func setTime() {
+        pause()
         remainingTime = selectedHour * 3600 + selectedMinute * 60 + selectedSecond
     }
 }

@@ -21,6 +21,11 @@ struct MainView: View {
     var stopWatchView = StopWatchView()
     var timerView = TimerView()
     
+    init() {
+        // 背景色をなくす
+        UITableView.appearance().backgroundColor = .clear
+    }
+    
     var body: some View {
         ZStack {
             switch currentView {
@@ -74,7 +79,7 @@ struct MainView: View {
             .padding()
         }
         .sheet(isPresented: $isShowingSetting) {
-            SettingView()
+            SettingView(isShowing: $isShowingSetting)
         }
     }
     

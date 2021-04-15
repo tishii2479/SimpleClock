@@ -20,14 +20,14 @@ extension Date {
         return dateFormatter.string(from: date)
     }
     
-    static func formatTime(date: Date) -> String {
+    static func formatTime(date: Date, format: String = "HH:mm:ss") -> String {
         let dateFormatter = DateFormatter()
         
         dateFormatter.calendar = Calendar(identifier: .gregorian)
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.timeZone = TimeZone(identifier:  "Asia/Tokyo")
          
-        dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormatter.dateFormat = format
          
         return dateFormatter.string(from: date)
     }

@@ -10,6 +10,8 @@ import SwiftUI
 extension Color {
     // 背景色
     static let back = Color("Back")
+    // 薄い背景色
+    static let light = Color("Light")
     // 文字の色
     static let text = Color("Text")
     // 影の色

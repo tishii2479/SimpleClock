@@ -56,14 +56,14 @@ struct TimerView: View {
                         Button(action: {
                             viewModel.pause()
                         }) {
-                            MenuItem(systemName: "pause", size: 20, isOn: false)
+                            MenuItem(name: "pause", size: 20, isOn: false)
                         }
                         .padding(.trailing, 20)
                     } else {
                         Button(action: {
                             viewModel.play()
                         }) {
-                            MenuItem(systemName: "play", size: 20, isOn: false)
+                            MenuItem(name: "play", size: 20, isOn: false)
                         }
                         .padding(.trailing, 20)
                     }
@@ -71,7 +71,7 @@ struct TimerView: View {
                     Button(action: {
                         viewModel.stop()
                     }) {
-                        MenuItem(systemName: "stop", size: 20, isOn: false)
+                        MenuItem(name: "stop", size: 20, isOn: false)
                     }
                 }
             }

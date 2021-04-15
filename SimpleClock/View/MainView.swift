@@ -45,24 +45,24 @@ struct MainView: View {
                         keepScreenOn.toggle()
                         UIApplication.shared.isIdleTimerDisabled = keepScreenOn
                     }) {
-                        MenuItem(systemName: "lock", size: 30, isOn: keepScreenOn)
+                        MenuItem(nameOn: "lock", nameOff: "lock.open", size: 30, isOn: keepScreenOn)
                     }
                     
                     Spacer()
                     Button(action: {
+                        switchView(type: .clock)
+                    }) {
+                        MenuItem(name: "clock", size: 30, isOn: currentView == .clock)
+                    }
+                    Button(action: {
                         switchView(type: .timer)
                     }) {
-                        MenuItem(systemName: "timer", size: 28, isOn: currentView == .timer)
+                        MenuItem(name: "timer", size: 28, isOn: currentView == .timer)
                     }
                     Button(action: {
                         switchView(type: .stopwatch)
                     }) {
-                        MenuItem(systemName: "stopwatch", size: 30, isOn: currentView == .stopwatch)
-                    }
-                    Button(action: {
-                        switchView(type: .clock)
-                    }) {
-                        MenuItem(systemName: "clock", size: 30, isOn: currentView == .clock)
+                        MenuItem(name: "stopwatch", size: 30, isOn: currentView == .stopwatch)
                     }
                     
                     Spacer()
@@ -70,7 +70,7 @@ struct MainView: View {
                     Button(action: {
                         isShowingSetting.toggle()
                     }) {
-                        MenuItem(systemName: "line.horizontal.3", size: 30, isOn: false)
+                        MenuItem(name: "line.horizontal.3", size: 30, isOn: false)
                     }
                 }
                 

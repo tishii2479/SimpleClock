@@ -55,14 +55,14 @@ struct MainView: View {
                         MenuItem(name: "clock", size: 30, isOn: currentView == .clock)
                     }
                     Button(action: {
-                        switchView(type: .timer)
-                    }) {
-                        MenuItem(name: "timer", size: 28, isOn: currentView == .timer)
-                    }
-                    Button(action: {
                         switchView(type: .stopwatch)
                     }) {
                         MenuItem(name: "stopwatch", size: 30, isOn: currentView == .stopwatch)
+                    }
+                    Button(action: {
+                        switchView(type: .timer)
+                    }) {
+                        MenuItem(name: "timer", size: 28, isOn: currentView == .timer)
                     }
                     
                     Spacer()

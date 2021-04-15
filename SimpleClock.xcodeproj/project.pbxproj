@@ -23,7 +23,6 @@
 		497649D22626C9C400C0BD0E /* SimpleClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497649D12626C9C400C0BD0E /* SimpleClockTests.swift */; };
 		497649DD2626C9C400C0BD0E /* SimpleClockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497649DC2626C9C400C0BD0E /* SimpleClockUITests.swift */; };
 		497649F62626CACF00C0BD0E /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497649F52626CACF00C0BD0E /* Color.xcassets */; };
-		49764A032626DA1E00C0BD0E /* FontListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49764A022626DA1E00C0BD0E /* FontListView.swift */; };
 		49764A0C2626DD4400C0BD0E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49764A0B2626DD4400C0BD0E /* Color.swift */; };
 		49764A112626DD8900C0BD0E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49764A102626DD8900C0BD0E /* Font.swift */; };
 		49764A162626DE2600C0BD0E /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49764A152626DE2600C0BD0E /* Play-Regular.ttf */; };
@@ -71,7 +70,6 @@
 		497649DC2626C9C400C0BD0E /* SimpleClockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleClockUITests.swift; sourceTree = "<group>"; };
 		497649DE2626C9C400C0BD0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		497649F52626CACF00C0BD0E /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
-		49764A022626DA1E00C0BD0E /* FontListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListView.swift; sourceTree = "<group>"; };
 		49764A0B2626DD4400C0BD0E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		49764A102626DD8900C0BD0E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		49764A152626DE2600C0BD0E /* Play-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Regular.ttf"; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 				49044A7926272DAE00BFE545 /* Protocol */,
 				490271D12627217D00256E2E /* ViewModel */,
 				490271D02627216E00256E2E /* View */,
-				49764A022626DA1E00C0BD0E /* FontListView.swift */,
 				497649C32626C9C400C0BD0E /* Assets.xcassets */,
 				497649F52626CACF00C0BD0E /* Color.xcassets */,
 				497649C82626C9C400C0BD0E /* Info.plist */,
@@ -364,7 +361,6 @@
 				49044A8626272E1000BFE545 /* Clock.swift in Sources */,
 				490271A82627121A00256E2E /* ClockView.swift in Sources */,
 				49764A0C2626DD4400C0BD0E /* Color.swift in Sources */,
-				49764A032626DA1E00C0BD0E /* FontListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

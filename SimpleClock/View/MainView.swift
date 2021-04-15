@@ -14,9 +14,15 @@ struct MainView: View {
         case timer
     }
     
-    @State var keepScreenOn: Bool = false
+    @ObservedObject var clock = ClockManager.shared
+    // スリープさせないかどうか
+    @State var keepScreenOn: Bool = true
+    // 今表示している画面
     @State var currentView: ViewType = .clock
+    // 設定画面を見せているか（モーダル）
     @State var isShowingSetting: Bool = false
+    
+    // 各種画面のインスタンス
     var clockView = ClockView()
     var stopWatchView = StopWatchView()
     var timerView = TimerView()
@@ -28,6 +34,7 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
+            // 各種画面
             switch currentView {
             case .clock:
                 clockView
@@ -41,13 +48,14 @@ struct MainView: View {
                 // ヘッダーメニュー
                 HStack {
                     Button(action: {
-                        // スリープさせないようにする
+                        // スリープするかどうかを設定
                         keepScreenOn.toggle()
                         UIApplication.shared.isIdleTimerDisabled = keepScreenOn
                     }) {
                         MenuItem(nameOn: "lock", nameOff: "lock.open", size: 30, isOn: keepScreenOn)
                     }
                     
+                    // 画面切り替えのボタン
                     Spacer()
                     Button(action: {
                         switchView(type: .clock)
@@ -67,6 +75,7 @@ struct MainView: View {
                     
                     Spacer()
                     
+                    // 設定画面のボタン
                     Button(action: {
                         isShowingSetting.toggle()
                     }) {
@@ -77,6 +86,22 @@ struct MainView: View {
                 Spacer()
             }
             .padding()
+            
+        
+            // 振動通知時の画面（上から覆う）
+            if clock.isVibrating {
+                ZStack {
+                    Color(red: 0, green: 0, blue: 0, opacity: clock.isVibrating ? 0.6 : 0)
+                    Text("完了")
+                        .font(Font.system(size: 20))
+                        .foregroundColor(.text)
+                }
+                .animation(.linear)
+                .edgesIgnoringSafeArea(.all)
+                .onTapGesture {
+                    clock.stopVibrate()
+                }
+            }
         }
         .sheet(isPresented: $isShowingSetting) {
             SettingView(isShowing: $isShowingSetting)

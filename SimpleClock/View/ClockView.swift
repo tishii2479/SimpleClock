@@ -8,26 +8,40 @@
 import SwiftUI
 
 struct ClockView: View {
-    @ObservedObject var clock = ClockManager()
+    @ObservedObject var clock = ClockManager.shared
     
     var body: some View {
         ZStack {
             Group {
+                // 周りの円
                 Circle()
                     .stroke(Color.highBlue, lineWidth: 10)
                     .frame(width: 240, height: 240)
+            
+                // Rectangleだとギザギザする
+                // 分針
+//                RoundedRectangle(cornerRadius: 1)
+//                    .fill(Color.green)
+//                    .frame(width: 4, height: 100)
+//                    .offset(x: 0, y: -50)
+//                    .rotationEffect(.degrees(clock.minuteAngle))
+            
+                // 時針
+                RoundedRectangle(cornerRadius: 1)
+                    .fill(Color.orange)
+                    .frame(width: 4, height: 60)
+                    .offset(x: 0, y: -30)
+                    .rotationEffect(.degrees(clock.hourAngle))
+                
+                // 中心の円
                 Circle()
                     .fill(Color.orange)
                     .frame(width: 10, height: 10)
                 
-                Rectangle()
-                    .fill(Color.orange)
-                    .frame(width: 4, height: 80)
-                    .offset(x: 0, y: -40)
-                    .rotationEffect(.degrees(clock.hourAngle))
             }
             .edgesIgnoringSafeArea(.all)
             
+            // 時刻の表示
             VStack {
                 Text(Date.formatTime(date: clock.currentTime))
                     .foregroundColor(.text)

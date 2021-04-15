@@ -8,6 +8,7 @@
 import Foundation
 
 extension Date {
+    // 日付のフォーマット
     static func formatDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
         
@@ -20,6 +21,7 @@ extension Date {
         return dateFormatter.string(from: date)
     }
     
+    // 時間のフォーマット
     static func formatTime(date: Date, format: String = "HH:mm:ss") -> String {
         let dateFormatter = DateFormatter()
         

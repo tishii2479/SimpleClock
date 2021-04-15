@@ -8,6 +8,7 @@
 import SwiftUI
 
 extension View {
+    // アイコンのView
     func MenuItem(name: String, size: CGFloat, isOn: Bool) -> some View {
         return ZStack {
             Image(systemName: name)
@@ -20,6 +21,7 @@ extension View {
         .frame(width: size * 1.2, height: size * 1.2)
     }
     
+    // アイコンのView（画像切り替えあり）
     func MenuItem(nameOn: String, nameOff: String, size: CGFloat, isOn: Bool) -> some View {
         return ZStack {
             Image(systemName: isOn ? nameOn : nameOff)

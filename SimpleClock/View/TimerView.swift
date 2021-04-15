@@ -9,17 +9,19 @@ import SwiftUI
 
 struct TimerView: View {
     @ObservedObject var viewModel = TimerViewModel()
-    @ObservedObject var clock = ClockManager()
+    @ObservedObject var clock = ClockManager.shared
     
     @State private var isShowingPicker = false
     
     var body: some View {
         ZStack {
             Group {
+                // 円の枠
                 Circle()
                     .stroke(Color.light, lineWidth: 10)
                     .frame(width: 240, height: 240)
                 
+                // 円の進捗表示
                 Circle()
                     .trim(from: 0, to: viewModel.remainingRatio)
                     .stroke(Color.green, style: StrokeStyle(lineWidth: 10, lineCap: .round))
@@ -28,6 +30,7 @@ struct TimerView: View {
             }
             .edgesIgnoringSafeArea(.all)
             
+            // 時刻の表示
             VStack {
                 Button(action: {
                     self.isShowingPicker.toggle()
@@ -48,6 +51,7 @@ struct TimerView: View {
                     .padding()
             }
             
+            // 再生停止ボタン
             VStack {
                 Spacer()
 
@@ -85,6 +89,7 @@ struct TimerView: View {
                     isShowingPicker.toggle()
                 }
             
+            // タイマーのピッカー
             TimerPicker(viewModel: viewModel, isShowing: $isShowingPicker)
                 .animation(.linear)
                 .offset(y: self.isShowingPicker ? 0 : UIScreen.main.bounds.height)

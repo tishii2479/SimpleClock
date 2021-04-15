@@ -12,6 +12,7 @@ struct TimerPicker: View {
     var minutes = [Int](0 ..< 60)
     var seconds = [Int](0 ..< 60)
     @ObservedObject var viewModel: TimerViewModel
+    // 表示しているかどうか
     @Binding var isShowing: Bool
     
     var body: some View {
@@ -19,6 +20,7 @@ struct TimerPicker: View {
             Spacer()
             
             VStack {
+                // 閉じるボタン
                 Button(action: {
                     self.isShowing = false
                 }) {
@@ -32,6 +34,7 @@ struct TimerPicker: View {
                 }
                 
                 HStack {
+                    // 時間のピッカー
                     Picker(selection: $viewModel.selectedHour, label: Text("hour")) {
                         ForEach(0 ..< self.hours.count) { index in
                             Text(String(format: "%02d", self.hours[index]))
@@ -51,6 +54,7 @@ struct TimerPicker: View {
                         .foregroundColor(.text)
                         .font(.mainFont(size: 16))
                     
+                    // 分のピッカー
                     Picker(selection: $viewModel.selectedMinute, label: Text("minute")) {
                         ForEach(0 ..< self.minutes.count) { index in
                             Text(String(format: "%02d", self.minutes[index]))
@@ -70,6 +74,7 @@ struct TimerPicker: View {
                         .foregroundColor(.text)
                         .font(.mainFont(size: 16))
                     
+                    // 秒のピッカー
                     Picker(selection: $viewModel.selectedSecond, label: Text("second")) {
                         ForEach(0 ..< self.seconds.count) { index in
                             Text(String(format: "%02d", self.seconds[index]))

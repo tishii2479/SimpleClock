@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct SettingView: View {
+    // 表示しているか
     @Binding var isShowing: Bool
         
     var body: some View {
+        // アプリバージョン
         let version: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         return ZStack {
+            // 背景
             Color.back
                 .edgesIgnoringSafeArea(.all)
+            
             VStack {
+                // 閉じるボタン
                 Button(action: {
                     self.isShowing = false
                 }) {
@@ -29,6 +34,7 @@ struct SettingView: View {
                 }
                 .background(Color.light)
                 
+                // 各種設定
                 Form {
 //                    Section(header: Text("一般").foregroundColor(Color.text)) {
 //                        Toggle("時刻の24時間表示", isOn: Binding.constant(true))
@@ -44,13 +50,15 @@ struct SettingView: View {
                             Text("バージョン")
                             Spacer()
                             Text(version)
+                                .fontWeight(.light)
                         }
                         .foregroundColor(Color.text)
                         
                         HStack {
-                            Text("製作者")
+                            Text("開発者")
                             Spacer()
                             Text("@tishii2479")
+                                .fontWeight(.light)
                         }
                         .foregroundColor(Color.text)
                     }

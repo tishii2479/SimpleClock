@@ -8,22 +8,25 @@
 import SwiftUI
 
 struct StopWatchView: View {
-    @ObservedObject var clock: ClockManager = ClockManager()
+    @ObservedObject var clock: ClockManager = ClockManager.shared
     @ObservedObject var viewModel = StopWatchViewModel()
     
     var body: some View {
         ZStack {
             Group {
+                // 円の枠
                 Circle()
                     .stroke(Color.light, lineWidth: 10)
                     .frame(width: 240, height: 240)
                 
+                // 円の進捗表示
                 Circle()
                     .trim(from: 0, to: viewModel.circleRatio)
                     .stroke(Color.orange, style: StrokeStyle(lineWidth: 10, lineCap: .round))
                     .frame(width: 240, height: 240)
                     .rotationEffect(Angle(degrees: -90))
                 
+                // 時刻の表示
                 VStack {
                     Text(viewModel.time)
                         .foregroundColor(.text)
@@ -41,6 +44,7 @@ struct StopWatchView: View {
             }
             .edgesIgnoringSafeArea(.all)
             
+            // 再生停止ボタン
             VStack {
                 Spacer()
                 

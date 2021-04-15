@@ -11,6 +11,8 @@ import SwiftUI
 class StopWatchViewModel: Clock, ObservableObject {
     @Published var elapsedTime: Int = 0
     var timer = Timer()
+    var startDate: Date?
+    var cache: Int = 0
     
     var time: String {
         let minute: Int = elapsedTime / 6000
@@ -20,18 +22,26 @@ class StopWatchViewModel: Clock, ObservableObject {
     }
     
     func play() {
-        if timer.isValid { return }
+        guard startDate == nil,
+              timer.isValid == false else { return }
+        startDate = Date()
         timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
-            self.elapsedTime += 1
+            guard let start = self.startDate else { return }
+            let timeInterval = Date().timeIntervalSince(start)
+            self.elapsedTime = Int(timeInterval * 100) + self.cache
         }
     }
     
     func pause() {
         timer.invalidate()
+        startDate = nil
+        cache = elapsedTime
     }
     
     func stop() {
         timer.invalidate()
         elapsedTime = 0
+        cache = 0
+        startDate = nil
     }
 }

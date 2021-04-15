@@ -20,4 +20,8 @@ extension Color {
     static let on = Color("On")
     // 選択されていないもの
     static let off = Color("Off")
+    // 蛍光緑
+    static let green = Color("HighGreen")
+    // 蛍光オレンジ
+    static let orange = Color("HighOrange")
 }

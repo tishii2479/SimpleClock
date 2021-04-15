@@ -105,6 +105,7 @@
 		490271D02627216E00256E2E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49CB4DAD26284F2400717623 /* Clock */,
 				490271B92627197900256E2E /* MainView.swift */,
 				490271C626271E2700256E2E /* StopWatchView.swift */,
 				490271A72627121A00256E2E /* ClockView.swift */,
@@ -213,6 +214,13 @@
 				49764A152626DE2600C0BD0E /* Play-Regular.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		49CB4DAD26284F2400717623 /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Clock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

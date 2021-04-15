@@ -13,20 +13,33 @@ struct StopWatchView: View {
     
     var body: some View {
         ZStack {
-            VStack {
-                Text(viewModel.time)
-                    .foregroundColor(.text)
-                    .font(.mainFont(size: 100))
-                    .minimumScaleFactor(0.1)
-                    .shadow(color: .shadow, radius: 5, x: 0, y: 0)
-                    .frame(height: 100)
+            Group {
+                Circle()
+                    .stroke(Color.light, lineWidth: 10)
+                    .frame(width: 240, height: 240)
                 
-                Text(Date.formatTime(date: clock.currentTime))
-                    .foregroundColor(.text)
-                    .font(.mainFont(size: 20))
-                    .shadow(color: .shadow, radius: 5, x: 0, y: 0)
-                    .padding()
+                Circle()
+                    .trim(from: 0, to: viewModel.circleRatio)
+                    .stroke(Color.orange, style: StrokeStyle(lineWidth: 10, lineCap: .round))
+                    .frame(width: 240, height: 240)
+                    .rotationEffect(Angle(degrees: -90))
+                
+                VStack {
+                    Text(viewModel.time)
+                        .foregroundColor(.text)
+                        .font(.mainFont(size: 100))
+                        .minimumScaleFactor(0.1)
+                        .shadow(color: .shadow, radius: 5, x: 0, y: 0)
+                        .frame(height: 100)
+                    
+                    Text(Date.formatTime(date: clock.currentTime))
+                        .foregroundColor(.text)
+                        .font(.mainFont(size: 20))
+                        .shadow(color: .shadow, radius: 5, x: 0, y: 0)
+                        .padding()
+                }
             }
+            .edgesIgnoringSafeArea(.all)
             
             VStack {
                 Spacer()
@@ -53,7 +66,7 @@ struct StopWatchView: View {
                     }
                 }
             }
-            .padding(.bottom, 50)
+            .padding(.bottom, 20)
         }
     }
 }

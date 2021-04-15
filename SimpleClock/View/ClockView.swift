@@ -12,6 +12,22 @@ struct ClockView: View {
     
     var body: some View {
         ZStack {
+            Group {
+                Circle()
+                    .stroke(Color.blue, lineWidth: 10)
+                    .frame(width: 240, height: 240)
+                Circle()
+                    .fill(Color.orange)
+                    .frame(width: 10, height: 10)
+                
+                Rectangle()
+                    .fill(Color.orange)
+                    .frame(width: 4, height: 80)
+                    .offset(x: 0, y: -40)
+                    .rotationEffect(.degrees(clock.hourAngle))
+            }
+            .edgesIgnoringSafeArea(.all)
+            
             VStack {
                 Text(Date.formatTime(date: clock.currentTime))
                     .foregroundColor(.text)

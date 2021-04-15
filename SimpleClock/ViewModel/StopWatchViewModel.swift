@@ -14,6 +14,14 @@ class StopWatchViewModel: Clock, ObservableObject {
     var startDate: Date?
     var cache: Int = 0
     
+    var circleRatio: CGFloat {
+        if timer.isValid {
+            return CGFloat(elapsedTime / 100 % 60) / CGFloat(60)
+        } else {
+            return 1
+        }
+    }
+    
     var time: String {
         let minute: Int = elapsedTime / 6000
         let second: Int = elapsedTime / 100 % 60

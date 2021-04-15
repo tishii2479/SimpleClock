@@ -87,7 +87,7 @@ struct TimerPicker: View {
                 }
             }
             .background(Color.back)
-            .frame(height: 250)
+            .frame(height: 240)
         }
     }
 }
@@ -100,6 +100,19 @@ struct TimerView: View {
     
     var body: some View {
         ZStack {
+            Group {
+                Circle()
+                    .stroke(Color.light, lineWidth: 10)
+                    .frame(width: 240, height: 240)
+                
+                Circle()
+                    .trim(from: 0, to: viewModel.remainingRatio)
+                    .stroke(Color.green, style: StrokeStyle(lineWidth: 10, lineCap: .round))
+                    .frame(width: 240, height: 240)
+                    .rotationEffect(Angle(degrees: -90))
+            }
+            .edgesIgnoringSafeArea(.all)
+            
             VStack {
                 Button(action: {
                     self.isShowingPicker.toggle()
@@ -145,7 +158,7 @@ struct TimerView: View {
                     }
                 }
             }
-            .padding(.bottom, 50)
+            .padding(.bottom, 20)
             
             // マスク
             Color(red: 0, green: 0, blue: 0, opacity: isShowingPicker ? 0.4 : 0)

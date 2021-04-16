@@ -15,21 +15,21 @@ struct ClockView: View {
             Group {
                 // 周りの円
                 Circle()
-                    .stroke(Color.highBlue, lineWidth: 10)
+                    .stroke(Color.highBlue, lineWidth: 8)
                     .frame(width: 240, height: 240)
             
                 // Rectangleだとギザギザする
                 // 分針
-//                RoundedRectangle(cornerRadius: 1)
-//                    .fill(Color.green)
-//                    .frame(width: 4, height: 100)
-//                    .offset(x: 0, y: -50)
-//                    .rotationEffect(.degrees(clock.minuteAngle))
+                RoundedRectangle(cornerRadius: 1)
+                    .fill(Color.green)
+                    .frame(width: 2, height: 100)
+                    .offset(x: 0, y: -50)
+                    .rotationEffect(.degrees(clock.minuteAngle))
             
                 // 時針
                 RoundedRectangle(cornerRadius: 1)
                     .fill(Color.orange)
-                    .frame(width: 4, height: 60)
+                    .frame(width: 2, height: 60)
                     .offset(x: 0, y: -30)
                     .rotationEffect(.degrees(clock.hourAngle))
                 

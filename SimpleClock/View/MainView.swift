@@ -30,6 +30,7 @@ struct MainView: View {
     init() {
         // 背景色をなくす
         UITableView.appearance().backgroundColor = .clear
+        UINavigationBar.appearance().barTintColor = UIColor(.back)
     }
     
     var body: some View {

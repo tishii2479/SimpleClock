@@ -16,7 +16,7 @@ struct StopWatchView: View {
             Group {
                 // 円の枠
                 Circle()
-                    .stroke(Color.light, lineWidth: 10)
+                    .stroke(Color.light, lineWidth: 8)
                     .frame(width: 240, height: 240)
                 
                 // 円の進捗表示

@@ -8,26 +8,12 @@
 import SwiftUI
 
 struct TutorialView: View {
-    @Binding var isShowing: Bool
     var body: some View {
         ZStack {
             Color.back
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                Button(action: {
-                    self.isShowing = false
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("閉じる")
-                            .foregroundColor(.text)
-                            .font(.mainFont(size: 16))
-                            .padding()
-                    }
-                }
-                .background(Color.light)
-                
                 TabView {
                     Image("Tutorial1")
                         .resizable()
@@ -48,6 +34,6 @@ struct TutorialView: View {
 
 struct TutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialView(isShowing: Binding.constant(true))
+        TutorialView()
     }
 }

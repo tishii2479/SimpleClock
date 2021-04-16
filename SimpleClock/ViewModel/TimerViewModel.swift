@@ -67,6 +67,7 @@ class TimerViewModel: Clock, ObservableObject {
               timer.isValid == false,
               remainingTime > 0 else { return }
         status = .play
+        setTime()
         // 終了時刻の設定
         endDate = Date().addingTimeInterval(TimeInterval(remainingTime))
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in

@@ -10,9 +10,9 @@ import SwiftUI
 struct SettingView: View {
     // 表示しているか
     @Binding var isShowing: Bool
+    @State var isShowingText: Bool = false
+    @State var showingText: String = ""
     
-    @State var isShowingTutorial: Bool = false
-        
     var body: some View {
         // アプリバージョン
         let version: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
@@ -34,28 +34,9 @@ struct SettingView: View {
                             .padding()
                     }
                 }
-                .background(Color.light)
                 
                 // 各種設定
                 Form {
-//                    Section(header: Text("一般").foregroundColor(.text)) {
-//                        // チュートリアル
-//                        Button(action: {
-//                            self.isShowingTutorial.toggle()
-//                        }) {
-//                            HStack {
-//                                Text("使い方")
-//                                    .foregroundColor(.text)
-//                                Spacer()
-//                            }
-//                        }
-//                        .buttonStyle(BorderlessButtonStyle())
-//                        .fullScreenCover(isPresented: $isShowingTutorial) {
-//                            TutorialView(isShowing: $isShowingTutorial)
-//                        }
-//                    }
-//                    .listRowBackground(Color.back)
-                    
                     Section(header: Text("このアプリについて").foregroundColor(.text)) {
                         HStack {
                             Text("バージョン")
@@ -65,6 +46,24 @@ struct SettingView: View {
                         }
                         .foregroundColor(Color.text)
                         
+                        Button(action: {
+                            showingText = TextData.termOfUse
+                            self.isShowingText.toggle()
+                        }) {
+                            Text("利用規約")
+                                .foregroundColor(Color.text)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        
+                        Button(action: {
+                            showingText = TextData.privacyPolicy
+                            self.isShowingText.toggle()
+                        }) {
+                            Text("プライバシーポリシー")
+                                .foregroundColor(Color.text)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        
                         HStack {
                             Text("開発者")
                             Spacer()
@@ -73,11 +72,13 @@ struct SettingView: View {
                         }
                         .foregroundColor(Color.text)
                     }
-                    .listRowBackground(Color.back)
+                    .listRowBackground(Color.light)
                 }
-                .padding()
+                .sheet(isPresented: $isShowingText) {
+                    TextView(isShowing: $isShowingText, text: $showingText)
+                }
             }
-            .background(Color.light)
+            .padding()
         }
     }
 }

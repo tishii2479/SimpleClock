@@ -17,6 +17,8 @@
 		49044A6D2627266300BFE545 /* ClockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49044A6C2627266300BFE545 /* ClockManager.swift */; };
 		49044A7526272D6400BFE545 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49044A7426272D6400BFE545 /* TimerViewModel.swift */; };
 		49044A8626272E1000BFE545 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49044A8526272E1000BFE545 /* Clock.swift */; };
+		4922721C2629B9FC00700263 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4922721B2629B9FC00700263 /* TextView.swift */; };
+		492272212629BA3300700263 /* TextData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492272202629BA3300700263 /* TextData.swift */; };
 		495582C22629635100F6E728 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495582C12629635100F6E728 /* TutorialView.swift */; };
 		497649C02626C9C300C0BD0E /* SimpleClockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497649BF2626C9C300C0BD0E /* SimpleClockApp.swift */; };
 		497649C42626C9C400C0BD0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497649C32626C9C400C0BD0E /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		49044A6C2627266300BFE545 /* ClockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockManager.swift; sourceTree = "<group>"; };
 		49044A7426272D6400BFE545 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		49044A8526272E1000BFE545 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
+		4922721B2629B9FC00700263 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		492272202629BA3300700263 /* TextData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextData.swift; sourceTree = "<group>"; };
 		495582C12629635100F6E728 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		497649BC2626C9C300C0BD0E /* SimpleClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		497649BF2626C9C300C0BD0E /* SimpleClockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleClockApp.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 				498844922627EB2600AA35D3 /* SettingView.swift */,
 				49CB4DB62628694B00717623 /* TimerPicker.swift */,
 				495582C12629635100F6E728 /* TutorialView.swift */,
+				4922721B2629B9FC00700263 /* TextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				497649BF2626C9C300C0BD0E /* SimpleClockApp.swift */,
+				492272202629BA3300700263 /* TextData.swift */,
 				49764A1A2626E02C00C0BD0E /* Font */,
 				49764A0A2626DD3900C0BD0E /* Extension */,
 				49044A7926272DAE00BFE545 /* Protocol */,
@@ -351,6 +357,7 @@
 			files = (
 				490271B5262718D200256E2E /* View.swift in Sources */,
 				490271BF26271AF200256E2E /* Date.swift in Sources */,
+				492272212629BA3300700263 /* TextData.swift in Sources */,
 				490271CC262720AB00256E2E /* StopWatchViewModel.swift in Sources */,
 				49044A7526272D6400BFE545 /* TimerViewModel.swift in Sources */,
 				490271BA2627197900256E2E /* MainView.swift in Sources */,
@@ -360,6 +367,7 @@
 				49764A112626DD8900C0BD0E /* Font.swift in Sources */,
 				497649C02626C9C300C0BD0E /* SimpleClockApp.swift in Sources */,
 				490271C726271E2700256E2E /* StopWatchView.swift in Sources */,
+				4922721C2629B9FC00700263 /* TextView.swift in Sources */,
 				49CB4DB72628694B00717623 /* TimerPicker.swift in Sources */,
 				495582C22629635100F6E728 /* TutorialView.swift in Sources */,
 				49044A8626272E1000BFE545 /* Clock.swift in Sources */,

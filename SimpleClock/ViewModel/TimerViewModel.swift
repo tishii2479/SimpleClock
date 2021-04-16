@@ -10,9 +10,13 @@ import SwiftUI
 
 // タイマーのステータス
 enum TimerStatus {
+    // 再生中
     case play
+    // 終了
     case stop
+    // 一時停止
     case pause
+    // なし
     case idle
 }
 
@@ -25,8 +29,6 @@ class TimerViewModel: Clock, ObservableObject {
     // 残り時間
     // endDateから計算
     @Published var remainingTime: Int = 5 * 60
-    // 残り時間の割合
-    @Published var remainingRatio: CGFloat = 1
     // ステータス
     @Published var status: TimerStatus = .idle
     
@@ -35,6 +37,15 @@ class TimerViewModel: Clock, ObservableObject {
     var timer = Timer()
     // 終了時刻
     var endDate: Date?
+    
+    // 残り時間の割合
+    var remainingRatio: CGFloat {
+        if status == .play || status == .pause {
+            return CGFloat(self.remainingTime) / CGFloat(self.maxTime)
+        } else {
+            return 1
+        }
+    }
     
     // 表示
     var time: String {
@@ -58,13 +69,10 @@ class TimerViewModel: Clock, ObservableObject {
         status = .play
         // 終了時刻の設定
         endDate = Date().addingTimeInterval(TimeInterval(remainingTime))
-        // 設定時間の保持
-        maxTime = remainingTime
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             guard let end = self.endDate else { return }
             let timeInterval = end.timeIntervalSinceNow
             self.remainingTime = Int(timeInterval)
-            self.remainingRatio = CGFloat(self.remainingTime) / CGFloat(self.maxTime)
             // 残りが0秒未満になったら終了
             if timeInterval <= 0.0 {
                 self.finish()
@@ -97,5 +105,7 @@ class TimerViewModel: Clock, ObservableObject {
     // 時間の設定
     func setTime() {
         remainingTime = selectedHour * 3600 + selectedMinute * 60 + selectedSecond
+        // 設定時間の保持
+        maxTime = remainingTime
     }
 }

@@ -35,7 +35,7 @@ class StopWatchViewModel: Clock, ObservableObject {
     // 円の角度に利用
     var circleRatio: CGFloat {
         if status == .play || status == .pause {
-            return CGFloat(elapsedTime / 100 % 60) / CGFloat(60)
+            return CGFloat(elapsedTime % 6000) / CGFloat(6000)
         } else {
             return 1
         }

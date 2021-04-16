@@ -10,6 +10,8 @@ import SwiftUI
 struct SettingView: View {
     // 表示しているか
     @Binding var isShowing: Bool
+    
+    @State var isShowingTutorial: Bool = false
         
     var body: some View {
         // アプリバージョン
@@ -36,16 +38,25 @@ struct SettingView: View {
                 
                 // 各種設定
                 Form {
-//                    Section(header: Text("一般").foregroundColor(Color.text)) {
-//                        Toggle("時刻の24時間表示", isOn: Binding.constant(true))
-//                            .foregroundColor(Color.text)
-//
-//                        Toggle("ライト", isOn: Binding.constant(false))
-//                            .foregroundColor(Color.text)
+//                    Section(header: Text("一般").foregroundColor(.text)) {
+//                        // チュートリアル
+//                        Button(action: {
+//                            self.isShowingTutorial.toggle()
+//                        }) {
+//                            HStack {
+//                                Text("使い方")
+//                                    .foregroundColor(.text)
+//                                Spacer()
+//                            }
+//                        }
+//                        .buttonStyle(BorderlessButtonStyle())
+//                        .fullScreenCover(isPresented: $isShowingTutorial) {
+//                            TutorialView(isShowing: $isShowingTutorial)
+//                        }
 //                    }
 //                    .listRowBackground(Color.back)
                     
-                    Section(header: Text("このアプリについて").foregroundColor(Color.text)) {
+                    Section(header: Text("このアプリについて").foregroundColor(.text)) {
                         HStack {
                             Text("バージョン")
                             Spacer()

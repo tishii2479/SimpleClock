@@ -30,8 +30,6 @@ struct MainView: View {
     init() {
         // 背景色をなくす
         UITableView.appearance().backgroundColor = .clear
-        // スリープしないようにする
-        UIApplication.shared.isIdleTimerDisabled = keepScreenOn
     }
     
     var body: some View {
@@ -89,7 +87,6 @@ struct MainView: View {
             }
             .padding()
             
-        
             // 振動通知時の画面（上から覆う）
             if clock.isVibrating {
                 ZStack {
@@ -105,6 +102,10 @@ struct MainView: View {
         }
         .sheet(isPresented: $isShowingSetting) {
             SettingView(isShowing: $isShowingSetting)
+        }
+        .onAppear {
+            // スリープしないようにする
+            UIApplication.shared.isIdleTimerDisabled = keepScreenOn
         }
     }
     

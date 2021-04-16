@@ -30,6 +30,8 @@ struct MainView: View {
     init() {
         // 背景色をなくす
         UITableView.appearance().backgroundColor = .clear
+        // スリープしないようにする
+        UIApplication.shared.isIdleTimerDisabled = keepScreenOn
     }
     
     var body: some View {

@@ -93,7 +93,7 @@ struct TimerView: View {
             TimerPicker(viewModel: viewModel, isShowing: $isShowingPicker)
                 .animation(.linear)
                 .offset(y: self.isShowingPicker ? 0 : UIScreen.main.bounds.height)
-                .edgesIgnoringSafeArea(.all)
+                .edgesIgnoringSafeArea(.bottom)
         }
     }
 }

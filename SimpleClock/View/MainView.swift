@@ -92,9 +92,7 @@ struct MainView: View {
             if clock.isVibrating {
                 ZStack {
                     Color(red: 0, green: 0, blue: 0, opacity: clock.isVibrating ? 0.6 : 0)
-                    Text("完了")
-                        .font(Font.system(size: 20))
-                        .foregroundColor(.text)
+                    MenuItem(name: "alarm", size: 50, isOn: false)
                 }
                 .animation(.linear)
                 .edgesIgnoringSafeArea(.all)

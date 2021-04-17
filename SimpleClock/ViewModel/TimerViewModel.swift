@@ -66,8 +66,11 @@ class TimerViewModel: Clock, ObservableObject {
         guard endDate == nil,
               timer.isValid == false,
               remainingTime > 0 else { return }
+        // 一時停止している場合以外は時間をセットし直す
+        if status != .pause {
+            setTime()
+        }
         status = .play
-        setTime()
         // 終了時刻の設定
         endDate = Date().addingTimeInterval(TimeInterval(remainingTime))
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
@@ -99,7 +102,7 @@ class TimerViewModel: Clock, ObservableObject {
     func stop() {
         if timer.isValid { timer.invalidate() }
         endDate = nil
-        status = .pause
+        status = .stop
         setTime()
     }
     

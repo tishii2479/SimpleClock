@@ -32,7 +32,8 @@ struct TextView: View {
                 ScrollView {
                     Text(text)
                         .foregroundColor(.text)
-                        .padding()
+                        .font(.body)
+                        .padding(30)
                     Spacer()
                         .frame(height: 50)
                 }

@@ -18,6 +18,13 @@ struct ClockView: View {
                     .stroke(Color.highBlue, lineWidth: 8)
                     .frame(width: 240, height: 240)
             
+                // 時針
+                RoundedRectangle(cornerRadius: 1)
+                    .fill(Color.orange)
+                    .frame(width: 3, height: 60)
+                    .offset(x: 0, y: -30)
+                    .rotationEffect(.degrees(clock.hourAngle))
+                
                 // Rectangleだとギザギザする
                 // 分針
                 RoundedRectangle(cornerRadius: 1)
@@ -25,13 +32,6 @@ struct ClockView: View {
                     .frame(width: 2, height: 100)
                     .offset(x: 0, y: -50)
                     .rotationEffect(.degrees(clock.minuteAngle))
-            
-                // 時針
-                RoundedRectangle(cornerRadius: 1)
-                    .fill(Color.orange)
-                    .frame(width: 2, height: 60)
-                    .offset(x: 0, y: -30)
-                    .rotationEffect(.degrees(clock.hourAngle))
                 
                 // 中心の円
                 Circle()

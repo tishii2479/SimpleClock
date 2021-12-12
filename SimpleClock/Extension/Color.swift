@@ -8,22 +8,22 @@
 import SwiftUI
 
 extension Color {
-    // 背景色
+    // Main background
     static let back = Color("Back")
-    // 薄い背景色
+    // Light background
     static let light = Color("Light")
-    // 文字の色
+    // Text
     static let text = Color("Text")
-    // 影の色
+    // Shadow
     static let shadow = Color("Shadow")
-    // 選択されているもの
+    // Selected
     static let on = Color("On")
-    // 選択されていないもの
+    // Not selected
     static let off = Color("Off")
-    // 蛍光緑
+    // Highlighted green
     static let green = Color("HighGreen")
-    // 蛍光オレンジ
+    // Highlighted orange
     static let orange = Color("HighOrange")
-    // 蛍光ブルー
+    // Highlighted blue
     static let highBlue = Color("HighBlue")
 }

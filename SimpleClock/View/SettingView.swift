@@ -8,21 +8,17 @@
 import SwiftUI
 
 struct SettingView: View {
-    // 表示しているか
     @Binding var isShowing: Bool
-    @State var isShowingText: Bool = false
-    @State var showingText: String = ""
+    @State private var isShowingText: Bool = false
+    @State private var showingText: String = ""
     
     var body: some View {
-        // アプリバージョン
-        let version: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        let appVersion: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         return ZStack {
-            // 背景
             Color.back
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                // 閉じるボタン
                 Button(action: {
                     self.isShowing = false
                 }) {
@@ -35,13 +31,12 @@ struct SettingView: View {
                     }
                 }
                 
-                // 各種設定
                 Form {
                     Section(header: Text("このアプリについて").foregroundColor(.text)) {
                         HStack {
                             Text("バージョン")
                             Spacer()
-                            Text(version)
+                            Text(appVersion)
                                 .fontWeight(.light)
                         }
                         .foregroundColor(Color.text)

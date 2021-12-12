@@ -8,29 +8,23 @@
 import Foundation
 
 extension Date {
-    // 日付のフォーマット
-    static func formatDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.calendar = Calendar(identifier: .gregorian)
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.timeZone = TimeZone(identifier:  "Asia/Tokyo")
-         
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-         
-        return dateFormatter.string(from: date)
+    func formatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .gregorian)
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.timeZone = TimeZone(identifier:  "Asia/Tokyo")
+        return formatter
     }
     
-    // 時間のフォーマット
-    static func formatTime(date: Date, format: String = "HH:mm:ss") -> String {
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.calendar = Calendar(identifier: .gregorian)
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.timeZone = TimeZone(identifier:  "Asia/Tokyo")
-         
-        dateFormatter.dateFormat = format
-         
-        return dateFormatter.string(from: date)
+    func formatDate(format: String = "yyyy/MM/dd") -> String {
+        let formatter = formatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+
+    func formatTime(format: String = "HH:mm:ss") -> String {
+        let formatter = formatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
     }
 }

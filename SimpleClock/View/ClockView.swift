@@ -13,27 +13,24 @@ struct ClockView: View {
     var body: some View {
         ZStack {
             Group {
-                // 周りの円
                 Circle()
                     .stroke(Color.highBlue, lineWidth: 8)
                     .frame(width: 240, height: 240)
             
-                // 時針
+                // Use RoundedRectangle() instead of Rectangle(), because
+                // Rectangle rendering is not good
                 RoundedRectangle(cornerRadius: 1)
                     .fill(Color.orange)
                     .frame(width: 3, height: 60)
                     .offset(x: 0, y: -30)
                     .rotationEffect(.degrees(clock.hourAngle))
                 
-                // Rectangleだとギザギザする
-                // 分針
                 RoundedRectangle(cornerRadius: 1)
                     .fill(Color.green)
                     .frame(width: 2, height: 100)
                     .offset(x: 0, y: -50)
                     .rotationEffect(.degrees(clock.minuteAngle))
                 
-                // 中心の円
                 Circle()
                     .fill(Color.orange)
                     .frame(width: 10, height: 10)
@@ -41,16 +38,15 @@ struct ClockView: View {
             }
             .edgesIgnoringSafeArea(.all)
             
-            // 時刻の表示
             VStack {
-                Text(Date.formatTime(date: clock.currentTime))
+                Text(clock.currentTime.formatTime())
                     .foregroundColor(.text)
                     .font(.mainFont(size: 100))
                     .minimumScaleFactor(0.1)
                     .shadow(color: .shadow, radius: 5, x: 0, y: 0)
                     .frame(height: 100)
                 
-                Text(Date.formatDate(date: Date()))
+                Text(Date().formatDate())
                     .foregroundColor(.text)
                     .font(.mainFont(size: 20))
                     .shadow(color: .shadow, radius: 5, x: 0, y: 0)

@@ -9,27 +9,21 @@ import Foundation
 import AudioToolbox
 
 class ClockManager: ObservableObject {
-    // シングルトン
     static let shared = ClockManager()
     
-    // 今の時間
     @Published var currentTime: Date = Date()
     
-    var timer: Timer = Timer()
-    var hour: Int = 0
-    var minute: Int = 0
-    var second: Int = 0
+    private var timer: Timer = Timer()
+    private var hour: Int = 0
+    private var minute: Int = 0
+    private var second: Int = 0
     
-    // 通知中かどうか
-    // タイマーで使用
     @Published var isVibrating: Bool = false
 
-    // 時針の角度
     var hourAngle: Double {
         return Double(hour) * 30.0 + Double(minute) * 0.5
     }
     
-    // 分針の角度
     var minuteAngle: Double {
         return Double(minute) * 6.0
     }
@@ -41,7 +35,6 @@ class ClockManager: ObservableObject {
         }
     }
     
-    // 時間の設定
     func setTime() {
         self.currentTime = Date()
         self.hour = Calendar.current.component(.hour, from: self.currentTime)
@@ -49,7 +42,6 @@ class ClockManager: ObservableObject {
         self.second = Calendar.current.component(.second, from: self.currentTime)
     }
     
-    // 振動通知（タイマーで利用）
     func vibrate() {
         isVibrating = true
         DispatchQueue.global(qos: .default).async {
@@ -67,7 +59,6 @@ class ClockManager: ObservableObject {
         }
     }
     
-    // 振動停止
     func stopVibrate() {
         isVibrating = false
     }

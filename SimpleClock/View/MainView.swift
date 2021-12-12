@@ -14,28 +14,24 @@ struct MainView: View {
         case timer
     }
     
-    @ObservedObject var clock = ClockManager.shared
-    // スリープさせないかどうか
-    @State var keepScreenOn: Bool = true
-    // 今表示している画面
-    @State var currentView: ViewType = .clock
-    // 設定画面を見せているか（モーダル）
-    @State var isShowingSetting: Bool = false
+    @ObservedObject private var clock = ClockManager.shared
+    // Do sleep or not
+    @State private var keepScreenOn: Bool = true
+    @State private var currentView: ViewType = .clock
+    @State private var isShowingSetting: Bool = false
     
-    // 各種画面のインスタンス
-    var clockView = ClockView()
-    var stopWatchView = StopWatchView()
-    var timerView = TimerView()
+    private var clockView = ClockView()
+    private var stopWatchView = StopWatchView()
+    private var timerView = TimerView()
     
     init() {
-        // 背景色をなくす
+        // Remove background color
         UITableView.appearance().backgroundColor = .clear
         UINavigationBar.appearance().barTintColor = UIColor(.back)
     }
     
     var body: some View {
         ZStack {
-            // 各種画面
             switch currentView {
             case .clock:
                 clockView
@@ -46,17 +42,14 @@ struct MainView: View {
             }
             
             VStack {
-                // ヘッダーメニュー
                 HStack {
                     Button(action: {
-                        // スリープするかどうかを設定
                         keepScreenOn.toggle()
                         UIApplication.shared.isIdleTimerDisabled = keepScreenOn
                     }) {
                         MenuItem(nameOn: "lock", nameOff: "lock.open", size: 30, isOn: keepScreenOn)
                     }
                     
-                    // 画面切り替えのボタン
                     Spacer()
                     Button(action: {
                         switchView(type: .clock)
@@ -76,7 +69,6 @@ struct MainView: View {
                     
                     Spacer()
                     
-                    // 設定画面のボタン
                     Button(action: {
                         isShowingSetting.toggle()
                     }) {
@@ -88,7 +80,7 @@ struct MainView: View {
             }
             .padding()
             
-            // 振動通知時の画面（上から覆う）
+            // Vibrate notification filter
             if clock.isVibrating {
                 ZStack {
                     Color(red: 0, green: 0, blue: 0, opacity: clock.isVibrating ? 0.6 : 0)
@@ -105,12 +97,11 @@ struct MainView: View {
             SettingView(isShowing: $isShowingSetting)
         }
         .onAppear {
-            // スリープしないようにする
             UIApplication.shared.isIdleTimerDisabled = keepScreenOn
         }
     }
     
-    func switchView(type: ViewType) {
+    private func switchView(type: ViewType) {
         currentView = type
     }
 }

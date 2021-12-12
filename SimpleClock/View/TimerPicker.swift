@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct TimerPicker: View {
-    var hours = [Int](0 ..< 24)
-    var minutes = [Int](0 ..< 60)
-    var seconds = [Int](0 ..< 60)
+    private let hours = [Int](0 ..< 24)
+    private let minutes = [Int](0 ..< 60)
+    private let seconds = [Int](0 ..< 60)
     @ObservedObject var viewModel: TimerViewModel
-    // 表示しているかどうか
     @Binding var isShowing: Bool
     
     var body: some View {
@@ -20,7 +19,6 @@ struct TimerPicker: View {
             Spacer()
             
             VStack {
-                // 閉じるボタン
                 Button(action: {
                     self.isShowing = false
                 }) {
@@ -34,7 +32,6 @@ struct TimerPicker: View {
                 }
                 
                 HStack {
-                    // 時間のピッカー
                     Picker(selection: $viewModel.selectedHour, label: Text("hour")) {
                         ForEach(0 ..< self.hours.count) { index in
                             Text(String(format: "%02d", self.hours[index]))
@@ -44,7 +41,7 @@ struct TimerPicker: View {
                         }
                     }
                     .onChange(of: viewModel.selectedHour, perform: { value in
-                        viewModel.onChange()
+                        viewModel.onPickerChange()
                     })
                     .pickerStyle(WheelPickerStyle())
                     .frame(width: 60)
@@ -54,7 +51,6 @@ struct TimerPicker: View {
                         .foregroundColor(.text)
                         .font(.mainFont(size: 16))
                     
-                    // 分のピッカー
                     Picker(selection: $viewModel.selectedMinute, label: Text("minute")) {
                         ForEach(0 ..< self.minutes.count) { index in
                             Text(String(format: "%02d", self.minutes[index]))
@@ -64,7 +60,7 @@ struct TimerPicker: View {
                         }
                     }
                     .onChange(of: viewModel.selectedMinute, perform: { value in
-                        viewModel.onChange()
+                        viewModel.onPickerChange()
                     })
                     .pickerStyle(WheelPickerStyle())
                     .frame(width: 60)
@@ -74,7 +70,6 @@ struct TimerPicker: View {
                         .foregroundColor(.text)
                         .font(.mainFont(size: 16))
                     
-                    // 秒のピッカー
                     Picker(selection: $viewModel.selectedSecond, label: Text("second")) {
                         ForEach(0 ..< self.seconds.count) { index in
                             Text(String(format: "%02d", self.seconds[index]))
@@ -84,7 +79,7 @@ struct TimerPicker: View {
                         }
                     }
                     .onChange(of: viewModel.selectedSecond, perform: { value in
-                        viewModel.onChange()
+                        viewModel.onPickerChange()
                     })
                     .pickerStyle(WheelPickerStyle())
                     .frame(width: 60)

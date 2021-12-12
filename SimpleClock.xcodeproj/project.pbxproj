@@ -141,6 +141,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		492ECD4A276629D700608B10 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				492272202629BA3300700263 /* TextData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		497649B32626C9C300C0BD0E = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				497649BF2626C9C300C0BD0E /* SimpleClockApp.swift */,
-				492272202629BA3300700263 /* TextData.swift */,
+				492ECD4A276629D700608B10 /* Data */,
 				49764A1A2626E02C00C0BD0E /* Font */,
 				49764A0A2626DD3900C0BD0E /* Extension */,
 				49044A7926272DAE00BFE545 /* Protocol */,

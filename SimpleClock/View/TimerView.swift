@@ -8,20 +8,18 @@
 import SwiftUI
 
 struct TimerView: View {
-    @ObservedObject var viewModel = TimerViewModel()
-    @ObservedObject var clock = ClockManager.shared
+    @ObservedObject private var viewModel = TimerViewModel()
+    @ObservedObject private var clock = ClockManager.shared
     
     @State private var isShowingPicker = false
     
     var body: some View {
         ZStack {
             Group {
-                // 円の枠
                 Circle()
                     .stroke(Color.light, lineWidth: 8)
                     .frame(width: 240, height: 240)
                 
-                // 円の進捗表示
                 Circle()
                     .trim(from: 0, to: viewModel.remainingRatio)
                     .stroke(Color.green, style: StrokeStyle(lineWidth: 10, lineCap: .round))
@@ -30,7 +28,6 @@ struct TimerView: View {
             }
             .edgesIgnoringSafeArea(.all)
             
-            // 時刻の表示
             VStack {
                 Button(action: {
                     self.isShowingPicker.toggle()
@@ -44,14 +41,13 @@ struct TimerView: View {
                 }
                 .frame(height: 100)
                 
-                Text(Date.formatTime(date: clock.currentTime))
+                Text(clock.currentTime.formatTime())
                     .foregroundColor(.text)
                     .font(.mainFont(size: 20))
                     .shadow(color: .shadow, radius: 5, x: 0, y: 0)
                     .padding()
             }
             
-            // 再生停止ボタン
             VStack {
                 Spacer()
 
@@ -81,7 +77,6 @@ struct TimerView: View {
             }
             .padding(.bottom, 20)
             
-            // マスク
             Color(red: 0, green: 0, blue: 0, opacity: isShowingPicker ? 0.4 : 0)
                 .animation(.linear)
                 .edgesIgnoringSafeArea(.all)
@@ -89,7 +84,6 @@ struct TimerView: View {
                     isShowingPicker.toggle()
                 }
             
-            // タイマーのピッカー
             TimerPicker(viewModel: viewModel, isShowing: $isShowingPicker)
                 .animation(.linear)
                 .offset(y: self.isShowingPicker ? 0 : UIScreen.main.bounds.height)

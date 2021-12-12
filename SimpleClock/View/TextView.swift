@@ -16,7 +16,6 @@ struct TextView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                // 閉じるボタン
                 Button(action: {
                     self.isShowing = false
                 }) {

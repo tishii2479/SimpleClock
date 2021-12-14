@@ -8,21 +8,22 @@
 import SwiftUI
 
 private struct ActivityListCellView: View {
+    var activity: Activity
     var body: some View {
         ZStack {
             HStack {
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("機械学習の勉強")
+                    Text(activity.title)
                         .foregroundColor(.text)
-                        .font(Font.mainFont(size: 18))
+                        .font(.mainFont(size: 18))
 
                     Text("総時間 123h 30m")
                         .foregroundColor(.text)
-                        .font(Font.mainFont(size: 14))
+                        .font(.mainFont(size: 14))
                     
                     Text("今月 30h 22m")
                         .foregroundColor(.text)
-                        .font(Font.mainFont(size: 14))
+                        .font(.mainFont(size: 14))
                 }
                 Spacer()
                 
@@ -37,19 +38,23 @@ private struct ActivityListCellView: View {
 }
 
 struct ActivityListView: View {
+    @State private var isShowingActivity: Bool = false
     var body: some View {
         ScrollView {
             Spacer().frame(height: 80)
 
-            Button(action: {
-                print("Button action")
-            }) {
-                ActivityListCellView()
+            ForEach(0 ..< 3) { _ in 
+                Button(action: {
+                    isShowingActivity.toggle()
+                }) {
+                    ActivityListCellView(activity: Activity(id: 0))
+                }
             }
-            ActivityListCellView()
-            ActivityListCellView()
         }
         .padding(.horizontal, 20)
+        .fullScreenCover(isPresented: $isShowingActivity) {
+            ActivityView(isShowing: $isShowingActivity)
+        }
     }
 }
 

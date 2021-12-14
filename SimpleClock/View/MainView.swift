@@ -46,7 +46,7 @@ struct MainView: View {
             }
             
             VStack {
-                HStack {
+                HStack(spacing: 10) {
                     Button(action: {
                         keepScreenOn.toggle()
                         UIApplication.shared.isIdleTimerDisabled = keepScreenOn

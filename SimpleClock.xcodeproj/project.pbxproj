@@ -21,6 +21,10 @@
 		492272212629BA3300700263 /* TextData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492272202629BA3300700263 /* TextData.swift */; };
 		495582C22629635100F6E728 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495582C12629635100F6E728 /* TutorialView.swift */; };
 		49713A27276878CD00765936 /* ActivityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49713A26276878CD00765936 /* ActivityListView.swift */; };
+		49713A292768811500765936 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49713A282768811500765936 /* ActivityView.swift */; };
+		49713A2C2768831800765936 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49713A2B2768831800765936 /* Activity.swift */; };
+		49713A2E276887D000765936 /* ActivityClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49713A2D276887D000765936 /* ActivityClockView.swift */; };
+		49713A3027689C3A00765936 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49713A2F27689C3A00765936 /* ActivityViewModel.swift */; };
 		497649C02626C9C300C0BD0E /* SimpleClockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497649BF2626C9C300C0BD0E /* SimpleClockApp.swift */; };
 		497649C42626C9C400C0BD0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497649C32626C9C400C0BD0E /* Assets.xcassets */; };
 		497649C72626C9C400C0BD0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497649C62626C9C400C0BD0E /* Preview Assets.xcassets */; };
@@ -32,6 +36,9 @@
 		49764A162626DE2600C0BD0E /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49764A152626DE2600C0BD0E /* Play-Regular.ttf */; };
 		498844932627EB2600AA35D3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498844922627EB2600AA35D3 /* SettingView.swift */; };
 		49CB4DB72628694B00717623 /* TimerPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB4DB62628694B00717623 /* TimerPicker.swift */; };
+		64E1EDDAE5F62F8B72CB0270 /* Pods_SimpleClockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0391ED7248CF908233F41B15 /* Pods_SimpleClockTests.framework */; };
+		7C41583C79AEBE2B2E348F5A /* Pods_SimpleClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511E4CE2CA02FD1058CC42E6 /* Pods_SimpleClock.framework */; };
+		C1A7E5843AE948BACB764C86 /* Pods_SimpleClock_SimpleClockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D848B5516340CD67E4798DC /* Pods_SimpleClock_SimpleClockUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0391ED7248CF908233F41B15 /* Pods_SimpleClockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleClockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D848B5516340CD67E4798DC /* Pods_SimpleClock_SimpleClockUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleClock_SimpleClockUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		490271A72627121A00256E2E /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		490271AF2627181900256E2E /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		490271B4262718D200256E2E /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -66,6 +75,10 @@
 		492272202629BA3300700263 /* TextData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextData.swift; sourceTree = "<group>"; };
 		495582C12629635100F6E728 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		49713A26276878CD00765936 /* ActivityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListView.swift; sourceTree = "<group>"; };
+		49713A282768811500765936 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		49713A2B2768831800765936 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		49713A2D276887D000765936 /* ActivityClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityClockView.swift; sourceTree = "<group>"; };
+		49713A2F27689C3A00765936 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		497649BC2626C9C300C0BD0E /* SimpleClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		497649BF2626C9C300C0BD0E /* SimpleClockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleClockApp.swift; sourceTree = "<group>"; };
 		497649C32626C9C400C0BD0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,6 +96,13 @@
 		49764A152626DE2600C0BD0E /* Play-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Regular.ttf"; sourceTree = "<group>"; };
 		498844922627EB2600AA35D3 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		49CB4DB62628694B00717623 /* TimerPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPicker.swift; sourceTree = "<group>"; };
+		4C852DADB952F0FFCCE0CFE6 /* Pods-SimpleClock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleClock.release.xcconfig"; path = "Target Support Files/Pods-SimpleClock/Pods-SimpleClock.release.xcconfig"; sourceTree = "<group>"; };
+		511E4CE2CA02FD1058CC42E6 /* Pods_SimpleClock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleClock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7563ED2FA28F0A38BF159102 /* Pods-SimpleClockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleClockTests.debug.xcconfig"; path = "Target Support Files/Pods-SimpleClockTests/Pods-SimpleClockTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9C78496A8D438829F57A6504 /* Pods-SimpleClock-SimpleClockUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleClock-SimpleClockUITests.release.xcconfig"; path = "Target Support Files/Pods-SimpleClock-SimpleClockUITests/Pods-SimpleClock-SimpleClockUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D83B79F98A379FED7DA96181 /* Pods-SimpleClock-SimpleClockUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleClock-SimpleClockUITests.debug.xcconfig"; path = "Target Support Files/Pods-SimpleClock-SimpleClockUITests/Pods-SimpleClock-SimpleClockUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D873DA98FF0041D2B5D2C1C2 /* Pods-SimpleClock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleClock.debug.xcconfig"; path = "Target Support Files/Pods-SimpleClock/Pods-SimpleClock.debug.xcconfig"; sourceTree = "<group>"; };
+		F5B26F326E3B341FAC1C4A26 /* Pods-SimpleClockTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleClockTests.release.xcconfig"; path = "Target Support Files/Pods-SimpleClockTests/Pods-SimpleClockTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C41583C79AEBE2B2E348F5A /* Pods_SimpleClock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64E1EDDAE5F62F8B72CB0270 /* Pods_SimpleClockTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1A7E5843AE948BACB764C86 /* Pods_SimpleClock_SimpleClockUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,9 +142,11 @@
 				490271A72627121A00256E2E /* ClockView.swift */,
 				490271AF2627181900256E2E /* TimerView.swift */,
 				498844922627EB2600AA35D3 /* SettingView.swift */,
+				49713A2D276887D000765936 /* ActivityClockView.swift */,
 				49CB4DB62628694B00717623 /* TimerPicker.swift */,
 				495582C12629635100F6E728 /* TutorialView.swift */,
 				4922721B2629B9FC00700263 /* TextView.swift */,
+				49713A282768811500765936 /* ActivityView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -132,6 +157,7 @@
 				490271CB262720AB00256E2E /* StopWatchViewModel.swift */,
 				49044A6C2627266300BFE545 /* ClockManager.swift */,
 				49044A7426272D6400BFE545 /* TimerViewModel.swift */,
+				49713A2F27689C3A00765936 /* ActivityViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -152,6 +178,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		49713A2A2768830900765936 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49713A2B2768831800765936 /* Activity.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		497649B32626C9C300C0BD0E = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +193,8 @@
 				497649D02626C9C400C0BD0E /* SimpleClockTests */,
 				497649DB2626C9C400C0BD0E /* SimpleClockUITests */,
 				497649BD2626C9C300C0BD0E /* Products */,
+				64CC0F26F103A9E83E68E9B1 /* Pods */,
+				BE7BB04638F48059F7EA0D6C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -176,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				497649BF2626C9C300C0BD0E /* SimpleClockApp.swift */,
+				49713A2A2768830900765936 /* Model */,
 				492ECD4A276629D700608B10 /* Data */,
 				49764A1A2626E02C00C0BD0E /* Font */,
 				49764A0A2626DD3900C0BD0E /* Extension */,
@@ -235,6 +272,30 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		64CC0F26F103A9E83E68E9B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D873DA98FF0041D2B5D2C1C2 /* Pods-SimpleClock.debug.xcconfig */,
+				4C852DADB952F0FFCCE0CFE6 /* Pods-SimpleClock.release.xcconfig */,
+				D83B79F98A379FED7DA96181 /* Pods-SimpleClock-SimpleClockUITests.debug.xcconfig */,
+				9C78496A8D438829F57A6504 /* Pods-SimpleClock-SimpleClockUITests.release.xcconfig */,
+				7563ED2FA28F0A38BF159102 /* Pods-SimpleClockTests.debug.xcconfig */,
+				F5B26F326E3B341FAC1C4A26 /* Pods-SimpleClockTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BE7BB04638F48059F7EA0D6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				511E4CE2CA02FD1058CC42E6 /* Pods_SimpleClock.framework */,
+				3D848B5516340CD67E4798DC /* Pods_SimpleClock_SimpleClockUITests.framework */,
+				0391ED7248CF908233F41B15 /* Pods_SimpleClockTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -242,9 +303,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 497649E12626C9C400C0BD0E /* Build configuration list for PBXNativeTarget "SimpleClock" */;
 			buildPhases = (
+				A09294EA7151F1E02519E892 /* [CP] Check Pods Manifest.lock */,
 				497649B82626C9C300C0BD0E /* Sources */,
 				497649B92626C9C300C0BD0E /* Frameworks */,
 				497649BA2626C9C300C0BD0E /* Resources */,
+				88EED0DBACD9CB847D878E65 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -259,6 +322,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 497649E42626C9C400C0BD0E /* Build configuration list for PBXNativeTarget "SimpleClockTests" */;
 			buildPhases = (
+				D0F4E5805306FF350E7A3FB9 /* [CP] Check Pods Manifest.lock */,
 				497649C92626C9C400C0BD0E /* Sources */,
 				497649CA2626C9C400C0BD0E /* Frameworks */,
 				497649CB2626C9C400C0BD0E /* Resources */,
@@ -277,9 +341,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 497649E72626C9C400C0BD0E /* Build configuration list for PBXNativeTarget "SimpleClockUITests" */;
 			buildPhases = (
+				7B0CA53C30ED5FE6859D86D0 /* [CP] Check Pods Manifest.lock */,
 				497649D42626C9C400C0BD0E /* Sources */,
 				497649D52626C9C400C0BD0E /* Frameworks */,
 				497649D62626C9C400C0BD0E /* Resources */,
+				93D96FFF64D159E2F8D16A63 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -361,6 +427,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7B0CA53C30ED5FE6859D86D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SimpleClock-SimpleClockUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88EED0DBACD9CB847D878E65 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimpleClock/Pods-SimpleClock-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimpleClock/Pods-SimpleClock-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimpleClock/Pods-SimpleClock-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93D96FFF64D159E2F8D16A63 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimpleClock-SimpleClockUITests/Pods-SimpleClock-SimpleClockUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimpleClock-SimpleClockUITests/Pods-SimpleClock-SimpleClockUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimpleClock-SimpleClockUITests/Pods-SimpleClock-SimpleClockUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A09294EA7151F1E02519E892 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SimpleClock-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0F4E5805306FF350E7A3FB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SimpleClockTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		497649B82626C9C300C0BD0E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -375,14 +544,18 @@
 				49044A6D2627266300BFE545 /* ClockManager.swift in Sources */,
 				498844932627EB2600AA35D3 /* SettingView.swift in Sources */,
 				49713A27276878CD00765936 /* ActivityListView.swift in Sources */,
+				49713A2C2768831800765936 /* Activity.swift in Sources */,
 				490271B02627181900256E2E /* TimerView.swift in Sources */,
+				49713A2E276887D000765936 /* ActivityClockView.swift in Sources */,
 				49764A112626DD8900C0BD0E /* Font.swift in Sources */,
 				497649C02626C9C300C0BD0E /* SimpleClockApp.swift in Sources */,
 				490271C726271E2700256E2E /* StopWatchView.swift in Sources */,
+				49713A292768811500765936 /* ActivityView.swift in Sources */,
 				4922721C2629B9FC00700263 /* TextView.swift in Sources */,
 				49CB4DB72628694B00717623 /* TimerPicker.swift in Sources */,
 				495582C22629635100F6E728 /* TutorialView.swift in Sources */,
 				49044A8626272E1000BFE545 /* Clock.swift in Sources */,
+				49713A3027689C3A00765936 /* ActivityViewModel.swift in Sources */,
 				490271A82627121A00256E2E /* ClockView.swift in Sources */,
 				49764A0C2626DD4400C0BD0E /* Color.swift in Sources */,
 			);
@@ -538,6 +711,7 @@
 		};
 		497649E22626C9C400C0BD0E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D873DA98FF0041D2B5D2C1C2 /* Pods-SimpleClock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -562,6 +736,7 @@
 		};
 		497649E32626C9C400C0BD0E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C852DADB952F0FFCCE0CFE6 /* Pods-SimpleClock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -586,6 +761,7 @@
 		};
 		497649E52626C9C400C0BD0E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7563ED2FA28F0A38BF159102 /* Pods-SimpleClockTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -608,6 +784,7 @@
 		};
 		497649E62626C9C400C0BD0E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5B26F326E3B341FAC1C4A26 /* Pods-SimpleClockTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -630,6 +807,7 @@
 		};
 		497649E82626C9C400C0BD0E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D83B79F98A379FED7DA96181 /* Pods-SimpleClock-SimpleClockUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -650,6 +828,7 @@
 		};
 		497649E92626C9C400C0BD0E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C78496A8D438829F57A6504 /* Pods-SimpleClock-SimpleClockUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

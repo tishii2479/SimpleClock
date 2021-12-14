@@ -45,11 +45,10 @@ class ClockManager: ObservableObject {
     func vibrate() {
         isVibrating = true
         DispatchQueue.global(qos: .default).async {
-            // 10回振動
             for _ in 0 ..< 10 {
-                // 途中でstopVibrateが呼ばれていたら終了
+                // if stopVibrate() is called, stop vibrating
                 if self.isVibrating == false { break }
-                AudioServicesPlayAlertSoundWithCompletion(SystemSoundID(kSystemSoundID_Vibrate)) {}
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 sleep(1)
             }
             

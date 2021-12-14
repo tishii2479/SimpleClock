@@ -20,6 +20,7 @@
 		4922721C2629B9FC00700263 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4922721B2629B9FC00700263 /* TextView.swift */; };
 		492272212629BA3300700263 /* TextData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492272202629BA3300700263 /* TextData.swift */; };
 		495582C22629635100F6E728 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495582C12629635100F6E728 /* TutorialView.swift */; };
+		49713A27276878CD00765936 /* ActivityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49713A26276878CD00765936 /* ActivityListView.swift */; };
 		497649C02626C9C300C0BD0E /* SimpleClockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497649BF2626C9C300C0BD0E /* SimpleClockApp.swift */; };
 		497649C42626C9C400C0BD0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497649C32626C9C400C0BD0E /* Assets.xcassets */; };
 		497649C72626C9C400C0BD0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497649C62626C9C400C0BD0E /* Preview Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		4922721B2629B9FC00700263 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		492272202629BA3300700263 /* TextData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextData.swift; sourceTree = "<group>"; };
 		495582C12629635100F6E728 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		49713A26276878CD00765936 /* ActivityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListView.swift; sourceTree = "<group>"; };
 		497649BC2626C9C300C0BD0E /* SimpleClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		497649BF2626C9C300C0BD0E /* SimpleClockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleClockApp.swift; sourceTree = "<group>"; };
 		497649C32626C9C400C0BD0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				490271B92627197900256E2E /* MainView.swift */,
+				49713A26276878CD00765936 /* ActivityListView.swift */,
 				490271C626271E2700256E2E /* StopWatchView.swift */,
 				490271A72627121A00256E2E /* ClockView.swift */,
 				490271AF2627181900256E2E /* TimerView.swift */,
@@ -371,6 +374,7 @@
 				490271BA2627197900256E2E /* MainView.swift in Sources */,
 				49044A6D2627266300BFE545 /* ClockManager.swift in Sources */,
 				498844932627EB2600AA35D3 /* SettingView.swift in Sources */,
+				49713A27276878CD00765936 /* ActivityListView.swift in Sources */,
 				490271B02627181900256E2E /* TimerView.swift in Sources */,
 				49764A112626DD8900C0BD0E /* Font.swift in Sources */,
 				497649C02626C9C300C0BD0E /* SimpleClockApp.swift in Sources */,

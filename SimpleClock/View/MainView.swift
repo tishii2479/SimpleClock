@@ -12,6 +12,7 @@ struct MainView: View {
         case clock
         case stopwatch
         case timer
+        case activityList
     }
     
     @ObservedObject private var clock = ClockManager.shared
@@ -20,9 +21,10 @@ struct MainView: View {
     @State private var currentView: ViewType = .clock
     @State private var isShowingSetting: Bool = false
     
-    private var clockView = ClockView()
-    private var stopWatchView = StopWatchView()
-    private var timerView = TimerView()
+    private let clockView = ClockView()
+    private let stopWatchView = StopWatchView()
+    private let timerView = TimerView()
+    private let activityListView = ActivityListView()
     
     init() {
         // Remove background color
@@ -39,6 +41,8 @@ struct MainView: View {
                 stopWatchView
             case .timer:
                 timerView
+            case .activityList:
+                activityListView
             }
             
             VStack {
@@ -65,6 +69,11 @@ struct MainView: View {
                         switchView(type: .timer)
                     }) {
                         MenuItem(name: "timer", size: 28, isOn: currentView == .timer)
+                    }
+                    Button(action: {
+                        switchView(type: .activityList)
+                    }) {
+                        MenuItem(name: "list.bullet.rectangle", size: 30, isOn: currentView == .activityList)
                     }
                     
                     Spacer()

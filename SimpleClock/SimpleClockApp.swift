@@ -15,6 +15,7 @@ struct SimpleClockApp: App {
                 Color.back
                     .edgesIgnoringSafeArea(.all)
                 MainView()
+                    .environmentObject(ActivityManager.shared)
             }
             .statusBar(hidden: true)
         }

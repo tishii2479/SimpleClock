@@ -33,10 +33,7 @@ class StopWatchViewModel: Clock, ObservableObject {
     }
     
     var time: String {
-        let minute: Int = elapsedTime / 6000
-        let second: Int = elapsedTime / 100 % 60
-        let centSecond: Int = elapsedTime % 100
-        return String(format: "%02d:%02d:%02d", minute, second, centSecond)
+        TimeFormatter.formatTime(centSecond: elapsedTime, style: .semi)
     }
     
     func play() {

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ActivityClockView: View {
     @ObservedObject private var clock: ClockManager = ClockManager.shared
+    @ObservedObject private var viewModel: ActivityClockViewModel = ActivityClockViewModel()
     @Binding var isShowing: Bool
+    
     var body: some View {
         ZStack {
             Color.back
@@ -21,7 +23,7 @@ struct ActivityClockView: View {
                     .frame(width: 240, height: 240)
                 
                 VStack {
-                    Text(clock.currentTime.formatTime())
+                    Text(viewModel.totalTimeStr)
                         .foregroundColor(.text)
                         .font(.mainFont(size: 100))
                         .minimumScaleFactor(0.1)
@@ -56,10 +58,10 @@ struct ActivityClockView: View {
             .padding(20)
         }
         .onAppear {
-            
+            viewModel.onAppear()
         }
         .onDisappear {
-            
+            viewModel.onDisappear()
         }
     }
 }

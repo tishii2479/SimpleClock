@@ -10,7 +10,7 @@ import SwiftUI
 struct ActivityView: View {
     @Binding var isShowing: Bool
     @State private var isShowingClock: Bool = false
-    var activity: Activity = Activity(id: 0)
+    @EnvironmentObject private var activityManager: ActivityManager
     
     var body: some View {
         ZStack {
@@ -18,10 +18,20 @@ struct ActivityView: View {
                 .edgesIgnoringSafeArea(.all)
             
             ScrollView {
-                Spacer().frame(height: 60)
-                Text("総時間")
-                    .foregroundColor(.text)
-                    .font(.mainFont(size: 24))
+                Spacer().frame(height: 80)
+                
+                HStack {
+                    Text("総時間")
+                        .foregroundColor(.text)
+                        .font(.mainFont(size: 20))
+                    
+                    Text(activityManager.currentActivity.totalTimeStr)
+                        .foregroundColor(.text)
+                        .font(.mainFont(size: 14))
+                        .padding(.leading, 20)
+                    
+                    Spacer()
+                }
                 
                 Rectangle()
                     .foregroundColor(.black)
@@ -39,13 +49,13 @@ struct ActivityView: View {
             
             VStack {
                 HStack {
-                    Text(activity.title)
+                    Text(activityManager.currentActivity.title)
                         .foregroundColor(.text)
-                        .font(.mainFont(size: 24))
+                        .font(.mainFont(size: 30))
                     
                     Spacer()
                     
-                    Text("今月 130h")
+                    Text("今月 " + activityManager.currentActivity.monthTimeStr)
                         .foregroundColor(.text)
                         .font(.mainFont(size: 16))
                         .padding(.trailing, 20)
@@ -67,8 +77,15 @@ struct ActivityView: View {
                 Button(action: {
                     isShowingClock.toggle()
                 }) {
-                    Text("Start")
-                        .foregroundColor(.text)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 25)
+                            .frame(width: 200, height: 50)
+                            .foregroundColor(.white)
+                            .shadow(radius: 10)
+
+                        Text("Start")
+                            .foregroundColor(.black)
+                    }
                 }
             }
             .padding(20)

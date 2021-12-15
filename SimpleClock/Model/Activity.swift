@@ -6,16 +6,28 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Activity {
-    var title: String
-    var id: Int
-    var totalTime: Int {
-        return 0
+class Activity: Object {
+    @objc dynamic var title: String
+    @objc dynamic var totalTime: Int = 123456
+    let histories = List<ActivityHistory>()
+    
+    var totalTimeStr: String {
+        TimeFormatter.formatTime(second: totalTime, style: .hms)
     }
     
-    init(id: Int) {
-        self.id = id
+    var monthTimeStr: String {
+        TimeFormatter.formatTime(second: 12345, style: .hms)
+    }
+    
+    override init() {
         self.title = "Title"
+    }
+    
+    func addTime(time: Int) {
+        try! Realm().write {
+            totalTime += time
+        }
     }
 }

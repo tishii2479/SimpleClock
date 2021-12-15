@@ -24,7 +24,7 @@ struct MainView: View {
     private let clockView = ClockView()
     private let stopWatchView = StopWatchView()
     private let timerView = TimerView()
-    private let activityListView = ActivityListView()
+    private var activityListView = ActivityListView()
     
     init() {
         // Remove background color

@@ -8,11 +8,11 @@
 import Foundation
 
 extension Date {
-    func formatter() -> DateFormatter {
+    private func formatter() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .gregorian)
-        formatter.locale = Locale(identifier: "ja_JP")
-        formatter.timeZone = TimeZone(identifier:  "Asia/Tokyo")
+        formatter.locale = .current
+        formatter.timeZone = .current
         return formatter
     }
     

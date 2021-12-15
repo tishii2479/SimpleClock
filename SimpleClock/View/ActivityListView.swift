@@ -17,11 +17,11 @@ private struct ActivityListCellView: View {
                         .foregroundColor(.text)
                         .font(.mainFont(size: 18))
 
-                    Text("総時間 123h 30m")
+                    Text("総時間 " + activity.totalTimeStr)
                         .foregroundColor(.text)
                         .font(.mainFont(size: 14))
                     
-                    Text("今月 30h 22m")
+                    Text("今月 " + activity.monthTimeStr)
                         .foregroundColor(.text)
                         .font(.mainFont(size: 14))
                 }
@@ -39,15 +39,16 @@ private struct ActivityListCellView: View {
 
 struct ActivityListView: View {
     @State private var isShowingActivity: Bool = false
+    @EnvironmentObject var activityManager: ActivityManager
     var body: some View {
         ScrollView {
             Spacer().frame(height: 80)
 
-            ForEach(0 ..< 3) { _ in 
+            ForEach(activityManager.activities, id: \.hashValue) { activity in
                 Button(action: {
                     isShowingActivity.toggle()
                 }) {
-                    ActivityListCellView(activity: Activity(id: 0))
+                    ActivityListCellView(activity: activity)
                 }
             }
         }

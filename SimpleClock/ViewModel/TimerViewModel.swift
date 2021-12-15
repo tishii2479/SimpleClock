@@ -37,10 +37,7 @@ class TimerViewModel: Clock, ObservableObject {
     }
     
     var time: String {
-        let hour: Int = remainingTime / 3600
-        let minute: Int = remainingTime / 60 % 60
-        let second: Int = remainingTime % 60
-        return String(format: "%02d:%02d:%02d", hour, minute, second)
+        TimeFormatter.formatTime(second: remainingTime, style: .semi)
     }
     
     func onPickerChange() {

@@ -35,7 +35,7 @@ struct ActivityView: View {
                         Spacer()
                     }
                     
-                    HistoryChartView()
+                    HistoryChartView(activity: $viewModel.activity)
                         .frame(maxWidth: .infinity, idealHeight: 240)
                     
                     // TODO: Github activity

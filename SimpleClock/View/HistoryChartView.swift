@@ -9,6 +9,8 @@ import SwiftUI
 import Charts
 
 struct HistoryChartView: UIViewRepresentable {
+    @Binding var activity: Activity
+
     func makeUIView(context: Context) -> LineChartView {
         let chartView = LineChartView()
         chartView.xAxis.labelPosition = .bottom
@@ -37,7 +39,7 @@ struct HistoryChartView: UIViewRepresentable {
     func updateUIView(_ uiView: LineChartView, context: Context) {
         var dataEntries = [ChartDataEntry]()
         var accumulateTime: Double = 0
-        let histories: [ActivityHistory] = Array(Activity.current.histories)
+        let histories: [ActivityHistory] = Array(activity.histories)
         
         if histories.count == 0 {
             uiView.data = nil
@@ -84,6 +86,6 @@ struct HistoryChartView: UIViewRepresentable {
 
 struct HistoryChartView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryChartView()
+        HistoryChartView(activity: Binding.constant(Activity()))
     }
 }

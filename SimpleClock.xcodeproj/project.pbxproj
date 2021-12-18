@@ -14,8 +14,8 @@
 		490271BF26271AF200256E2E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490271BE26271AF200256E2E /* Date.swift */; };
 		490271C726271E2700256E2E /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490271C626271E2700256E2E /* StopWatchView.swift */; };
 		490271CC262720AB00256E2E /* StopWatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490271CB262720AB00256E2E /* StopWatchViewModel.swift */; };
+		4902962C276D93D300DA6D4F /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4902962B276D93D300DA6D4F /* ActivityViewModel.swift */; };
 		4903CD77276A1B2E008DD021 /* TimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4903CD76276A1B2E008DD021 /* TimeFormatter.swift */; };
-		4903CD79276A2E0F008DD021 /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4903CD78276A2E0F008DD021 /* ActivityManager.swift */; };
 		49044A6D2627266300BFE545 /* ClockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49044A6C2627266300BFE545 /* ClockManager.swift */; };
 		49044A7526272D6400BFE545 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49044A7426272D6400BFE545 /* TimerViewModel.swift */; };
 		49044A8626272E1000BFE545 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49044A8526272E1000BFE545 /* Clock.swift */; };
@@ -71,8 +71,8 @@
 		490271BE26271AF200256E2E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		490271C626271E2700256E2E /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
 		490271CB262720AB00256E2E /* StopWatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewModel.swift; sourceTree = "<group>"; };
+		4902962B276D93D300DA6D4F /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		4903CD76276A1B2E008DD021 /* TimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatter.swift; sourceTree = "<group>"; };
-		4903CD78276A2E0F008DD021 /* ActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManager.swift; sourceTree = "<group>"; };
 		49044A6C2627266300BFE545 /* ClockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockManager.swift; sourceTree = "<group>"; };
 		49044A7426272D6400BFE545 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		49044A8526272E1000BFE545 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 				49044A6C2627266300BFE545 /* ClockManager.swift */,
 				49044A7426272D6400BFE545 /* TimerViewModel.swift */,
 				49713A2F27689C3A00765936 /* ActivityClockViewModel.swift */,
-				4903CD78276A2E0F008DD021 /* ActivityManager.swift */,
+				4902962B276D93D300DA6D4F /* ActivityViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -560,7 +560,7 @@
 				497649C02626C9C300C0BD0E /* SimpleClockApp.swift in Sources */,
 				490271C726271E2700256E2E /* StopWatchView.swift in Sources */,
 				49713A322768DC8100765936 /* ActivityHistory.swift in Sources */,
-				4903CD79276A2E0F008DD021 /* ActivityManager.swift in Sources */,
+				4902962C276D93D300DA6D4F /* ActivityViewModel.swift in Sources */,
 				49713A292768811500765936 /* ActivityView.swift in Sources */,
 				4922721C2629B9FC00700263 /* TextView.swift in Sources */,
 				49CB4DB72628694B00717623 /* TimerPicker.swift in Sources */,

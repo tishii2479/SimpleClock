@@ -5,13 +5,27 @@
 //  Created by Tatsuya Ishii on 2021/12/14.
 //
 
-import Foundation
+import SwiftUI
 import RealmSwift
+import Foundation
 
 class Activity: Object {
-    @objc dynamic var title: String
-    @objc dynamic var totalTime: Int = 123456
-    let histories = List<ActivityHistory>()
+    @objc dynamic private(set) var title: String
+    @objc dynamic private(set) var totalTime: Int = 123456
+    let histories = RealmSwift.List<ActivityHistory>()
+    
+    private static var _current: Activity?
+    static var current: Activity {
+        get {
+            // TODO: Send error if nil
+            _current ?? all[0]
+        }
+        set { _current = newValue }
+    }
+    static var all: [Activity] {
+        let realm = try! Realm()
+        return Array(realm.objects(Activity.self))
+    }
     
     var totalTimeStr: String {
         TimeFormatter.formatTime(second: totalTime, style: .hms)

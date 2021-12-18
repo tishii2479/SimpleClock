@@ -39,13 +39,14 @@ private struct ActivityListCellView: View {
 
 struct ActivityListView: View {
     @State private var isShowingActivity: Bool = false
-    @EnvironmentObject var activityManager: ActivityManager
+    @State private var activities = Activity.all
     var body: some View {
         ScrollView {
             Spacer().frame(height: 80)
 
-            ForEach(activityManager.activities, id: \.hashValue) { activity in
+            ForEach(activities, id: \.hashValue) { activity in
                 Button(action: {
+                    Activity.current = activity
                     isShowingActivity.toggle()
                 }) {
                     ActivityListCellView(activity: activity)
@@ -53,7 +54,10 @@ struct ActivityListView: View {
             }
         }
         .padding(.horizontal, 20)
-        .fullScreenCover(isPresented: $isShowingActivity) {
+        .fullScreenCover(isPresented: $isShowingActivity, onDismiss: {
+            // Refresh activities
+            activities = Activity.all
+        }) {
             ActivityView(isShowing: $isShowingActivity)
         }
     }

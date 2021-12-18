@@ -10,8 +10,8 @@ import SwiftUI
 struct ActivityView: View {
     @Binding var isShowing: Bool
     @State private var isShowingClock: Bool = false
-    @EnvironmentObject private var activityManager: ActivityManager
-    
+    @ObservedObject private var viewModel: ActivityViewModel = ActivityViewModel()
+
     var body: some View {
         ZStack {
             Color.back
@@ -25,7 +25,7 @@ struct ActivityView: View {
                         .foregroundColor(.text)
                         .font(.mainFont(size: 20))
                     
-                    Text(activityManager.currentActivity.totalTimeStr)
+                    Text(viewModel.totalTimeStr)
                         .foregroundColor(.text)
                         .font(.mainFont(size: 14))
                         .padding(.leading, 20)
@@ -49,13 +49,13 @@ struct ActivityView: View {
             
             VStack {
                 HStack {
-                    Text(activityManager.currentActivity.title)
+                    Text(viewModel.activity.title)
                         .foregroundColor(.text)
                         .font(.mainFont(size: 30))
                     
                     Spacer()
                     
-                    Text("今月 " + activityManager.currentActivity.monthTimeStr)
+                    Text("今月 " + viewModel.monthTimeStr)
                         .foregroundColor(.text)
                         .font(.mainFont(size: 16))
                         .padding(.trailing, 20)
@@ -71,6 +71,11 @@ struct ActivityView: View {
                     }
                     .padding(5)
                 }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
+                .background(
+                    Color.back.opacity(0.5).edgesIgnoringSafeArea(.top)
+                )
 
                 Spacer()
 
@@ -87,10 +92,12 @@ struct ActivityView: View {
                             .foregroundColor(.black)
                     }
                 }
+                .padding(20)
             }
-            .padding(20)
         }
-        .fullScreenCover(isPresented: $isShowingClock) {
+        .fullScreenCover(isPresented: $isShowingClock, onDismiss: {
+            viewModel.updateActivity()
+        }) {
             ActivityClockView(isShowing: $isShowingClock)
         }
     }

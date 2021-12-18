@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ActivityClockView: View {
     @ObservedObject private var clock: ClockManager = ClockManager.shared
-    @ObservedObject private var viewModel: ActivityClockViewModel = ActivityClockViewModel()
+    @ObservedObject var viewModel: ActivityClockViewModel = ActivityClockViewModel()
     @Binding var isShowing: Bool
     
     var body: some View {
@@ -43,6 +43,7 @@ struct ActivityClockView: View {
                 HStack {
                     Spacer()
                     Button(action: {
+                        viewModel.onDisappear()
                         isShowing.toggle()
                     }) {
                         Image(systemName: "multiply")
@@ -55,13 +56,11 @@ struct ActivityClockView: View {
                 }
                 Spacer()
             }
-            .padding(20)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 10)
         }
         .onAppear {
             viewModel.onAppear()
-        }
-        .onDisappear {
-            viewModel.onDisappear()
         }
     }
 }

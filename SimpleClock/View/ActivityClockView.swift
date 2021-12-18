@@ -42,17 +42,9 @@ struct ActivityClockView: View {
             VStack {
                 HStack {
                     Spacer()
-                    Button(action: {
+                    CloseButton(isShowing: $isShowing, action: {
                         viewModel.onDisappear()
-                        isShowing.toggle()
-                    }) {
-                        Image(systemName: "multiply")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.on)
-                    }
-                    .padding(5)
+                    })
                 }
                 Spacer()
             }

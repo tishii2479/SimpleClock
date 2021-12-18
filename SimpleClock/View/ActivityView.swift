@@ -72,16 +72,7 @@ struct ActivityView: View {
                         .font(.mainFont(size: 16))
                         .padding(.trailing, 20)
                     
-                    Button(action: {
-                        isShowing.toggle()
-                    }) {
-                        Image(systemName: "multiply")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.on)
-                    }
-                    .padding(5)
+                    CloseButton(isShowing: $isShowing, action: nil)
                 }
                 .padding(.horizontal, 20)
                 .padding(.vertical, 10)

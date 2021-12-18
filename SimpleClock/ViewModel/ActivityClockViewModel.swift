@@ -39,6 +39,7 @@ class ActivityClockViewModel: ObservableObject {
             history.delete()
         }
         cachedHistory = nil
+        // TODO: Use same logic at stop watch
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             self.elapsedTime += 1
         }
@@ -47,6 +48,7 @@ class ActivityClockViewModel: ObservableObject {
     private func startClock() {
         totalTime = Activity.current.totalTime
         startDate = Date()
+        // TODO: Use same logic at stop watch
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             self.elapsedTime += 1
         }

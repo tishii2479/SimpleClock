@@ -21,16 +21,7 @@ struct SettingView: View {
             VStack {
                 HStack {
                     Spacer()
-                    Button(action: {
-                        isShowing.toggle()
-                    }) {
-                        Image(systemName: "multiply")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.on)
-                    }
-                    .padding(5)
+                    CloseButton(isShowing: $isShowing, action: nil)
                 }
                 Spacer()
                 

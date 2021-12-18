@@ -18,6 +18,7 @@
 		4902962E276DD0C400DA6D4F /* HistoryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4902962D276DD0C400DA6D4F /* HistoryChartView.swift */; };
 		49029630276DE01A00DA6D4F /* CreateActivityModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4902962F276DE01A00DA6D4F /* CreateActivityModalView.swift */; };
 		49029632276DE1BA00DA6D4F /* TextFieldAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49029631276DE1BA00DA6D4F /* TextFieldAlertView.swift */; };
+		49029634276E283400DA6D4F /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49029633276E283400DA6D4F /* CloseButton.swift */; };
 		4903CD77276A1B2E008DD021 /* TimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4903CD76276A1B2E008DD021 /* TimeFormatter.swift */; };
 		49044A6D2627266300BFE545 /* ClockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49044A6C2627266300BFE545 /* ClockManager.swift */; };
 		49044A7526272D6400BFE545 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49044A7426272D6400BFE545 /* TimerViewModel.swift */; };
@@ -78,6 +79,7 @@
 		4902962D276DD0C400DA6D4F /* HistoryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryChartView.swift; sourceTree = "<group>"; };
 		4902962F276DE01A00DA6D4F /* CreateActivityModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActivityModalView.swift; sourceTree = "<group>"; };
 		49029631276DE1BA00DA6D4F /* TextFieldAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlertView.swift; sourceTree = "<group>"; };
+		49029633276E283400DA6D4F /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		4903CD76276A1B2E008DD021 /* TimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatter.swift; sourceTree = "<group>"; };
 		49044A6C2627266300BFE545 /* ClockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockManager.swift; sourceTree = "<group>"; };
 		49044A7426272D6400BFE545 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				4902962D276DD0C400DA6D4F /* HistoryChartView.swift */,
 				4902962F276DE01A00DA6D4F /* CreateActivityModalView.swift */,
 				49029631276DE1BA00DA6D4F /* TextFieldAlertView.swift */,
+				49029633276E283400DA6D4F /* CloseButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49029634276E283400DA6D4F /* CloseButton.swift in Sources */,
 				4903CD77276A1B2E008DD021 /* TimeFormatter.swift in Sources */,
 				490271B5262718D200256E2E /* View.swift in Sources */,
 				490271BF26271AF200256E2E /* Date.swift in Sources */,

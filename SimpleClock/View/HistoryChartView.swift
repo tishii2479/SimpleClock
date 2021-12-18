@@ -61,13 +61,10 @@ struct HistoryChartView: UIViewRepresentable {
 
         let dataSet = LineChartDataSet(entries: dataEntries)
         dataSet.lineWidth = 3.0
-        dataSet.circleRadius = 4.0
-        dataSet.valueTextColor = UIColor(.border)
-        dataSet.setCircleColor(UIColor(.border))
-        dataSet.setColor(UIColor(.border))
-        dataSet.circleHoleColor = UIColor(.border)
-        dataSet.mode = .linear
+        dataSet.drawCirclesEnabled = false
         dataSet.drawValuesEnabled = false
+        dataSet.setColor(UIColor(.border))
+        dataSet.mode = .linear
         let gradientColors = [UIColor(Color.orange).cgColor, UIColor(Color.highBlue).withAlphaComponent(0.5).cgColor] as CFArray
         let colorLocations: [CGFloat] = [0.5, 0.0]
         let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)

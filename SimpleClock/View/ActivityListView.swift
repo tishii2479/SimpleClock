@@ -33,23 +33,41 @@ private struct ActivityListCellView: View {
             .padding(20)
         }
         .frame(maxWidth: .infinity)
-        .border(Color.white)
+        .border(Color.border, width: 2)
     }
 }
 
 struct ActivityListView: View {
     @State private var isShowingActivity: Bool = false
+    @State private var isShowingCreateActivityAlert: Bool = false
+    @State private var newActivityName: String = ""
     @State private var activities = Activity.all
     var body: some View {
         ScrollView {
             Spacer().frame(height: 80)
 
-            ForEach(activities, id: \.hashValue) { activity in
+            VStack(spacing: 20) {
+                ForEach(activities, id: \.hashValue) { activity in
+                    Button(action: {
+                        Activity.current = activity
+                        isShowingActivity.toggle()
+                    }) {
+                        ActivityListCellView(activity: activity)
+                    }
+                }
+                
                 Button(action: {
-                    Activity.current = activity
-                    isShowingActivity.toggle()
+                    isShowingCreateActivityAlert.toggle()
                 }) {
-                    ActivityListCellView(activity: activity)
+                    ZStack {
+                        Image(systemName: "plus")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(.on)
+                    }
+                    .frame(maxWidth: .infinity, idealHeight: 70)
+                    .border(Color.on, width: 1)
                 }
             }
         }
@@ -59,6 +77,24 @@ struct ActivityListView: View {
             activities = Activity.all
         }) {
             ActivityView(isShowing: $isShowingActivity)
+        }
+
+        if isShowingCreateActivityAlert {
+            TextFieldAlertView(
+                text: $newActivityName,
+                isShowingAlert: $isShowingCreateActivityAlert,
+                placeholder: "名前",
+                isSecureTextEntry: false,
+                title: "新しいアクティビティの作成",
+                message: "アクティビティの名前を入力",
+                leftButtonTitle: "キャンセル",
+                rightButtonTitle: "作成",
+                leftButtonAction: nil,
+                rightButtonAction: {
+                    Activity.create(title: newActivityName)
+                    newActivityName = ""
+                    activities = Activity.all
+            })
         }
     }
 }

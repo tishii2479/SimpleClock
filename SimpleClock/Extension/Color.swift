@@ -26,4 +26,6 @@ extension Color {
     static let orange = Color("HighOrange")
     // Highlighted blue
     static let highBlue = Color("HighBlue")
+    // Border
+    static let border = Color("Border")
 }

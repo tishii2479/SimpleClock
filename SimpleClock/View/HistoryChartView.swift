@@ -38,6 +38,13 @@ struct HistoryChartView: UIViewRepresentable {
         var dataEntries = [ChartDataEntry]()
         var accumulateTime: Double = 0
         let histories: [ActivityHistory] = Array(Activity.current.histories)
+        
+        if histories.count == 0 {
+            uiView.data = nil
+            uiView.animate(xAxisDuration: 0)
+            return
+        }
+        
         for history in histories {
             accumulateTime += Double(history.time)
             let chartDataEntry = ChartDataEntry(x: Double(Calendar.current.dateComponents([.second], from: histories[0].startDate, to: history.startDate).second!), y: accumulateTime)
@@ -47,15 +54,15 @@ struct HistoryChartView: UIViewRepresentable {
         let dataSet = LineChartDataSet(entries: dataEntries)
         dataSet.lineWidth = 3.0
         dataSet.circleRadius = 6.0
-        dataSet.valueTextColor = UIColor(.white)
-        dataSet.setCircleColor(UIColor(.white))
-        dataSet.setColor(UIColor(.white))
-        dataSet.circleHoleColor = UIColor(.white)
+        dataSet.valueTextColor = UIColor(.border)
+        dataSet.setCircleColor(UIColor(.border))
+        dataSet.setColor(UIColor(.border))
+        dataSet.circleHoleColor = UIColor(.border)
         dataSet.mode = .linear
         
         uiView.data = LineChartData(dataSet: dataSet)
         uiView.xAxis.valueFormatter = ChartXAxisFormatter(startDate: histories[0].startDate)
-        uiView.xAxis.setLabelCount(min(7, histories.count), force: true)
+        uiView.xAxis.setLabelCount(7, force: true)
         uiView.animate(xAxisDuration: 0)
     }
     

@@ -54,7 +54,7 @@ struct ActivityView: View {
                                 .foregroundColor(.red)
 
                             Text("Delete")
-                                .foregroundColor(.white)
+                                .foregroundColor(.text)
                         }
                     }
                 }
@@ -99,11 +99,11 @@ struct ActivityView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 25)
                             .frame(width: 200, height: 50)
-                            .foregroundColor(.white)
+                            .foregroundColor(.border)
                             .shadow(radius: 10)
 
                         Text("Start")
-                            .foregroundColor(.black)
+                            .foregroundColor(.back)
                     }
                 }
                 .padding(20)

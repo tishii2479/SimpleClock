@@ -14,7 +14,8 @@ class ActivityHistory: Object {
     @objc dynamic private(set) var endDate = Date()
     @objc dynamic private(set) var second: Int = 0
     
-    static func create(activity: Activity, second: Int, startDate: Date, endDate: Date = Date()) {
+    @discardableResult
+    static func create(activity: Activity, second: Int, startDate: Date, endDate: Date = Date()) -> ActivityHistory {
         let history = ActivityHistory()
         history.startDate = startDate
         history.endDate = endDate
@@ -25,6 +26,19 @@ class ActivityHistory: Object {
         try! realm.write {
             realm.add(history)
             activity.histories.append(history)
+        }
+        
+        return history
+    }
+    
+    func delete() {
+        let realm = try! Realm()
+        do {
+            try realm.write {
+                realm.delete(self)
+            }
+        } catch {
+            print("Realm error, ActivityHistory is deleted already?")
         }
     }
 }

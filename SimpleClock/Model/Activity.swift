@@ -54,7 +54,8 @@ class Activity: Object {
         TimeFormatter.formatTime(second: monthTime, style: .hms)
     }
     
-    static func create(title: String) {
+    @discardableResult
+    static func create(title: String) -> Activity {
         let activity = Activity()
         activity.title = title
         
@@ -64,6 +65,7 @@ class Activity: Object {
         }
         // Create base history
         ActivityHistory.create(activity: activity, second: 0, startDate: Date(), endDate: Date())
+        return activity
     }
     
     func delete() {

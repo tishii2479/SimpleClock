@@ -61,6 +61,12 @@ struct ActivityClockView: View {
         .onAppear {
             viewModel.onAppear()
         }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification), perform: { output in
+            viewModel.onDisappear()
+        })
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification), perform: { output in
+            viewModel.onRestart()
+        })
     }
 }
 

@@ -12,10 +12,14 @@ class ActivityClockViewModel: ObservableObject {
         TimeFormatter.formatTime(second: elapsedTime + totalTime, style: .semi)
     }
     
-    private var totalTime: Int = 0
+    @Published var totalTime: Int = 0
     @Published var elapsedTime: Int = 0
     private var startDate = Date()
     private var timer = Timer()
+    // Cached history is used to restore ActivityHistory before terminate
+    // When the app enter background, save new history and hold it at cachedHistory
+    // If the app becomes active again, delete the saved cached history
+    private var cachedHistory: ActivityHistory? = nil
     
     func onAppear() {
         print("ActivityClockView onAppear")
@@ -26,7 +30,18 @@ class ActivityClockViewModel: ObservableObject {
         print("ActivityClockView onDisappear")
         timer.invalidate()
 
-        ActivityHistory.create(activity: Activity.current, second: elapsedTime, startDate: startDate)
+        cachedHistory = ActivityHistory.create(activity: Activity.current, second: elapsedTime, startDate: startDate, endDate: Date())
+    }
+    
+    func onRestart() {
+        print("ActivityClockView onRestart")
+        if let history = cachedHistory {
+            history.delete()
+        }
+        cachedHistory = nil
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            self.elapsedTime += 1
+        }
     }
     
     private func startClock() {

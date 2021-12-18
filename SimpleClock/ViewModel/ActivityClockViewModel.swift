@@ -9,9 +9,10 @@ import SwiftUI
 
 class ActivityClockViewModel: ObservableObject {
     var totalTimeStr: String {
-        TimeFormatter.formatTime(second: Activity.current.totalTime, style: .semi)
+        TimeFormatter.formatTime(second: elapsedTime, style: .semi)
     }
     
+    @Published var elapsedTime: Int = 0
     private var startDate = Date()
     private var timer = Timer()
     
@@ -29,11 +30,10 @@ class ActivityClockViewModel: ObservableObject {
     }
     
     private func startClock() {
+        elapsedTime = Activity.current.totalTime
         startDate = Date()
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            // TODO: Check performance
-            // Workaround: Use cache, and update later
-            Activity.current.addTime(time: 1)
+            self.elapsedTime += 1
         }
     }
 }

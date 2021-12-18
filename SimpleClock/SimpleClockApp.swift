@@ -12,9 +12,11 @@ import RealmSwift
 struct SimpleClockApp: SwiftUI.App {
     init() {
 #if DEBUG
+        if let fileURL = Realm.Configuration.defaultConfiguration.fileURL {
+            try! FileManager.default.removeItem(at: fileURL)
+        }
         print("Realm file path: ", Realm.Configuration.defaultConfiguration.fileURL!)
 #endif
-        
         // TODO: Create AppDelegate/SceneDelegate and move
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used

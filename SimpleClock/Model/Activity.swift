@@ -10,8 +10,7 @@ import RealmSwift
 import Foundation
 
 class Activity: Object {
-    @objc dynamic private(set) var title: String
-    @objc dynamic private(set) var totalTime: Int = 123456
+    @objc dynamic private(set) var title: String = ""
     let histories = RealmSwift.List<ActivityHistory>()
     
     private static var _current: Activity?
@@ -27,6 +26,14 @@ class Activity: Object {
         return Array(realm.objects(Activity.self))
     }
     
+    var totalTime: Int {
+        var total: Int = 0
+        for history in histories {
+            total += history.time
+        }
+        return total
+    }
+    
     var totalTimeStr: String {
         TimeFormatter.formatTime(second: totalTime, style: .hms)
     }
@@ -35,13 +42,13 @@ class Activity: Object {
         TimeFormatter.formatTime(second: 12345, style: .hms)
     }
     
-    override init() {
-        self.title = "Title"
-    }
-    
-    func addTime(time: Int) {
-        try! Realm().write {
-            totalTime += time
+    static func create(title: String) {
+        let activity = Activity()
+        activity.title = title
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(activity)
         }
     }
 }

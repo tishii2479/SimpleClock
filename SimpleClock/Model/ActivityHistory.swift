@@ -9,9 +9,9 @@ import Foundation
 import RealmSwift
 
 class ActivityHistory: Object {
-    @objc dynamic var activity: Activity?
-    @objc dynamic var startDate = Date()
-    @objc dynamic var endDate = Date()
+    @objc dynamic private(set) var activity: Activity?
+    @objc dynamic private(set) var startDate = Date()
+    @objc dynamic private(set) var endDate = Date()
     
     // (endDate - startDate) in second
     var time: Int {

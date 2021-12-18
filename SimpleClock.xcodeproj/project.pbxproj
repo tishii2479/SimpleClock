@@ -15,6 +15,7 @@
 		490271C726271E2700256E2E /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490271C626271E2700256E2E /* StopWatchView.swift */; };
 		490271CC262720AB00256E2E /* StopWatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490271CB262720AB00256E2E /* StopWatchViewModel.swift */; };
 		4902962C276D93D300DA6D4F /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4902962B276D93D300DA6D4F /* ActivityViewModel.swift */; };
+		4902962E276DD0C400DA6D4F /* HistoryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4902962D276DD0C400DA6D4F /* HistoryChartView.swift */; };
 		4903CD77276A1B2E008DD021 /* TimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4903CD76276A1B2E008DD021 /* TimeFormatter.swift */; };
 		49044A6D2627266300BFE545 /* ClockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49044A6C2627266300BFE545 /* ClockManager.swift */; };
 		49044A7526272D6400BFE545 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49044A7426272D6400BFE545 /* TimerViewModel.swift */; };
@@ -72,6 +73,7 @@
 		490271C626271E2700256E2E /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
 		490271CB262720AB00256E2E /* StopWatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewModel.swift; sourceTree = "<group>"; };
 		4902962B276D93D300DA6D4F /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
+		4902962D276DD0C400DA6D4F /* HistoryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryChartView.swift; sourceTree = "<group>"; };
 		4903CD76276A1B2E008DD021 /* TimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatter.swift; sourceTree = "<group>"; };
 		49044A6C2627266300BFE545 /* ClockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockManager.swift; sourceTree = "<group>"; };
 		49044A7426272D6400BFE545 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				495582C12629635100F6E728 /* TutorialView.swift */,
 				4922721B2629B9FC00700263 /* TextView.swift */,
 				49713A282768811500765936 /* ActivityView.swift */,
+				4902962D276DD0C400DA6D4F /* HistoryChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				49713A2E276887D000765936 /* ActivityClockView.swift in Sources */,
 				49764A112626DD8900C0BD0E /* Font.swift in Sources */,
 				497649C02626C9C300C0BD0E /* SimpleClockApp.swift in Sources */,
+				4902962E276DD0C400DA6D4F /* HistoryChartView.swift in Sources */,
 				490271C726271E2700256E2E /* StopWatchView.swift in Sources */,
 				49713A322768DC8100765936 /* ActivityHistory.swift in Sources */,
 				4902962C276D93D300DA6D4F /* ActivityViewModel.swift in Sources */,

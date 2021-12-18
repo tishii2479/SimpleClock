@@ -34,6 +34,7 @@ class Activity: Object {
         }
         return total
     }
+
     var monthTime: Int {
         var total: Int = 0
         for history in histories {

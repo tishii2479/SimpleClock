@@ -19,17 +19,20 @@ struct SettingView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                Button(action: {
-                    self.isShowing = false
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("閉じる")
-                            .foregroundColor(.text)
-                            .font(.mainFont(size: 16))
-                            .padding()
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isShowing.toggle()
+                    }) {
+                        Image(systemName: "multiply")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(.on)
                     }
+                    .padding(5)
                 }
+                Spacer()
                 
                 Form {
                     Section(header: Text("このアプリについて").foregroundColor(.text)) {

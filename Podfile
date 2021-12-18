@@ -7,6 +7,7 @@ target 'SimpleClock' do
 
   # Pods for SimpleClock
   pod 'RealmSwift'
+  pod 'Charts'
 
   target 'SimpleClockTests' do
     inherit! :search_paths

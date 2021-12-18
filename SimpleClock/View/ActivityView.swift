@@ -11,7 +11,7 @@ struct ActivityView: View {
     @Binding var isShowing: Bool
     @State private var isShowingClock: Bool = false
     @ObservedObject private var viewModel: ActivityViewModel = ActivityViewModel()
-
+    
     var body: some View {
         ZStack {
             Color.back
@@ -20,30 +20,44 @@ struct ActivityView: View {
             ScrollView {
                 Spacer().frame(height: 80)
                 
-                HStack {
-                    Text("総時間")
-                        .foregroundColor(.text)
-                        .font(.mainFont(size: 20))
+                VStack(spacing: 30) {
+                    HStack {
+                        Text("総時間")
+                            .foregroundColor(.text)
+                            .font(.mainFont(size: 20))
+                        
+                        Text(viewModel.totalTimeStr)
+                            .foregroundColor(.text)
+                            .font(.mainFont(size: 14))
+                            .padding(.leading, 20)
+                        
+                        Spacer()
+                    }
                     
-                    Text(viewModel.totalTimeStr)
-                        .foregroundColor(.text)
-                        .font(.mainFont(size: 14))
-                        .padding(.leading, 20)
+                    HistoryChartView()
+                        .frame(maxWidth: .infinity, idealHeight: 240)
                     
-                    Spacer()
+                    // TODO: Github activity
+                    
+                    HStack {
+                        Text("合計日数")
+                            .foregroundColor(.text)
+                    }
+                    
+                    // TODO: Delete button
+                    Button(action: {
+                        print("Delete")
+                    }) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 25)
+                                .frame(width: 200, height: 50)
+                                .foregroundColor(.red)
+
+                            Text("Delete")
+                                .foregroundColor(.white)
+                        }
+                    }
                 }
-                
-                Rectangle()
-                    .foregroundColor(.black)
-                    .frame(width: 300, height: 240)
-                
-                Rectangle()
-                    .foregroundColor(.black)
-                    .frame(width: 300, height: 200)
-                
-                Rectangle()
-                    .foregroundColor(.black)
-                    .frame(width: 300, height: 200)
             }
             .padding(.horizontal, 20)
             

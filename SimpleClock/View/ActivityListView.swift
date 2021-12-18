@@ -33,7 +33,10 @@ private struct ActivityListCellView: View {
             .padding(20)
         }
         .frame(maxWidth: .infinity)
-        .border(Color.border, width: 2)
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(Color.border, lineWidth: 2)
+        )
     }
 }
 
@@ -67,7 +70,10 @@ struct ActivityListView: View {
                             .foregroundColor(.on)
                     }
                     .frame(maxWidth: .infinity, idealHeight: 70)
-                    .border(Color.on, width: 1)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.border, lineWidth: 2)
+                    )
                 }
             }
         }

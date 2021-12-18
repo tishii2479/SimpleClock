@@ -15,14 +15,18 @@ struct HistoryChartView: UIViewRepresentable {
         let chartView = LineChartView()
         chartView.xAxis.labelPosition = .bottom
         chartView.xAxis.drawAxisLineEnabled = false
-        chartView.xAxis.drawGridLinesEnabled = false
+        chartView.xAxis.drawGridLinesEnabled = true
         chartView.xAxis.granularity = 1
         chartView.xAxis.labelTextColor = UIColor(.text)
+        chartView.xAxis.setLabelCount(4, force: true)
+        chartView.xAxis.labelRotationAngle = -60
         
         chartView.leftAxis.axisMinimum = 0
         chartView.leftAxis.granularity = 1
         chartView.leftAxis.drawAxisLineEnabled = false
         chartView.leftAxis.labelTextColor = UIColor(.text)
+        chartView.leftAxis.setLabelCount(4, force: true)
+        chartView.leftAxis.labelFont = UIFont.mainFont(size: 10)
         chartView.rightAxis.enabled = false
         
         chartView.highlightPerTapEnabled = false
@@ -48,24 +52,40 @@ struct HistoryChartView: UIViewRepresentable {
         }
         
         for history in histories {
-            accumulateTime += Double(history.time)
-            let chartDataEntry = ChartDataEntry(x: Double(Calendar.current.dateComponents([.second], from: histories[0].startDate, to: history.startDate).second!), y: accumulateTime)
-            dataEntries.append(chartDataEntry)
+            let startPoint = ChartDataEntry(x: Double(Calendar.current.dateComponents([.second], from: histories[0].startDate, to: history.startDate).second!), y: accumulateTime)
+            accumulateTime += Double(history.second)
+            let endPoint = ChartDataEntry(x: Double(Calendar.current.dateComponents([.second], from: histories[0].startDate, to: history.endDate).second!), y: accumulateTime)
+            dataEntries.append(startPoint)
+            dataEntries.append(endPoint)
         }
 
         let dataSet = LineChartDataSet(entries: dataEntries)
         dataSet.lineWidth = 3.0
-        dataSet.circleRadius = 6.0
+        dataSet.circleRadius = 4.0
         dataSet.valueTextColor = UIColor(.border)
         dataSet.setCircleColor(UIColor(.border))
         dataSet.setColor(UIColor(.border))
         dataSet.circleHoleColor = UIColor(.border)
         dataSet.mode = .linear
+        dataSet.drawValuesEnabled = false
+        let gradientColors = [UIColor(Color.orange).cgColor, UIColor(Color.highBlue).withAlphaComponent(0.5).cgColor] as CFArray
+        let colorLocations: [CGFloat] = [0.5, 0.0]
+        let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)
+        dataSet.fill = Fill.fillWithLinearGradient(gradient!, angle: 90.0)
+        dataSet.fillAlpha = 0.8
+        dataSet.drawFilledEnabled = true
         
         uiView.data = LineChartData(dataSet: dataSet)
+        uiView.leftAxis.axisMaximum = accumulateTime * 1.3
         uiView.xAxis.valueFormatter = ChartXAxisFormatter(startDate: histories[0].startDate)
-        uiView.xAxis.setLabelCount(7, force: true)
+        uiView.leftAxis.valueFormatter = ChartLeftAxisFormatter()
         uiView.animate(xAxisDuration: 0)
+    }
+    
+    class ChartLeftAxisFormatter: NSObject, IAxisValueFormatter {
+        public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+            TimeFormatter.formatTime(second: Int(value), style: .semi)
+        }
     }
     
     class ChartXAxisFormatter: NSObject, IAxisValueFormatter {

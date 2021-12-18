@@ -12,3 +12,9 @@ extension Font {
         return Font.custom("Play-Regular", size: size)
     }
 }
+
+extension UIFont {
+    static func mainFont(size: CGFloat) -> UIFont {
+        return UIFont(name: "Play-Regular", size: size)!
+    }
+}

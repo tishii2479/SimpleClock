@@ -31,7 +31,7 @@ class Activity: Object {
     var totalTime: Int {
         var total: Int = 0
         for history in histories {
-            total += history.time
+            total += history.second
         }
         return total
     }
@@ -40,7 +40,7 @@ class Activity: Object {
         var total: Int = 0
         for history in histories {
             if history.startDate.isInSameMonth(as: Date()) {
-                total += history.time
+                total += history.second
             }
         }
         return total
@@ -62,6 +62,8 @@ class Activity: Object {
         try! realm.write {
             realm.add(activity)
         }
+        // Create base history
+        ActivityHistory.create(activity: activity, second: 0, startDate: Date(), endDate: Date())
     }
     
     func delete() {

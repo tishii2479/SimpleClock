@@ -39,11 +39,9 @@ struct ActivityView: View {
                         .frame(maxWidth: .infinity, idealHeight: 240)
                     
                     // TODO: Github activity
+                    // TODO: Activity status
                     
-                    HStack {
-                        Text("合計日数")
-                            .foregroundColor(.text)
-                    }
+                    Spacer().frame(height: 50)
                     
                     Button(action: {
                         isShowingDeleteAlert.toggle()

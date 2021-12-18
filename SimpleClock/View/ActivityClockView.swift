@@ -56,8 +56,7 @@ struct ActivityClockView: View {
                 }
                 Spacer()
             }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 10)
+            .padding(20)
         }
         .onAppear {
             viewModel.onAppear()

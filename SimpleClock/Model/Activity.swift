@@ -26,10 +26,20 @@ class Activity: Object {
         return Array(realm.objects(Activity.self))
     }
     
+    // TODO: Check performance for totalTime and monthTime and improve
     var totalTime: Int {
         var total: Int = 0
         for history in histories {
             total += history.time
+        }
+        return total
+    }
+    var monthTime: Int {
+        var total: Int = 0
+        for history in histories {
+            if history.startDate.isInSameMonth(as: Date()) {
+                total += history.time
+            }
         }
         return total
     }
@@ -39,7 +49,7 @@ class Activity: Object {
     }
     
     var monthTimeStr: String {
-        TimeFormatter.formatTime(second: 12345, style: .hms)
+        TimeFormatter.formatTime(second: monthTime, style: .hms)
     }
     
     static func create(title: String) {

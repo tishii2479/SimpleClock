@@ -18,6 +18,6 @@ class ActivityViewModel: ObservableObject {
     
     func updateActivity(activity: Activity = Activity.current) {
         totalTimeStr = TimeFormatter.formatTime(second: activity.totalTime, style: .hms)
-        monthTimeStr = TimeFormatter.formatTime(second: 12345, style: .hms)
+        monthTimeStr = TimeFormatter.formatTime(second: activity.monthTime, style: .hms)
     }
 }

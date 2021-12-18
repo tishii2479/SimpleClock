@@ -18,7 +18,6 @@ class ActivityClockViewModel: ObservableObject {
     
     func onAppear() {
         print("ActivityClockView onAppear")
-        print(Activity.current.histories)
         startClock()
     }
     

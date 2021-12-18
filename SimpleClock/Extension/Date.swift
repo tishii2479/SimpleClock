@@ -27,4 +27,12 @@ extension Date {
         formatter.dateFormat = format
         return formatter.string(from: self)
     }
+    
+    func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
+        calendar.isDate(self, equalTo: date, toGranularity: component)
+    }
+
+    func isInSameMonth(as date: Date) -> Bool {
+        isEqual(to: date, toGranularity: .month)
+    }
 }

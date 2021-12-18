@@ -10,6 +10,7 @@ import SwiftUI
 struct ActivityView: View {
     @Binding var isShowing: Bool
     @State private var isShowingClock: Bool = false
+    @State private var isShowingDeleteAlert: Bool = false
     @ObservedObject private var viewModel: ActivityViewModel = ActivityViewModel()
     
     var body: some View {
@@ -44,16 +45,15 @@ struct ActivityView: View {
                             .foregroundColor(.text)
                     }
                     
-                    // TODO: Delete button
                     Button(action: {
-                        print("Delete")
+                        isShowingDeleteAlert.toggle()
                     }) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 25)
                                 .frame(width: 200, height: 50)
                                 .foregroundColor(.red)
 
-                            Text("Delete")
+                            Text("削除")
                                 .foregroundColor(.text)
                         }
                     }
@@ -102,12 +102,22 @@ struct ActivityView: View {
                             .foregroundColor(.border)
                             .shadow(radius: 10)
 
-                        Text("Start")
+                        Text("開始")
                             .foregroundColor(.back)
                     }
                 }
                 .padding(20)
             }
+        }
+        .alert(isPresented: $isShowingDeleteAlert) {
+            Alert(title: Text("このアクティビティを削除しますか？"),
+                  primaryButton: .cancel(Text("キャンセル")),
+                  secondaryButton: .destructive(Text("削除"),
+                  action: {
+                    isShowing.toggle()
+                    viewModel.activity.delete()
+                  })
+            )
         }
         .fullScreenCover(isPresented: $isShowingClock, onDismiss: {
             viewModel.updateActivity()

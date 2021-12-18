@@ -72,11 +72,15 @@ struct ActivityListView: View {
             }
         }
         .padding(.horizontal, 20)
-        .fullScreenCover(isPresented: $isShowingActivity, onDismiss: {
+        .sheet(isPresented: $isShowingActivity, onDismiss: {
             // Refresh activities
             activities = Activity.all
         }) {
             ActivityView(isShowing: $isShowingActivity)
+        }
+        .onAppear {
+            // Refresh activities
+            activities = Activity.all
         }
 
         if isShowingCreateActivityAlert {

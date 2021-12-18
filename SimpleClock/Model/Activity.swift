@@ -11,6 +11,7 @@ import Foundation
 
 class Activity: Object {
     @objc dynamic private(set) var title: String = ""
+    @objc dynamic private(set) var isDeleted: Bool = false
     let histories = RealmSwift.List<ActivityHistory>()
     
     private static var _current: Activity?
@@ -23,7 +24,7 @@ class Activity: Object {
     }
     static var all: [Activity] {
         let realm = try! Realm()
-        return Array(realm.objects(Activity.self))
+        return Array(realm.objects(Activity.self).filter("isDeleted == 0"))
     }
     
     // TODO: Check performance for totalTime and monthTime and improve
@@ -60,6 +61,13 @@ class Activity: Object {
         let realm = try! Realm()
         try! realm.write {
             realm.add(activity)
+        }
+    }
+    
+    func delete() {
+        let realm = try! Realm()
+        try! realm.write {
+            isDeleted = true
         }
     }
 }

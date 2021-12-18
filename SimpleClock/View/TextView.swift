@@ -29,6 +29,7 @@ struct TextView: View {
                     }
                     .padding(5)
                 }
+                .padding()
                 
                 ScrollView {
                     Text(text)

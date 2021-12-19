@@ -9,7 +9,7 @@ import Foundation
 
 class TimeFormatter {
     enum FormatStyle: String {
-        case hms = "%d h %d m %d s"
+        case hms = "%dh %dm %ds"
         case semi = "%02d:%02d:%02d"
     }
     

@@ -52,10 +52,8 @@ struct HistoryChartView: UIViewRepresentable {
         }
         
         for history in histories {
-            let startPoint = ChartDataEntry(x: Double(Calendar.current.dateComponents([.second], from: histories[0].startDate, to: history.startDate).second!), y: accumulateTime)
             accumulateTime += Double(history.second)
             let endPoint = ChartDataEntry(x: Double(Calendar.current.dateComponents([.second], from: histories[0].startDate, to: history.endDate).second!), y: accumulateTime)
-            dataEntries.append(startPoint)
             dataEntries.append(endPoint)
         }
 
@@ -75,13 +73,30 @@ struct HistoryChartView: UIViewRepresentable {
         uiView.data = LineChartData(dataSet: dataSet)
         uiView.leftAxis.axisMaximum = accumulateTime * 1.3
         uiView.xAxis.valueFormatter = ChartXAxisFormatter(startDate: histories[0].startDate)
-        uiView.leftAxis.valueFormatter = ChartLeftAxisFormatter()
+        uiView.leftAxis.valueFormatter = ChartLeftAxisFormatter(maxValue: accumulateTime)
         uiView.animate(xAxisDuration: 0)
     }
     
     class ChartLeftAxisFormatter: NSObject, IAxisValueFormatter {
+        var maxValue: Double
+        
+        init (maxValue: Double) {
+            self.maxValue = maxValue
+        }
+
         public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-            TimeFormatter.formatTime(second: Int(value), style: .semi)
+            if maxValue < 120 {
+                let second = Int(value)
+                return String(format: "%ds", second)
+            }
+            else if maxValue < 7200 {
+                let minute = Int(value / 60)
+                return String(format: "%dm", minute)
+            }
+            else {
+                let hour = Int(value / 3600)
+                return String(format: "%dh", hour)
+            }
         }
     }
     

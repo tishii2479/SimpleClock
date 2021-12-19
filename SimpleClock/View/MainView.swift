@@ -84,10 +84,13 @@ struct MainView: View {
                         MenuItem(name: "line.horizontal.3", size: 30, isOn: false)
                     }
                 }
+                .padding()
+                .background(
+                    Color.back.opacity(0.5).edgesIgnoringSafeArea(.top)
+                )
                 
                 Spacer()
             }
-            .padding()
             
             // Vibrate notification filter
             if clock.isVibrating {

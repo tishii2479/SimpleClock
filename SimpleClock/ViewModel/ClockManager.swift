@@ -8,6 +8,8 @@
 import Foundation
 import AudioToolbox
 
+// TODO: Refactor, stop using singleton
+
 class ClockManager: ObservableObject {
     static let shared = ClockManager()
     

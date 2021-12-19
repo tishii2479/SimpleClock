@@ -7,6 +7,8 @@
 
 import Foundation
 
+// TODO: Remove, or rename?
+
 protocol Clock {
     // Time in formatted string
     var time: String { get }

@@ -150,21 +150,10 @@
 		490271D02627216E00256E2E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49560F4F276EB46D0002EE74 /* Clock */,
+				49560F4E276EB4480002EE74 /* Activity */,
+				49560F4D276EB4340002EE74 /* Common */,
 				490271B92627197900256E2E /* MainView.swift */,
-				49713A26276878CD00765936 /* ActivityListView.swift */,
-				490271C626271E2700256E2E /* StopWatchView.swift */,
-				490271A72627121A00256E2E /* ClockView.swift */,
-				490271AF2627181900256E2E /* TimerView.swift */,
-				498844922627EB2600AA35D3 /* SettingView.swift */,
-				49713A2D276887D000765936 /* ActivityClockView.swift */,
-				49CB4DB62628694B00717623 /* TimerPicker.swift */,
-				495582C12629635100F6E728 /* TutorialView.swift */,
-				4922721B2629B9FC00700263 /* TextView.swift */,
-				49713A282768811500765936 /* ActivityView.swift */,
-				4902962D276DD0C400DA6D4F /* HistoryChartView.swift */,
-				4902962F276DE01A00DA6D4F /* CreateActivityModalView.swift */,
-				49029631276DE1BA00DA6D4F /* TextFieldAlertView.swift */,
-				49029633276E283400DA6D4F /* CloseButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +184,41 @@
 				492272202629BA3300700263 /* TextData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		49560F4D276EB4340002EE74 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				498844922627EB2600AA35D3 /* SettingView.swift */,
+				495582C12629635100F6E728 /* TutorialView.swift */,
+				4922721B2629B9FC00700263 /* TextView.swift */,
+				49029631276DE1BA00DA6D4F /* TextFieldAlertView.swift */,
+				49029633276E283400DA6D4F /* CloseButton.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		49560F4E276EB4480002EE74 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				4902962F276DE01A00DA6D4F /* CreateActivityModalView.swift */,
+				4902962D276DD0C400DA6D4F /* HistoryChartView.swift */,
+				49713A26276878CD00765936 /* ActivityListView.swift */,
+				49713A2D276887D000765936 /* ActivityClockView.swift */,
+				49713A282768811500765936 /* ActivityView.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		49560F4F276EB46D0002EE74 /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				49CB4DB62628694B00717623 /* TimerPicker.swift */,
+				490271C626271E2700256E2E /* StopWatchView.swift */,
+				490271A72627121A00256E2E /* ClockView.swift */,
+				490271AF2627181900256E2E /* TimerView.swift */,
+			);
+			path = Clock;
 			sourceTree = "<group>";
 		};
 		49713A2A2768830900765936 /* Model */ = {

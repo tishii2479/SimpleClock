@@ -46,6 +46,42 @@ class Activity: Object {
         return total
     }
     
+    var totalDate: Int {
+        var set = Set<Date>()
+        for history in histories {
+            set.insert(history.startDate.startOfDay)
+        }
+        return set.count
+    }
+    
+    var averageSecondPerDay: Int {
+        var dict = [Date : Int]()
+        var sum: Int = 0
+        for history in histories {
+            let day = history.startDate.startOfDay
+            if dict[day] == nil {
+                dict[day] = 0
+            }
+            dict[day] = dict[day]! + history.second
+            sum += history.second
+        }
+        return sum / dict.count
+    }
+    
+    var consecutiveDayCount: Int {
+        var set = Set<Date>()
+        for history in histories {
+            set.insert(history.startDate.startOfDay)
+        }
+        var count: Int = 0
+        var currentDate: Date = Date()
+        while (set.contains(currentDate.startOfDay)) {
+            count += 1
+            currentDate = currentDate.addingTimeInterval(-24 * 3600)
+        }
+        return count
+    }
+    
     var totalTimeStr: String {
         TimeFormatter.formatTime(second: totalTime, style: .hms)
     }
@@ -72,6 +108,13 @@ class Activity: Object {
         let realm = try! Realm()
         try! realm.write {
             isDeleted = true
+        }
+    }
+    
+    func rename(newName: String) {
+        let realm = try! Realm()
+        try! realm.write {
+            title = newName
         }
     }
 }

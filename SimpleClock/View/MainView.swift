@@ -86,7 +86,7 @@ struct MainView: View {
                 }
                 .padding()
                 .background(
-                    Color.back.opacity(0.5).edgesIgnoringSafeArea(.top)
+                    Color.back.opacity(0.7).edgesIgnoringSafeArea(.top)
                 )
                 
                 Spacer()

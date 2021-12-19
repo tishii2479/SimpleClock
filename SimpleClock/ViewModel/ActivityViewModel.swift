@@ -10,6 +10,7 @@ import SwiftUI
 class ActivityViewModel: ObservableObject {
     @Published var totalTimeStr: String = ""
     @Published var monthTimeStr: String = ""
+    @Published var activityName: String = ""
     var activity: Activity = Activity.current
     
     init() {
@@ -19,5 +20,6 @@ class ActivityViewModel: ObservableObject {
     func updateActivity(activity: Activity = Activity.current) {
         totalTimeStr = TimeFormatter.formatTime(second: activity.totalTime, style: .hms)
         monthTimeStr = TimeFormatter.formatTime(second: activity.monthTime, style: .hms)
+        activityName = activity.title
     }
 }

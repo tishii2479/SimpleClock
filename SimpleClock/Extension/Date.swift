@@ -8,6 +8,10 @@
 import Foundation
 
 extension Date {
+    var startOfDay: Date {
+        Calendar.current.startOfDay(for: self)
+    }
+    
     private func formatter() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .gregorian)

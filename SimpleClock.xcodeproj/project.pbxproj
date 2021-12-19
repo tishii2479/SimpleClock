@@ -26,6 +26,7 @@
 		4922721C2629B9FC00700263 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4922721B2629B9FC00700263 /* TextView.swift */; };
 		492272212629BA3300700263 /* TextData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492272202629BA3300700263 /* TextData.swift */; };
 		495582C22629635100F6E728 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495582C12629635100F6E728 /* TutorialView.swift */; };
+		49560F51276EB60A0002EE74 /* ActivityGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49560F50276EB60A0002EE74 /* ActivityGridView.swift */; };
 		49713A27276878CD00765936 /* ActivityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49713A26276878CD00765936 /* ActivityListView.swift */; };
 		49713A292768811500765936 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49713A282768811500765936 /* ActivityView.swift */; };
 		49713A2C2768831800765936 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49713A2B2768831800765936 /* Activity.swift */; };
@@ -87,6 +88,7 @@
 		4922721B2629B9FC00700263 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		492272202629BA3300700263 /* TextData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextData.swift; sourceTree = "<group>"; };
 		495582C12629635100F6E728 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		49560F50276EB60A0002EE74 /* ActivityGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityGridView.swift; sourceTree = "<group>"; };
 		49713A26276878CD00765936 /* ActivityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListView.swift; sourceTree = "<group>"; };
 		49713A282768811500765936 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		49713A2B2768831800765936 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				49713A26276878CD00765936 /* ActivityListView.swift */,
 				49713A2D276887D000765936 /* ActivityClockView.swift */,
 				49713A282768811500765936 /* ActivityView.swift */,
+				49560F50276EB60A0002EE74 /* ActivityGridView.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				49713A2E276887D000765936 /* ActivityClockView.swift in Sources */,
 				49764A112626DD8900C0BD0E /* Font.swift in Sources */,
 				497649C02626C9C300C0BD0E /* SimpleClockApp.swift in Sources */,
+				49560F51276EB60A0002EE74 /* ActivityGridView.swift in Sources */,
 				4902962E276DD0C400DA6D4F /* HistoryChartView.swift in Sources */,
 				490271C726271E2700256E2E /* StopWatchView.swift in Sources */,
 				49713A322768DC8100765936 /* ActivityHistory.swift in Sources */,

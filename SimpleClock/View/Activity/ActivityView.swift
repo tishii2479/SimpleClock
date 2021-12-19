@@ -11,6 +11,8 @@ struct ActivityView: View {
     @Binding var isShowing: Bool
     @State private var isShowingClock: Bool = false
     @State private var isShowingDeleteAlert: Bool = false
+    @State private var isShowingRenameActivityAlert: Bool = false
+    @State private var newActivityName: String = ""
     @ObservedObject private var viewModel: ActivityViewModel = ActivityViewModel()
     
     var body: some View {
@@ -18,7 +20,7 @@ struct ActivityView: View {
             Color.back
                 .edgesIgnoringSafeArea(.all)
             
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 Spacer().frame(height: 80)
                 
                 VStack(spacing: 30) {
@@ -33,35 +35,61 @@ struct ActivityView: View {
                             .padding(.leading, 20)
                         
                         Spacer()
+                        
+                        Menu(content: {
+                            Button("アクティビティの名前を編集", action: {
+                                isShowingRenameActivityAlert.toggle()
+                            })
+                            Button("このアクティビティを削除", action: {
+                                isShowingDeleteAlert.toggle()
+                            })
+                        }) {
+                            Image(systemName: "ellipsis")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(.on)
+                        }
                     }
                     
                     HistoryChartView(activity: $viewModel.activity)
                         .frame(maxWidth: .infinity, idealHeight: 240)
                     
-                    // TODO: Github activity
-                    // TODO: Activity status
-                    
-                    Spacer().frame(height: 50)
-                    
-                    Button(action: {
-                        isShowingDeleteAlert.toggle()
-                    }) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 25)
-                                .frame(width: 200, height: 50)
-                                .foregroundColor(.red)
-
-                            Text("削除")
-                                .foregroundColor(.text)
-                        }
+                    HStack {
+                        Text("活動履歴")
+                            .foregroundColor(.text)
+                            .font(.mainFont(size: 20))
+                        
+                        Spacer()
                     }
+                    
+                    ActivityGridView(activity: $viewModel.activity)
+                    
+                    VStack(spacing: 10) {
+                        StatusTextRowView(
+                            leftText: "1日あたりの平均時間",
+                            rightText: TimeFormatter.formatTime(second: viewModel.activity.averageSecondPerDay, style: .hms)
+                        )
+                        
+                        StatusTextRowView(
+                            leftText: "連続継続日数",
+                            rightText: String(viewModel.activity.consecutiveDayCount) + "d"
+                        )
+                        
+                        StatusTextRowView(
+                            leftText: "合計日数",
+                            rightText: String(viewModel.activity.totalDate) + "d"
+                        )
+                    }
+                    
+                    Spacer().frame(height: 90)
                 }
             }
             .padding(.horizontal, 20)
             
             VStack {
                 HStack {
-                    Text(viewModel.activity.title)
+                    Text(viewModel.activityName)
                         .foregroundColor(.text)
                         .font(.mainFont(size: 30))
                     
@@ -77,22 +105,34 @@ struct ActivityView: View {
                 .padding(.horizontal, 20)
                 .padding(.vertical, 10)
                 .background(
-                    Color.back.opacity(0.5).edgesIgnoringSafeArea(.top)
+                    Color.back.opacity(0.7).edgesIgnoringSafeArea(.top)
                 )
 
                 Spacer()
 
-                Button(action: {
-                    isShowingClock.toggle()
-                }) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 25)
-                            .frame(width: 200, height: 50)
-                            .foregroundColor(.border)
-                            .shadow(radius: 10)
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isShowingClock.toggle()
+                    }) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 25)
+                                .frame(width: 120, height: 50)
+                                .foregroundColor(.orange)
+                                .shadow(radius: 10)
 
-                        Text("開始")
-                            .foregroundColor(.back)
+                            HStack {
+                                Text("開始")
+                                    .foregroundColor(.text)
+                                    .font(.mainFont(size: 16))
+                                
+                                Image(systemName: "stopwatch")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(.text)
+                            }
+                        }
                     }
                 }
                 .padding(20)
@@ -112,6 +152,43 @@ struct ActivityView: View {
             viewModel.updateActivity()
         }) {
             ActivityClockView(isShowing: $isShowingClock)
+        }
+        
+        if isShowingRenameActivityAlert {
+            TextFieldAlertView(
+                text: $newActivityName,
+                isShowingAlert: $isShowingRenameActivityAlert,
+                placeholder: "新しい名前",
+                isSecureTextEntry: false,
+                title: "アクティビティの名前の変更",
+                message: "アクティビティの新しい名前を入力",
+                leftButtonTitle: "キャンセル",
+                rightButtonTitle: "変更",
+                leftButtonAction: nil,
+                rightButtonAction: {
+                    if newActivityName == "" { return }
+                    viewModel.activity.rename(newName: newActivityName)
+                    newActivityName = ""
+                    viewModel.updateActivity()
+            })
+        }
+    }
+    
+    private struct StatusTextRowView: View {
+        var leftText: String
+        var rightText: String
+        var body: some View {
+            HStack(spacing: 20) {
+                Text(leftText)
+                    .foregroundColor(.text)
+                    .font(.mainFont(size: 12))
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                
+                Text(rightText)
+                    .foregroundColor(.text)
+                    .font(.mainFont(size: 20))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
         }
     }
 }

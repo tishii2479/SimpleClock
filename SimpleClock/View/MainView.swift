@@ -47,42 +47,27 @@ struct MainView: View {
             
             VStack {
                 HStack(spacing: 10) {
-                    Button(action: {
+                    IconButton(nameOn: "lock", nameOff: "lock.open", size: 30, isOn: keepScreenOn, action: {
                         keepScreenOn.toggle()
                         UIApplication.shared.isIdleTimerDisabled = keepScreenOn
-                    }) {
-                        MenuItem(nameOn: "lock", nameOff: "lock.open", size: 30, isOn: keepScreenOn)
-                    }
-                    
+                    })
                     Spacer()
-                    Button(action: {
+                    IconButton(nameOn: "clock", size: 30, isOn: currentView == .clock, action: {
                         switchView(type: .clock)
-                    }) {
-                        MenuItem(name: "clock", size: 30, isOn: currentView == .clock)
-                    }
-                    Button(action: {
+                    })
+                    IconButton(nameOn: "stopwatch", size: 33, isOn: currentView == .stopwatch, action: {
                         switchView(type: .stopwatch)
-                    }) {
-                        MenuItem(name: "stopwatch", size: 30, isOn: currentView == .stopwatch)
-                    }
-                    Button(action: {
+                    })
+                    IconButton(nameOn: "timer", size: 30, isOn: currentView == .timer, action: {
                         switchView(type: .timer)
-                    }) {
-                        MenuItem(name: "timer", size: 28, isOn: currentView == .timer)
-                    }
-                    Button(action: {
+                    })
+                    IconButton(nameOn: "list.bullet.rectangle", size: 30, isOn: currentView == .activityList, action: {
                         switchView(type: .activityList)
-                    }) {
-                        MenuItem(name: "list.bullet.rectangle", size: 30, isOn: currentView == .activityList)
-                    }
-                    
+                    })
                     Spacer()
-                    
-                    Button(action: {
+                    IconButton(nameOn: "line.horizontal.3", size: 30, action: {
                         isShowingSetting.toggle()
-                    }) {
-                        MenuItem(name: "line.horizontal.3", size: 30, isOn: false)
-                    }
+                    })
                 }
                 .padding()
                 .background(
@@ -96,7 +81,7 @@ struct MainView: View {
             if clock.isVibrating {
                 ZStack {
                     Color(red: 0, green: 0, blue: 0, opacity: clock.isVibrating ? 0.6 : 0)
-                    MenuItem(name: "alarm", size: 50, isOn: false)
+                    IconImageView(nameOn: "alerm", size: 50)
                 }
                 .animation(.linear)
                 .edgesIgnoringSafeArea(.all)

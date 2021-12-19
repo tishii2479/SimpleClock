@@ -63,11 +63,7 @@ struct ActivityListView: View {
                     isShowingCreateActivityAlert.toggle()
                 }) {
                     ZStack {
-                        Image(systemName: "plus")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.on)
+                        IconImageView(nameOn: "plus")
                     }
                     .frame(maxWidth: .infinity, idealHeight: 70)
                     .overlay(

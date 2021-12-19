@@ -46,26 +46,20 @@ struct StopWatchView: View {
                 
                 HStack {
                     if viewModel.status == .play {
-                        Button(action: {
+                        IconButton(nameOn: "pause", action: {
                             viewModel.pause()
-                        }) {
-                            MenuItem(name: "pause", size: 20, isOn: false)
-                        }
+                        })
                         .padding(.trailing, 20)
                     } else {
-                        Button(action: {
+                        IconButton(nameOn: "play", action: {
                             viewModel.play()
-                        }) {
-                            MenuItem(name: "play", size: 20, isOn: false)
-                        }
+                        })
                         .padding(.trailing, 20)
                     }
                     
-                    Button(action: {
+                    IconButton(nameOn: "stop", action: {
                         viewModel.stop()
-                    }) {
-                        MenuItem(name: "stop", size: 20, isOn: false)
-                    }
+                    })
                 }
             }
             .padding(.bottom, 20)

@@ -42,8 +42,9 @@ struct ActivityClockView: View {
             VStack {
                 HStack {
                     Spacer()
-                    CloseButton(isShowing: $isShowing, action: {
+                    IconButton(nameOn: "multiply", action: {
                         viewModel.onDisappear()
+                        isShowing.toggle()
                     })
                 }
                 Spacer()

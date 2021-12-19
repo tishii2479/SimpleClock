@@ -18,8 +18,10 @@ struct TextView: View {
             VStack {   
                 HStack {
                     Spacer()
-                    CloseButton(isShowing: $isShowing, action: nil)
-                        .padding()
+                    IconButton(nameOn: "multiply", action: {
+                        isShowing.toggle()
+                    })
+                    .padding()
                 }
                 
                 ScrollView {

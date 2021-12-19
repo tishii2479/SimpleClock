@@ -21,7 +21,9 @@ struct SettingView: View {
             VStack {
                 HStack {
                     Spacer()
-                    CloseButton(isShowing: $isShowing, action: nil)
+                    IconButton(nameOn: "multiply", action: {
+                        isShowing.toggle()
+                    })
                 }
                 Spacer()
                 

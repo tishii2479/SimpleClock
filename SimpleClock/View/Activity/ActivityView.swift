@@ -44,11 +44,7 @@ struct ActivityView: View {
                                 isShowingDeleteAlert.toggle()
                             })
                         }) {
-                            Image(systemName: "ellipsis")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.on)
+                            IconImageView(nameOn: "ellipsis")
                         }
                     }
                     
@@ -100,7 +96,9 @@ struct ActivityView: View {
                         .font(.mainFont(size: 16))
                         .padding(.trailing, 20)
                     
-                    CloseButton(isShowing: $isShowing, action: nil)
+                    IconButton(nameOn: "multiply", action: {
+                        isShowing.toggle()
+                    })
                 }
                 .padding(.horizontal, 20)
                 .padding(.vertical, 10)
@@ -126,11 +124,7 @@ struct ActivityView: View {
                                     .foregroundColor(.text)
                                     .font(.mainFont(size: 16))
                                 
-                                Image(systemName: "stopwatch")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(.text)
+                                IconImageView(nameOn: "stopwatch")
                             }
                         }
                     }

@@ -43,7 +43,7 @@ struct HistoryChartView: UIViewRepresentable {
     func updateUIView(_ uiView: LineChartView, context: Context) {
         var dataEntries = [ChartDataEntry]()
         var accumulateTime: Double = 0
-        let histories: [ActivityHistory] = Array(activity.histories)
+        let histories = activity.histories
         
         if histories.count == 0 {
             uiView.data = nil

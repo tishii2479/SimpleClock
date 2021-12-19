@@ -22,9 +22,9 @@ class Activity: Object {
         }
         set { _current = newValue }
     }
-    static var all: [Activity] {
+    static var all: Results<Activity> {
         let realm = try! Realm()
-        return Array(realm.objects(Activity.self).filter("isDeleted == 0"))
+        return realm.objects(Activity.self).filter("isDeleted == 0")
     }
     
     // TODO: Check performance for totalTime and monthTime and improve

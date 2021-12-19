@@ -75,6 +75,8 @@ struct ActivityListView: View {
                     .frame(maxWidth: .infinity, minHeight: 60, idealHeight: 60)
                 }
                 Color.border.frame(height: 1)
+
+                Spacer().frame(height: 60)
             }
             .padding(10)
         }

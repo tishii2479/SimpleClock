@@ -52,30 +52,41 @@ struct MainView: View {
                         UIApplication.shared.isIdleTimerDisabled = keepScreenOn
                     })
                     Spacer()
-                    IconButton(nameOn: "clock", size: 28, isOn: currentView == .clock, action: {
-                        switchView(type: .clock)
-                    })
-                    IconButton(nameOn: "stopwatch", size: 31, isOn: currentView == .stopwatch, action: {
-                        switchView(type: .stopwatch)
-                    })
-                    IconButton(nameOn: "timer", size: 28, isOn: currentView == .timer, action: {
-                        switchView(type: .timer)
-                    })
-                    IconButton(nameOn: "list.bullet.rectangle", size: 28, isOn: currentView == .activityList, action: {
-                        switchView(type: .activityList)
-                    })
-                    Spacer()
                     IconButton(nameOn: "line.horizontal.3", size: 28, action: {
                         isShowingSetting.toggle()
                     })
                 }
-                .padding()
+                .padding(10)
                 .background(
                     // Add bar background when the view is activityList (scrollView)
                     (currentView == .activityList ? Color.back : Color.clear).opacity(0.7).edgesIgnoringSafeArea(.top)
                 )
                 
                 Spacer()
+                
+                HStack {
+                    IconButton(nameOn: "clock", size: 28, isOn: currentView == .clock, action: {
+                        switchView(type: .clock)
+                    })
+                    Spacer()
+                    IconButton(nameOn: "stopwatch", size: 31, isOn: currentView == .stopwatch, action: {
+                        switchView(type: .stopwatch)
+                    })
+                    Spacer()
+                    IconButton(nameOn: "timer", size: 28, isOn: currentView == .timer, action: {
+                        switchView(type: .timer)
+                    })
+                    Spacer()
+                    IconButton(nameOn: "list.bullet.rectangle", size: 28, isOn: currentView == .activityList, action: {
+                        switchView(type: .activityList)
+                    })
+                }
+                .padding(.horizontal, 30)
+                .padding(.vertical, 10)
+                .background(
+                    // Add bar background when the view is activityList (scrollView)
+                    (currentView == .activityList ? Color.back : Color.clear).opacity(0.7).edgesIgnoringSafeArea(.bottom)
+                )
             }
             
             // Vibrate notification filter

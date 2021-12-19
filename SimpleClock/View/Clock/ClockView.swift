@@ -43,13 +43,11 @@ struct ClockView: View {
                     .foregroundColor(.text)
                     .font(.mainFont(size: 90))
                     .minimumScaleFactor(0.1)
-                    .shadow(color: .shadow, radius: 5, x: 0, y: 0)
                     .frame(height: 90)
                 
                 Text(Date().formatDate())
                     .foregroundColor(.text)
                     .font(.mainFont(size: 20))
-                    .shadow(color: .shadow, radius: 5, x: 0, y: 0)
                     .padding()
             }
         }

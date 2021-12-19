@@ -19,16 +19,12 @@ struct TimerPicker: View {
             Spacer()
             
             VStack {
-                Button(action: {
-                    self.isShowing = false
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("閉じる")
-                            .foregroundColor(.text)
-                            .font(.mainFont(size: 12))
-                            .padding()
-                    }
+                HStack {
+                    Spacer()
+                    IconButton(nameOn: "multiply", size: 18, action: {
+                        isShowing.toggle()
+                    })
+                    .padding(10)
                 }
                 
                 HStack {
@@ -85,9 +81,11 @@ struct TimerPicker: View {
                     .frame(width: 60)
                     .clipped()
                 }
+                
+                Spacer().frame(height: 60)
             }
             .background(Color.back)
-            .frame(height: 240)
+            .frame(height: 300)
         }
     }
 }

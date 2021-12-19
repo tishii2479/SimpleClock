@@ -55,7 +55,7 @@ struct ActivityListView: View {
             Spacer().frame(height: 80)
 
             VStack(spacing: 20) {
-                Color.border.frame(height: 1)
+                Color.light.frame(height: 2)
                 ForEach(activities, id: \.hashValue) { activity in
                     Button(action: {
                         Activity.current = activity
@@ -63,7 +63,7 @@ struct ActivityListView: View {
                     }) {
                         ActivityListCellView(activity: activity)
                     }
-                    Color.border.frame(height: 1)
+                    Color.light.frame(height: 2)
                 }
                 
                 Button(action: {
@@ -74,7 +74,7 @@ struct ActivityListView: View {
                     }
                     .frame(maxWidth: .infinity, minHeight: 60, idealHeight: 60)
                 }
-                Color.border.frame(height: 1)
+                Color.light.frame(height: 2)
 
                 Spacer().frame(height: 60)
             }

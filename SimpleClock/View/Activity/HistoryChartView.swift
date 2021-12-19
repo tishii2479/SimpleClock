@@ -53,9 +53,20 @@ struct HistoryChartView: UIViewRepresentable {
         
         for history in histories {
             accumulateTime += Double(history.second)
-            let endPoint = ChartDataEntry(x: Double(Calendar.current.dateComponents([.second], from: histories[0].startDate, to: history.endDate).second!), y: accumulateTime)
-            dataEntries.append(endPoint)
+            dataEntries.append(
+                ChartDataEntry(
+                    x: Double(Calendar.current.dateComponents([.second], from: histories[0].startDate, to: history.endDate).second!),
+                    y: accumulateTime
+                )
+            )
         }
+        // Add point for current time
+        dataEntries.append(
+            ChartDataEntry(
+                x: Double(Calendar.current.dateComponents([.second], from: histories[0].startDate, to: Date()).second!),
+                y: accumulateTime
+            )
+        )
 
         let dataSet = LineChartDataSet(entries: dataEntries)
         dataSet.lineWidth = 3.0

@@ -16,27 +16,32 @@ private struct ActivityListCellView: View {
                     Text(activity.title)
                         .foregroundColor(.text)
                         .font(.mainFont(size: 18))
-
-                    Text("総時間 " + activity.totalTimeStr)
-                        .foregroundColor(.text)
-                        .font(.mainFont(size: 14))
                     
-                    Text("今月 " + activity.monthTimeStr)
-                        .foregroundColor(.text)
-                        .font(.mainFont(size: 14))
+                    HStack {
+                        Text("総時間")
+                            .foregroundColor(.text)
+                            .font(.mainFont(size: 12))
+                        Text(activity.totalTimeStr)
+                            .foregroundColor(.text)
+                            .font(.mainFont(size: 20))
+                    }
+                    
+                    HStack {
+                        Text("今月")
+                            .foregroundColor(.text)
+                            .font(.mainFont(size: 12))
+                        Text(activity.monthTimeStr)
+                            .foregroundColor(.text)
+                            .font(.mainFont(size: 20))
+                    }
                 }
                 Spacer()
                 
-                Color.black
-                    .frame(width: 150)
+                ActivityGridView(activity: Binding.constant(activity), xCount: 10, showDate: false, defaultWidth: 140)
             }
-            .padding(20)
         }
         .frame(maxWidth: .infinity)
-        .overlay(
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(Color.border, lineWidth: 2)
-        )
+        .padding(.horizontal, 10)
     }
 }
 
@@ -46,10 +51,11 @@ struct ActivityListView: View {
     @State private var newActivityName: String = ""
     @State private var activities = Activity.all
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             Spacer().frame(height: 80)
 
             VStack(spacing: 20) {
+                Color.border.frame(height: 1)
                 ForEach(activities, id: \.hashValue) { activity in
                     Button(action: {
                         Activity.current = activity
@@ -57,6 +63,7 @@ struct ActivityListView: View {
                     }) {
                         ActivityListCellView(activity: activity)
                     }
+                    Color.border.frame(height: 1)
                 }
                 
                 Button(action: {
@@ -65,15 +72,13 @@ struct ActivityListView: View {
                     ZStack {
                         IconImageView(nameOn: "plus")
                     }
-                    .frame(maxWidth: .infinity, idealHeight: 70)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.border, lineWidth: 2)
-                    )
+                    .frame(maxWidth: .infinity, minHeight: 60, idealHeight: 60)
                 }
+                Color.border.frame(height: 1)
             }
+            .padding(10)
         }
-        .padding(.horizontal, 20)
+        .padding(.horizontal, 10)
         .sheet(isPresented: $isShowingActivity, onDismiss: {
             // Refresh activities
             activities = Activity.all

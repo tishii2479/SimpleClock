@@ -46,32 +46,33 @@ struct MainView: View {
             }
             
             VStack {
-                HStack(spacing: 10) {
-                    IconButton(nameOn: "lock", nameOff: "lock.open", size: 30, isOn: keepScreenOn, action: {
+                HStack(spacing: 8) {
+                    IconButton(nameOn: "lock", nameOff: "lock.open", size: 28, isOn: keepScreenOn, action: {
                         keepScreenOn.toggle()
                         UIApplication.shared.isIdleTimerDisabled = keepScreenOn
                     })
                     Spacer()
-                    IconButton(nameOn: "clock", size: 30, isOn: currentView == .clock, action: {
+                    IconButton(nameOn: "clock", size: 28, isOn: currentView == .clock, action: {
                         switchView(type: .clock)
                     })
-                    IconButton(nameOn: "stopwatch", size: 33, isOn: currentView == .stopwatch, action: {
+                    IconButton(nameOn: "stopwatch", size: 31, isOn: currentView == .stopwatch, action: {
                         switchView(type: .stopwatch)
                     })
-                    IconButton(nameOn: "timer", size: 30, isOn: currentView == .timer, action: {
+                    IconButton(nameOn: "timer", size: 28, isOn: currentView == .timer, action: {
                         switchView(type: .timer)
                     })
-                    IconButton(nameOn: "list.bullet.rectangle", size: 30, isOn: currentView == .activityList, action: {
+                    IconButton(nameOn: "list.bullet.rectangle", size: 28, isOn: currentView == .activityList, action: {
                         switchView(type: .activityList)
                     })
                     Spacer()
-                    IconButton(nameOn: "line.horizontal.3", size: 30, action: {
+                    IconButton(nameOn: "line.horizontal.3", size: 28, action: {
                         isShowingSetting.toggle()
                     })
                 }
                 .padding()
                 .background(
-                    Color.back.opacity(0.7).edgesIgnoringSafeArea(.top)
+                    // Add bar background when the view is activityList (scrollView)
+                    (currentView == .activityList ? Color.back : Color.clear).opacity(0.7).edgesIgnoringSafeArea(.top)
                 )
                 
                 Spacer()

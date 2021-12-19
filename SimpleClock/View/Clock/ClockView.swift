@@ -27,7 +27,7 @@ struct ClockView: View {
                 
                 RoundedRectangle(cornerRadius: 1)
                     .fill(Color.green)
-                    .frame(width: 2, height: 100)
+                    .frame(width: 2, height: 90)
                     .offset(x: 0, y: -50)
                     .rotationEffect(.degrees(clock.minuteAngle))
                 
@@ -41,10 +41,10 @@ struct ClockView: View {
             VStack {
                 Text(clock.currentTime.formatTime())
                     .foregroundColor(.text)
-                    .font(.mainFont(size: 100))
+                    .font(.mainFont(size: 90))
                     .minimumScaleFactor(0.1)
                     .shadow(color: .shadow, radius: 5, x: 0, y: 0)
-                    .frame(height: 100)
+                    .frame(height: 90)
                 
                 Text(Date().formatDate())
                     .foregroundColor(.text)

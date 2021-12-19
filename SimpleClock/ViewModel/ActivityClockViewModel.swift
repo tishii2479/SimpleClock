@@ -7,12 +7,21 @@
 
 import SwiftUI
 
+// TODO: Do not use Activity.current
+
 class ActivityClockViewModel: ObservableObject {
     var totalTimeStr: String {
         TimeFormatter.formatTime(second: elapsedTime + totalTime, style: .semi)
     }
+    var currentTimeStr: String {
+        TimeFormatter.formatTime(second: elapsedTime, style: .semi)
+    }
+    var monthTimeStr: String {
+        TimeFormatter.formatTime(second: elapsedTime + monthTime, style: .semi)
+    }
     
     @Published var totalTime: Int = 0
+    @Published var monthTime: Int = 0
     @Published var elapsedTime: Int = 0
     private var startDate = Date()
     private var timer = Timer()
@@ -47,6 +56,7 @@ class ActivityClockViewModel: ObservableObject {
     
     private func startClock() {
         totalTime = Activity.current.totalTime
+        monthTime = Activity.current.monthTime
         startDate = Date()
         // TODO: Use same logic at stop watch
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in

@@ -12,19 +12,24 @@ struct ActivityGridView: View {
     // (0, 0) (1, 0)
     // (0, 1) (1, 1)
     @Binding var activity: Activity
-    private let gridWidth: CGFloat = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height, 400) - 40
+    var xCount: Int = 20
+    var showDate: Bool = true
+    var defaultWidth: CGFloat = 400
+    private var gridWidth: CGFloat {
+        min(UIScreen.main.bounds.width, UIScreen.main.bounds.height, defaultWidth) - 40
+    }
     private var gridSize: CGFloat {
-        gridWidth / 20 - spacing
+        gridWidth / CGFloat(xCount) - spacing
     }
     private let spacing: CGFloat = 2
-    private let leftTopDate: Date = {
+    private func leftTopDate() -> Date {
         let sundayComp = Calendar.current.dateComponents([.weekOfYear, .yearForWeekOfYear], from: Date())
         let sunday = Calendar.current.date(from: sundayComp)!
-        return sunday.addingTimeInterval(-7 * 19 * 24 * 60 * 60)
-    }()
+        return sunday.addingTimeInterval(TimeInterval(-7 * (xCount - 1) * 24 * 3600))
+    }
 
     var body: some View {
-        var seconds = [[Int]](repeating: [Int](repeating: 0, count: 7), count: 20)
+        var seconds = [[Int]](repeating: [Int](repeating: 0, count: 7), count: xCount)
         for history in activity.histories {
             if let (x, y) = dateToIndex(date: history.startDate) {
                 seconds[x][y] += history.second
@@ -32,7 +37,7 @@ struct ActivityGridView: View {
         }
         return VStack {
             HStack(spacing: spacing) {
-                ForEach(0 ..< 20) { i in
+                ForEach(0 ..< xCount) { i in
                     VStack(spacing: spacing) {
                         ForEach(0 ..< 7) { j in
                             if isOverToday(x: i, y: j) {
@@ -48,16 +53,20 @@ struct ActivityGridView: View {
                 }
             }
             
-            HStack {
-                ForEach(0 ..< 4) { i in
-                    Text(leftTopDate.addingTimeInterval(Double((i * 5 + 2) * 3600 * 24 * 7)).formatDate(format: "MM/dd"))
-                        .foregroundColor(.text)
-                        .font(.mainFont(size: 10))
-                        .frame(maxWidth: .infinity)
+            if showDate {
+                HStack {
+                    ForEach(0 ..< 4) { i in
+                        Text(leftTopDate().addingTimeInterval(
+                            TimeInterval((i * xCount / 4 + xCount / 4 / 2) * 3600 * 24 * 7)
+                        ).formatDate(format: "MM/dd"))
+                            .foregroundColor(.text)
+                            .font(.mainFont(size: 10))
+                            .frame(maxWidth: .infinity)
+                    }
                 }
+                .frame(maxWidth: min(.infinity, gridWidth))
+                .padding(10)
             }
-            .frame(maxWidth: min(.infinity, gridWidth))
-            .padding(10)
         }
     }
     
@@ -72,7 +81,7 @@ struct ActivityGridView: View {
     }
     
     private func dateToIndex(date: Date) -> (Int, Int)? {
-        let index = Int(leftTopDate.distance(to: date) / (3600 * 24))
+        let index = Int(leftTopDate().distance(to: date) / (3600 * 24))
         if index < 0 {
             return nil
         }
@@ -83,7 +92,7 @@ struct ActivityGridView: View {
         if second == 0 {
             return .light
         }
-        return .orange.opacity(max(0.1, min(1, (Double(second) / 60))))
+        return .orange.opacity(max(0.2, min(1, (Double(second) / 7200))))
     }
 }
 

@@ -37,10 +37,10 @@ struct ActivityView: View {
                         Spacer()
                         
                         Menu(content: {
-                            Button("アクティビティの名前を編集", action: {
+                            Button("アクティビティの名前を変更", action: {
                                 isShowingRenameActivityAlert.toggle()
                             })
-                            Button("このアクティビティを削除", action: {
+                            Button("アクティビティを削除", action: {
                                 isShowingDeleteAlert.toggle()
                             })
                         }) {
@@ -117,7 +117,7 @@ struct ActivityView: View {
                             RoundedRectangle(cornerRadius: 25)
                                 .frame(width: 120, height: 50)
                                 .foregroundColor(.orange)
-                                .shadow(radius: 10)
+                                .shadow(color: .black, radius: 5, x: 0, y: 4)
 
                             HStack {
                                 Text("開始")

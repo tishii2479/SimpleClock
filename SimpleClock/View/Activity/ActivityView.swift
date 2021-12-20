@@ -88,6 +88,7 @@ struct ActivityView: View {
                     Text(viewModel.activityName)
                         .foregroundColor(.text)
                         .font(.mainFont(size: 30))
+                        .lineLimit(1)
                     
                     Spacer()
                     

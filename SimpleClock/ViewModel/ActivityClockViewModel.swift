@@ -48,6 +48,7 @@ class ActivityClockViewModel: ObservableObject {
             history.delete()
         }
         cachedHistory = nil
+        if timer.isValid { timer.invalidate() }
         // TODO: Use same logic at stop watch
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             self.elapsedTime += 1

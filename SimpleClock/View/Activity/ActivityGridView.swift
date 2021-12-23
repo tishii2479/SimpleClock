@@ -92,7 +92,7 @@ struct ActivityGridView: View {
         if second == 0 {
             return .light
         }
-        return .orange.opacity(max(0.2, min(1, (Double(second) / 7200))))
+        return .orange.opacity(max(0.2, min(1, (Double(second) / 3600))))
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  HistoryChartView.swift
+//  ActivityHistoryChartView.swift
 //  SimpleClock
 //
 //  Created by Tatsuya Ishii on 2021/12/18.
@@ -8,7 +8,11 @@
 import SwiftUI
 import Charts
 
-struct HistoryChartView: UIViewRepresentable {
+// Workaround for unnesseary update
+// FIXME: investigate the update and remove.
+private var historyCount: Int? = nil
+
+struct ActivityHistoryChartView: UIViewRepresentable {
     @Binding var activity: Activity
 
     func makeUIView(context: Context) -> LineChartView {
@@ -36,6 +40,8 @@ struct HistoryChartView: UIViewRepresentable {
         chartView.legend.enabled = false
         chartView.noDataText = "データがありません"
         chartView.noDataTextColor = UIColor(.text)
+        
+        historyCount = nil
 
         return chartView
     }
@@ -51,6 +57,10 @@ struct HistoryChartView: UIViewRepresentable {
             return
         }
         
+        if let historyCount = historyCount, histories.count == historyCount {
+            return
+        }
+
         for history in histories {
             accumulateTime += Double(history.second)
             dataEntries.append(
@@ -86,6 +96,8 @@ struct HistoryChartView: UIViewRepresentable {
         uiView.xAxis.valueFormatter = ChartXAxisFormatter(startDate: histories[0].startDate)
         uiView.leftAxis.valueFormatter = ChartLeftAxisFormatter(maxValue: accumulateTime)
         uiView.animate(xAxisDuration: 0)
+        
+        historyCount = histories.count
     }
     
     class ChartLeftAxisFormatter: NSObject, IAxisValueFormatter {
@@ -127,8 +139,8 @@ struct HistoryChartView: UIViewRepresentable {
     }
 }
 
-struct HistoryChartView_Previews: PreviewProvider {
+struct ActivityHistoryChartView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryChartView(activity: Binding.constant(Activity()))
+        ActivityHistoryChartView(activity: Binding.constant(Activity()))
     }
 }

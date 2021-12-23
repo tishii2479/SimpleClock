@@ -28,14 +28,14 @@ struct ActivityView: View {
                         Text("総時間")
                             .foregroundColor(.text)
                             .font(.mainFont(size: 20))
-                        
+
                         Text(viewModel.totalTimeStr)
                             .foregroundColor(.text)
                             .font(.mainFont(size: 14))
                             .padding(.leading, 20)
-                        
+
                         Spacer()
-                        
+
                         Menu(content: {
                             Button("アクティビティの名前を変更", action: {
                                 isShowingRenameActivityAlert.toggle()
@@ -48,36 +48,36 @@ struct ActivityView: View {
                         }
                     }
                     
-                    HistoryChartView(activity: $viewModel.activity)
+                    ActivityHistoryChartView(activity: $viewModel.activity)
                         .frame(maxWidth: .infinity, idealHeight: 240)
                     
                     HStack {
                         Text("活動履歴")
                             .foregroundColor(.text)
                             .font(.mainFont(size: 20))
-                        
+
                         Spacer()
                     }
                     
                     ActivityGridView(activity: $viewModel.activity)
-                    
+
                     VStack(spacing: 10) {
                         StatusTextRowView(
                             leftText: "1日あたりの平均時間",
                             rightText: TimeFormatter.formatTime(second: viewModel.activity.averageSecondPerDay, style: .hms)
                         )
-                        
+
                         StatusTextRowView(
                             leftText: "連続継続日数",
                             rightText: String(viewModel.activity.consecutiveDayCount) + "d"
                         )
-                        
+
                         StatusTextRowView(
                             leftText: "合計日数",
                             rightText: String(viewModel.activity.totalDate) + "d"
                         )
                     }
-                    
+
                     Spacer().frame(height: 90)
                 }
             }

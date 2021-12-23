@@ -87,10 +87,6 @@ struct ActivityListView: View {
         }) {
             ActivityView(isShowing: $isShowingActivity)
         }
-        .onAppear {
-            // Refresh activities
-            activities = Activity.all
-        }
 
         if isShowingCreateActivityAlert {
             TextFieldAlertView(

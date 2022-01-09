@@ -38,7 +38,7 @@ class StopWatch: ObservableObject {
             guard let start = self.startDate else { return }
             let timeInterval = Date().timeIntervalSince(start)
             // Elapsed time is spent time since self.startDate + self.cache
-            self.elapsedTime = Int(timeInterval / self.interval) + self.cache
+            self.elapsedTime = Int(round(timeInterval / self.interval)) + self.cache
             self.delegate?.onTimerUpdate()
         }
     }

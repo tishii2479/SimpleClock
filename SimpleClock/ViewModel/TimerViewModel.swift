@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class TimerViewModel: Clock, ObservableObject {
+class TimerViewModel: ObservableObject {
     enum TimerStatus {
         case play
         case stop

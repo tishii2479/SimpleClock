@@ -10,7 +10,7 @@ import SwiftUI
 
 // TODO: Extract stopwatch to another class
 
-class StopWatchViewModel: Clock, ObservableObject {
+class StopWatchViewModel: ObservableObject {
     enum StopWatchStatus {
         case play
         case pause

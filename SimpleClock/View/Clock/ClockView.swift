@@ -18,7 +18,7 @@ struct ClockView: View {
                     .frame(width: 240, height: 240)
             
                 // Use RoundedRectangle() instead of Rectangle(), because
-                // Rectangle rendering is not good
+                // Rectangle rendering is rough
                 RoundedRectangle(cornerRadius: 1)
                     .fill(Color.orange)
                     .frame(width: 3, height: 60)

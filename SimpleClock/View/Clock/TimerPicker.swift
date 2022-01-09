@@ -11,7 +11,7 @@ struct TimerPicker: View {
     private let hours = [Int](0 ..< 24)
     private let minutes = [Int](0 ..< 60)
     private let seconds = [Int](0 ..< 60)
-    @ObservedObject var viewModel: TimerViewModel
+    @ObservedObject var viewModel: TimerClock
     @Binding var isShowing: Bool
     
     var body: some View {
@@ -92,6 +92,6 @@ struct TimerPicker: View {
 
 struct TimerPicker_Previews: PreviewProvider {
     static var previews: some View {
-        TimerPicker(viewModel: TimerViewModel(), isShowing: Binding.constant(true))
+        TimerPicker(viewModel: TimerClock(), isShowing: Binding.constant(true))
     }
 }

@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct TimerView: View {
-    @ObservedObject private var viewModel = TimerViewModel()
+    @ObservedObject private var timer = TimerClock()
     @ObservedObject private var clock = Clock()
-    
     @State private var isShowingPicker = false
     
     var body: some View {
@@ -21,7 +20,7 @@ struct TimerView: View {
                     .frame(width: 240, height: 240)
                 
                 Circle()
-                    .trim(from: 0, to: viewModel.remainingRatio)
+                    .trim(from: 0, to: remainingRatio)
                     .stroke(Color.green, style: StrokeStyle(lineWidth: 10, lineCap: .round))
                     .frame(width: 240, height: 240)
                     .rotationEffect(Angle(degrees: -90))
@@ -32,7 +31,7 @@ struct TimerView: View {
                 Button(action: {
                     self.isShowingPicker.toggle()
                 }) {
-                    Text(viewModel.time)
+                    Text(time)
                         .foregroundColor(.text)
                         .font(.mainFont(size: 90))
                         .minimumScaleFactor(0.1)
@@ -47,20 +46,20 @@ struct TimerView: View {
                     .padding(.bottom, 20)
                 
                 HStack {
-                    if viewModel.status == .play {
+                    if timer.status == .play {
                         IconButton(nameOn: "pause", action: {
-                            viewModel.pause()
+                            timer.pause()
                         })
                         .padding(.trailing, 30)
                     } else {
                         IconButton(nameOn: "play", action: {
-                            viewModel.play()
+                            timer.play()
                         })
                         .padding(.trailing, 30)
                     }
                     
                     IconButton(nameOn: "stop", action: {
-                        viewModel.stop()
+                        timer.stop()
                     })
                 }
             }
@@ -72,10 +71,22 @@ struct TimerView: View {
                     isShowingPicker.toggle()
                 }
             
-            TimerPicker(viewModel: viewModel, isShowing: $isShowingPicker)
+            TimerPicker(viewModel: timer, isShowing: $isShowingPicker)
                 .animation(.linear)
                 .offset(y: self.isShowingPicker ? 0 : UIScreen.main.bounds.height)
                 .edgesIgnoringSafeArea(.bottom)
+        }
+    }
+    
+    private var time: String {
+        TimeFormatter.formatTime(second: timer.remainingTime, style: .semi)
+    }
+    
+    private var remainingRatio: CGFloat {
+        if timer.status == .play || timer.status == .pause {
+            return CGFloat(timer.remainingTime) / CGFloat(timer.maxTime)
+        } else {
+            return 1
         }
     }
 }

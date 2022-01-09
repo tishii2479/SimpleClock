@@ -1,5 +1,5 @@
 //
-//  TimerViewModel.swift
+//  TimerClock.swift
 //  SimpleClock
 //
 //  Created by Tatsuya Ishii on 2021/04/14.
@@ -8,8 +8,10 @@
 import Foundation
 import SwiftUI
 
-class TimerViewModel: ObservableObject {
-    enum TimerStatus {
+// TODO: Extract timer picker
+
+class TimerClock: ObservableObject {
+    enum Status {
         case play
         case stop
         case pause
@@ -21,25 +23,13 @@ class TimerViewModel: ObservableObject {
     @Published var selectedSecond: Int = 0
     
     @Published var remainingTime: Int = 5 * 60
-    @Published var status: TimerStatus = .idle
+    @Published var status: Status = .idle
     
     // Setted time
-    private var maxTime: Int = 0
+    var maxTime: Int = 0
     private var timer = Timer()
     private var endDate: Date?
-    
-    var remainingRatio: CGFloat {
-        if status == .play || status == .pause {
-            return CGFloat(self.remainingTime) / CGFloat(self.maxTime)
-        } else {
-            return 1
-        }
-    }
-    
-    var time: String {
-        TimeFormatter.formatTime(second: remainingTime, style: .semi)
-    }
-    
+
     func onPickerChange() {
         pause()
         setTime()

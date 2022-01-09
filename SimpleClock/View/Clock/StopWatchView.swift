@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StopWatchView: View {
     @ObservedObject private var clock = Clock()
-    @ObservedObject private var viewModel = StopWatchViewModel()
+    @ObservedObject private var stopWatch = StopWatch()
     
     var body: some View {
         ZStack {
@@ -19,13 +19,13 @@ struct StopWatchView: View {
                     .frame(width: 240, height: 240)
                 
                 Circle()
-                    .trim(from: 0, to: viewModel.circleRatio)
+                    .trim(from: 0, to: circleRatio)
                     .stroke(Color.orange, style: StrokeStyle(lineWidth: 10, lineCap: .round))
                     .frame(width: 240, height: 240)
                     .rotationEffect(Angle(degrees: -90))
                 
                 VStack {
-                    Text(viewModel.time)
+                    Text(time)
                         .foregroundColor(.text)
                         .font(.mainFont(size: 90))
                         .minimumScaleFactor(0.1)
@@ -38,25 +38,37 @@ struct StopWatchView: View {
                         .padding(.bottom, 20)
                     
                     HStack {
-                        if viewModel.status == .play {
+                        if stopWatch.status == .play {
                             IconButton(nameOn: "pause", action: {
-                                viewModel.pause()
+                                stopWatch.pause()
                             })
                             .padding(.trailing, 30)
                         } else {
                             IconButton(nameOn: "play", action: {
-                                viewModel.play()
+                                stopWatch.play()
                             })
                             .padding(.trailing, 30)
                         }
                         
                         IconButton(nameOn: "stop", action: {
-                            viewModel.stop()
+                            stopWatch.stop()
                         })
                     }
                 }
             }
             .edgesIgnoringSafeArea(.all)
+        }
+    }
+    
+    private var time: String {
+        TimeFormatter.formatTime(centSecond:stopWatch.elapsedTime, style: .semi)
+    }
+    
+    private var circleRatio: CGFloat {
+        if stopWatch.status == .play || stopWatch.status == .pause {
+            return CGFloat(stopWatch.elapsedTime % 6000) / CGFloat(6000)
+        } else {
+            return 1
         }
     }
 }

@@ -1,17 +1,14 @@
 //
-//  StopWatchViewModel.swift
+//  StopWatch.swift
 //  SimpleClock
 //
-//  Created by Tatsuya Ishii on 2021/04/14.
+//  Created by Tatsuya Ishii on 2022/01/09.
 //
 
-import Foundation
 import SwiftUI
 
-// TODO: Extract stopwatch to another class
-
-class StopWatchViewModel: ObservableObject {
-    enum StopWatchStatus {
+class StopWatch: ObservableObject {
+    enum Status {
         case play
         case pause
         case stop
@@ -19,24 +16,12 @@ class StopWatchViewModel: ObservableObject {
     }
 
     @Published var elapsedTime: Int = 0
-    @Published var status: StopWatchStatus = .idle
+    @Published var status: Status = .idle
     private var timer = Timer()
     // Stores date when the start button is pressed
     private var startDate: Date?
     // Cache elapsed time when used pause
     private var cache: Int = 0
-
-    var circleRatio: CGFloat {
-        if status == .play || status == .pause {
-            return CGFloat(elapsedTime % 6000) / CGFloat(6000)
-        } else {
-            return 1
-        }
-    }
-    
-    var time: String {
-        TimeFormatter.formatTime(centSecond: elapsedTime, style: .semi)
-    }
     
     func play() {
         guard startDate == nil,

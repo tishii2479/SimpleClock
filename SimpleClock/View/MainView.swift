@@ -15,7 +15,8 @@ struct MainView: View {
         case activityList
     }
     
-    @ObservedObject private var clock = ClockManager.shared
+    @ObservedObject private var clock = Clock()
+    @ObservedObject private var notificationManager = NotificationManager.shared
     // Do sleep or not
     @State private var keepScreenOn: Bool = true
     @State private var currentView: ViewType = .clock
@@ -90,15 +91,15 @@ struct MainView: View {
             }
             
             // Vibrate notification filter
-            if clock.isVibrating {
+            if notificationManager.isVibrating {
                 ZStack {
-                    Color(red: 0, green: 0, blue: 0, opacity: clock.isVibrating ? 0.6 : 0)
-                    IconImageView(nameOn: "alerm", size: 50)
+                    Color(red: 0, green: 0, blue: 0, opacity: notificationManager.isVibrating ? 0.6 : 0)
+                    IconImageView(nameOn: "alarm", size: 50)
                 }
                 .animation(.linear)
                 .edgesIgnoringSafeArea(.all)
                 .onTapGesture {
-                    clock.stopVibrate()
+                    notificationManager.stopVibrate()
                 }
             }
         }

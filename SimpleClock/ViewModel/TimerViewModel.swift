@@ -67,7 +67,7 @@ class TimerViewModel: ObservableObject {
     
     func finish() {
         stop()
-        ClockManager.shared.vibrate()
+        NotificationManager.shared.vibrate()
     }
     
     func pause() {

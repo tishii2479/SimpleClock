@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StopWatchView: View {
-    @ObservedObject private var clock: ClockManager = ClockManager.shared
+    @ObservedObject private var clock = Clock()
     @ObservedObject private var viewModel = StopWatchViewModel()
     
     var body: some View {

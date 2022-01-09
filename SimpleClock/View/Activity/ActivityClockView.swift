@@ -18,7 +18,7 @@ struct ActivityClockView: View {
             self = allCases[(allCases.firstIndex(of: self)! + 1) % allCases.count]
         }
     }
-    @ObservedObject private var clock: ClockManager = ClockManager.shared
+    @ObservedObject private var clock = Clock()
     @ObservedObject var viewModel: ActivityClockViewModel = ActivityClockViewModel()
     @Binding var isShowing: Bool
     @State private var timeStyle: TimeStyle = .current

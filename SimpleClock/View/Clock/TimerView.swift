@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TimerView: View {
     @ObservedObject private var viewModel = TimerViewModel()
-    @ObservedObject private var clock = ClockManager.shared
+    @ObservedObject private var clock = Clock()
     
     @State private var isShowingPicker = false
     

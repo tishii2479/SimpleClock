@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ClockView: View {
-    @ObservedObject var clock = ClockManager.shared
+    @ObservedObject var clock = Clock()
     
     var body: some View {
         ZStack {

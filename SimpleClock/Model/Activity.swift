@@ -27,7 +27,7 @@ class Activity: Object {
         return realm.objects(Activity.self).filter("isDeleted == 0")
     }
     
-    // TODO: Check performance for totalTime and monthTime and improve
+    // TODO: Check performance
     var totalTime: Int {
         var total: Int = 0
         for history in histories {
@@ -35,7 +35,8 @@ class Activity: Object {
         }
         return total
     }
-
+    
+    // TODO: Check performance
     var monthTime: Int {
         var total: Int = 0
         for history in histories {
@@ -46,6 +47,7 @@ class Activity: Object {
         return total
     }
     
+    // TODO: Check performance
     var todayTime: Int {
         var total: Int = 0
         for history in histories {
@@ -56,6 +58,7 @@ class Activity: Object {
         return total
     }
     
+    // TODO: Check performance
     var totalDate: Int {
         var set = Set<Date>()
         for history in histories {
@@ -64,6 +67,7 @@ class Activity: Object {
         return set.count
     }
     
+    // TODO: Check performance
     var averageSecondPerDay: Int {
         var dict = [Date : Int]()
         var sum: Int = 0
@@ -78,6 +82,7 @@ class Activity: Object {
         return sum / dict.count
     }
     
+    // TODO: Check performance
     var consecutiveDayCount: Int {
         var set = Set<Date>()
         for history in histories {

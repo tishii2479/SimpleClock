@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-protocol TimerDelegate: AnyObject {
-    func onTimerUpdate()
-}
-
 class StopWatch: ObservableObject {
     enum Status {
         case play
@@ -49,16 +45,16 @@ class StopWatch: ObservableObject {
     
     func pause() {
         timer.invalidate()
+        status = .pause
         startDate = nil
         cache = elapsedTime
-        status = .pause
     }
     
     func stop() {
         timer.invalidate()
+        status = .stop
+        startDate = nil
         elapsedTime = 0
         cache = 0
-        startDate = nil
-        status = .stop
     }
 }

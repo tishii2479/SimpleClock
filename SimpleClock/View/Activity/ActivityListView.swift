@@ -50,6 +50,7 @@ struct ActivityListView: View {
     @State private var isShowingCreateActivityAlert: Bool = false
     @State private var newActivityName: String = ""
     @State private var activities = Activity.all
+
     var body: some View {
         ScrollView(showsIndicators: false) {
             Spacer().frame(height: 80)

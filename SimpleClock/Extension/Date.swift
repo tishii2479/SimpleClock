@@ -39,4 +39,8 @@ extension Date {
     func isInSameMonth(as date: Date) -> Bool {
         isEqual(to: date, toGranularity: .month)
     }
+    
+    func isInSameDay(as date: Date) -> Bool {
+        isEqual(to: date, toGranularity: .day)
+    }
 }

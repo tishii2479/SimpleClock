@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+// TODO: Extract stopwatch to another class
+
 class StopWatchViewModel: Clock, ObservableObject {
     enum StopWatchStatus {
         case play

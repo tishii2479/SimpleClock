@@ -10,8 +10,8 @@ import SwiftUI
 struct ActivityClockView: View {
     private enum TimeStyle: String, CaseIterable {
         case current = "現在"
+        case today = "今日"
         case total = "通算"
-        case month = "今月"
 
         mutating func next() {
             let allCases = type(of: self).allCases
@@ -59,6 +59,9 @@ struct ActivityClockView: View {
             
             VStack {
                 HStack {
+                    IconButton(nameOn: "lightbulb.fill", action: {
+                        viewModel.toggleBrightness()
+                    })
                     Spacer()
                     IconButton(nameOn: "multiply", action: {
                         viewModel.onDisappear()
@@ -87,8 +90,8 @@ struct ActivityClockView: View {
         switch timeStyle {
         case .current:
             return TimeFormatter.formatTime(second: viewModel.elapsedTime, style: .semi)
-        case .month:
-            return viewModel.monthTimeStr
+        case .today:
+            return viewModel.todayTimeStr
         case .total:
             return viewModel.totalTimeStr
         }

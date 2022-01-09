@@ -46,6 +46,16 @@ class Activity: Object {
         return total
     }
     
+    var todayTime: Int {
+        var total: Int = 0
+        for history in histories {
+            if history.startDate.isInSameDay(as: Date()) {
+                total += history.second
+            }
+        }
+        return total
+    }
+    
     var totalDate: Int {
         var set = Set<Date>()
         for history in histories {

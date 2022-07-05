@@ -63,7 +63,7 @@ struct TimerView: View {
                     })
                 }
             }
-            
+
             Color(red: 0, green: 0, blue: 0, opacity: isShowingPicker ? 0.4 : 0)
                 .animation(.linear)
                 .edgesIgnoringSafeArea(.all)

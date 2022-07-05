@@ -21,7 +21,7 @@ class StopWatch: ObservableObject {
     private var timer = Timer()
     // Stores date when the start button is pressed
     private var startDate: Date?
-    // Cache elapsed time when used pause
+    // Cache elapsed time when  used pause
     private var cache: Int = 0
     weak var delegate: TimerDelegate?
     

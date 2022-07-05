@@ -59,7 +59,7 @@ struct ActivityClockView: View {
             
             VStack {
                 HStack {
-                    IconButton(nameOn: "lightbulb.fill", action: {
+                    IconButton(nameOn: "lightbulb.fill", nameOff: "lightbulb", size: 26, isOn: viewModel.isBright, action: {
                         viewModel.toggleBrightness()
                     })
                     Spacer()
@@ -84,6 +84,11 @@ struct ActivityClockView: View {
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification), perform: { output in
             viewModel.onRestart()
         })
+        .onTapGesture {
+            if !viewModel.isBright {
+                viewModel.toggleBrightness()
+            }
+        }
     }
     
     private var timeStr: String {
